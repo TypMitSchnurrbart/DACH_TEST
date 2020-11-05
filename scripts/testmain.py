@@ -31,11 +31,9 @@ print("""
 		</tr>
 			
 		<tr>
-			<td></td><td><img src="http://i.makeagif.com/media/7-28-2016/SfEJF4.gif" alt="Loading gif failed... Try reloading."></td><td></td>
+			<td></td><td><img src="http://i.makeagif.com/media/7-28-2016/SfEJF4.gif" alt="Loading gif failed... Try reloading."><hr/>S</td><td></td>
 		</tr>
 
-        <hr/>
-        
         <tr>
             <td></td><td><p>This is a test site for DACH! WE are currently under development! Try to come bach another time!</p><td></td>
         </tr>
@@ -43,8 +41,6 @@ print("""
 	</table>
 
 
-
-	
 </body>
 </html>
 """)
