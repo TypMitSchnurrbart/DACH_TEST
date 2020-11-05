@@ -22,16 +22,16 @@ print("""
 <body>
 	
 	<table width="100%">
-		<col style="width: 15%">
-		<col style="width: 70%">
-		<col style="width: 15%">
+		<col style="width: 10%">
+		<col style="width: 80%">
+		<col style="width: 10%">
 		
 		<tr>
 			<td></td><td><h1>Welcome at DACH!</h1></td><td></td>
 		</tr>
 			
 		<tr>
-			<td></td><td><img src="http://i.makeagif.com/media/7-28-2016/SfEJF4.gif" alt="Loading gif failed... Try reloading."><hr/>S</td><td></td>
+			<td></td><td><img src="http://i.makeagif.com/media/7-28-2016/SfEJF4.gif" alt="Loading gif failed... Try reloading."><hr/></td><td></td>
 		</tr>
 
         <tr>
