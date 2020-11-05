@@ -5,13 +5,44 @@ print("Content-Type: text/html")
 print("")
 print("""
 <html>
-<head>
-    <title>DACH Group Inc.</title>
-</head>
+	<head>
+		<title>DACH Group Inc.</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+	</head>
+
+<style>
+	body {
+		width: 35em;
+		margin: 0 auto;
+		font-family: Tahoma, Verdana, Arial, sans-serif;
+	}
+</style>
+
 <body>
-    <h1>First Test Case</h1>
-    <p>This its the first test file that got distributed to the Webserver via GitHub! 
-    Therefore it can be edited everywhere by anyone allowed to commit in the repro!</p>
+	
+	<table width="100%">
+		<col style="width: 20%">
+		<col style="width: 60%">
+		<col style="width: 20%">
+		
+		<tr>
+			<td></td><td><h1>Welcome at DACH!</h1></td><td></td>
+		</tr>
+			
+		<tr>
+			<td></td><td><img src="http://i.makeagif.com/media/7-28-2016/SfEJF4.gif" alt="Loading gif failed... Try reloading."></td><td></td>
+		</tr>
+
+        <tr>
+            <td></td><td><p>This is a test site for DACH! WE are currently under development! Try to come bach another time!</p><td></td>
+        </tr>
+
+	</table>
+
+
+
+	
 </body>
 </html>
 """)
