@@ -35,7 +35,7 @@ print("""
 		</tr>
 
         <tr>
-            <td></td><td><p>This is a test site for DACH! WE are currently under development! Try to come bach another time!</p><td></td>
+            <td></td><td><p>This is a test site for DACH! We are currently under development! Try to come bach another time! ü ö ä</p><td></td>
         </tr>
 
 	</table>
