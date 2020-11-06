@@ -1,41 +1,83 @@
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>DACH Group Inc.</title>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8">
-
-	</head>
-
-<style>
-	body {
-		width: 35em;
-		margin: 0 auto;
-		font-family: Tahoma, Verdana, Arial, sans-serif;
-
-		background-image: url("https://lh3.googleusercontent.com/proxy/HaKzGj0H6quxSmVPtw2IBp8kJAikQzU52awcxsrrK2Kylt4sUbdKrRFJ854n0urX6FJbRUJ8SfOZpzKIHVJIX1nTDR9AIrqNaC2cVzsWvKkyhAua2fxCyhqnrPDEbA");
-        background-repeat:no-repeat;
-        background-size:cover;
-	}
-</style>
-
-<body>
-	
-	<table width="100%">
-		<col style="width: 15%">
-		<col style="width: 70%">
-		<col style="width: 15%">
-		
-		<tr>
-			<td></td><td><h1>Welcome at DACH!</h1></td><td></td>
-		</tr>
-			
-		<tr>
-			<td></td><td><img src="http://i.makeagif.com/media/7-28-2016/SfEJF4.gif" alt="Loading gif failed... Try reloading."></td><td></td>
-		</tr>
-
-	</table>
-
-
-
-	
-</body>
+    <head>
+        <title>Corona-Kontakt-Registrierung</title>
+        <meta charset="UTF-8">
+        <meta name="author" charset="Dirk Hattemer">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://kit.fontawesome.com/yourcode.js"></script>
+    </head>
+    <body>
+        <header>
+            <h1>Corona-Kontakt-Registrierung</h1>
+        </header>
+        <!--
+        <nav>
+            <div>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                </ul>
+            </div>
+        </nav>
+        
+        <div class="cookie">Cookieerklärung ...</div>
+-->
+        <section>
+            <section>
+                <atricle>
+                    <header>
+                        <h1>Kontaktdaten</h1>
+                    </header>
+                    <main>
+                        <form action="/action_kontaktdaten_formular.php" target="_self" autocomplete="on">
+                            <fieldset>
+                                <label for="vorname">Vorname:</label><br>
+                                <input type="text" id="vorname" name="vorname"><br>
+                                <label for="nachname">Nachname:</label><br>
+                                <input type="text" id="nachname" name="nachname"><br>
+                                <label for="strasse">Straße / Hausnr.:</label><br>
+                                <input type="text" id="strasse" name="strasse">
+                                <input type="text" id="hausnummer" name="hausnummer"><br>
+                                <label for="postleitzahl">Postleitzahl / Ort:</label><br>
+                                <input type="text" id="postleitzahl" name="postleitzahl">
+                                <input type="text" id="ort" name="ort"><br>
+                                <label for="email">E-Mail:</label><br>
+                                <input type="email" id="email" name="email"><br>
+                                <label for="telefon">Telefon:</label><br>
+                                <input type="tel" id="telefon" name="telefon" pattern="[0-9]{5}-[0-9]"><br>
+                                <input type="checkbox" id="datenschutz" name="datenschutz" value="Datenschutz">
+                                <label for="datenschutz">Datenschutzerklärung ...</label><br> 
+                                <input type="submit" value="Absenden">
+                            </fieldset>
+                        </form>
+                    </main>
+                </atricle>
+            </section>
+            <section>
+                <aside>
+                    <!-- das wird eine Suche -->
+                </aside>
+                <aside>
+                    <!-- das werden Lernvorschlage -->
+                </aside>
+                <aside>
+                    <!-- hier könnte eine Werbeanzeige stehen -->
+                </aside>
+            </section>
+        </section>
+        <footer>
+            <p></p>
+            <nav>
+                <div>
+                    <ul class="fmenu">
+                        <li>&copy;DACH</li>
+                        <li><a href="impressum.html">Impressum</a></li>
+                        <li><a href="datenschutzerklaerung.html">Datenschutzerklärung</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <address>
+            </address>
+        </footer>
+    </body>
 </html>
