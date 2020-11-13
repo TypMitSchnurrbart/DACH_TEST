@@ -30,5 +30,5 @@ cur = conn.cursor()
 cur.execute("SELECT vorname, nachname FROM user")
 
 for (vorname, nachname) in cur:
-    print(f"{vorname} {nachname} - kranker Typ")
+    print(f"{vorname} {nachname} - kranker Typ <br/>")
 
