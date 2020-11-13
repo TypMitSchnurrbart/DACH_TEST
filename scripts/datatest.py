@@ -19,6 +19,11 @@ except mariadb.Error as error_message:
     sys.exit(321)
 
 
+
+print("Content-Type: text/html\n\n")
+
+
+#-----Funktion von Mariadb Handler
 cur = conn.cursor()
 
 
