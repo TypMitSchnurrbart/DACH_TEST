@@ -4,12 +4,13 @@
 
 import mariadb
 import sys
+import os
 
 try:
         conn = mariadb.connect(
 
             user="python",
-            password="mdb17py8",
+            password=os.environ["PYTHON_MARIADB_PW"],
             host="localhost",
             port=3306,
             database="dach_test"
