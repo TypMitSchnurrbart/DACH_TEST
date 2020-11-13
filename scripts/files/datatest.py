@@ -10,7 +10,7 @@ try:
         conn = mariadb.connect(
 
             user="python",
-            password=f"{os.environ['PYTHON_MARIADB_PW']}",
+            password="mdb17py8",
             host="localhost",
             port=3306,
             database="dach_test"
