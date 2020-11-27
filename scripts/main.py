@@ -5,16 +5,11 @@
 import os
 import sys
 
-
-def query_string_test(query_string):
-
-	print("""
-	<h2>This is the given Input as Query String: {0}</h2>""" .format(query_string))
-	return
-
+from files.query_string import get_next_param, get_query_string
 
 #-----Main-----
 if __name__ == "__main__":
 
-	get_to_do()
+	print("Data Array: ", get_query_string())
+	print("NEXT: ", get_next_param())
 	
