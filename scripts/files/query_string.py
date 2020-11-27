@@ -21,7 +21,7 @@ def get_query_string():
         else:
             query_string = sys.stdin.read(int(os.environ['CONTENT_LENGHT']))
 
-    #TODO Differ except statement; this only for testing
+    #Differ except statement; this only for testing
     except:
         query_string = "vorname=Bonifaz&nachname=M%C3%BClp&strasse=Diitesberg&hausnummer=231&next_param=from_register_html"
 

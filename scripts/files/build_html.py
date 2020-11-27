@@ -18,6 +18,9 @@ def start_html():
 
 		</head>
 	""")
+
+	int_style()
+
 	return
 
 
