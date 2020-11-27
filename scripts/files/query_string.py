@@ -22,7 +22,7 @@ def get_query_string():
             query_string = sys.stdin.read(int(os.environ['CONTENT_LENGHT']))
 
     #Differ except statement; this only for testing
-    except:
+    except KeyError:
         query_string = "vorname=Bonifaz&nachname=M%C3%BClp&strasse=Diitesberg&hausnummer=231&next_param=from_register_html"
 
 
