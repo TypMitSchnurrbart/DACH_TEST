@@ -6,6 +6,8 @@ import mariadb
 import sys
 import os
 
+from test_file import test
+
 try:
         conn = mariadb.connect(
 
@@ -32,4 +34,8 @@ cur.execute("SELECT vorname, nachname FROM user")
 
 for (vorname, nachname) in cur:
     print(f"{vorname} {nachname} - kranker Typ <br/>")
+
+
+#TODO test
+test()
 
