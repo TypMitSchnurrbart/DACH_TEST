@@ -13,6 +13,7 @@ if __name__ == "__main__":
 
 	start_html()
 
-	print("Data Array: ", get_query_string())
-	print("NEXT: ", get_next_param())
+	data_array = get_query_string()
+	print(f"Data Array: {data_array}")
+	print("NEXT: ", get_next_param(data_array))
 	
