@@ -14,12 +14,16 @@ def get_query_string():
     #Default Case
     query_string = "Empty Data!"
 
-    
-    if os.environ['REQUEST_METHOD'] == "GET":
-        query_string = os.environ['QUERY_STRING']
+    try:
+        if os.environ['REQUEST_METHOD'] == "GET":
+            query_string = os.environ['QUERY_STRING']
 
-    else:
-        query_string = sys.stdin.read(int(os.environ['CONTENT_LENGHT']))
+        else:
+            query_string = sys.stdin.read(int(os.environ['CONTENT_LENGTH']))
+
+    #Differ except statement; this only for testing
+    except KeyError:
+        query_string = "vorname=Bonifaz&nachname=M%C3%BClp&strasse=Diitesberg&hausnummer=231&next_param=from_register_html"
 
 
     #Get parsed Version of query string
