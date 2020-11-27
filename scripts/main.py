@@ -3,6 +3,7 @@
 
 #--Imports
 import os
+import sys
 
 #------------Default HTML Frame---Should be requiered everytime-----
 def start_html():
@@ -55,7 +56,16 @@ def get_query_string():
 	"""
 	Get query string from environment variables of the os
 	"""
-	return os.environ.get("QUERY_STRING", "Empty Query String in URL!")
+
+	query_string = "Empty Data!"
+
+	if os.environ['REQUEST_METHOD'] == "GET":
+		query_string = os.environ['QUERY_STRING']
+
+	else:
+		query_string = sys.stdin.read(int(os.environ['CONTENT_LENGTH']))
+
+	return query_string
 
 def query_string_test(query_string):
 
