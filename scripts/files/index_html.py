@@ -4,7 +4,7 @@
 
 def show_index_html():
 
-    print("""
+    return """
      <header>
             <h1>DACH - Deine Bewegung in der Hochschule!</h1>
         </header>
@@ -61,6 +61,4 @@ def show_index_html():
             </nav>
             <address>
             </address>
-        </footer>""")
-
-    return
+        </footer>"""
