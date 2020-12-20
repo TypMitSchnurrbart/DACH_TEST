@@ -79,11 +79,11 @@ def hash_passwords(data_array):
 
         if data_array[i][0] == "password":
             salt = bcrypt.gensalt()
-            data_array[i][1] = str(bcrypt.hashpw(data_array[0][1], salt))
+            data_array[i][1] = bcrypt.hashpw(data_array[0][1], salt)
 
         if data_array[i][0] == "password_repeat":
             salt = bcrypt.gensalt()
-            data_array[i][1] = str(bcrypt.hashpw(data_array[0][1], salt))
+            data_array[i][1] = bcrypt.hashpw(data_array[0][1], salt)
 
     return data_array
 
