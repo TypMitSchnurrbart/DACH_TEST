@@ -75,6 +75,8 @@ def hash_passwords(data_array):
     Hashing potential passwords via bcrypt library
     """
 
+    #TODO Here shall be Hashed
+    """
     for i in range(0, len(data_array)):
 
         if data_array[i][0] == "password":
@@ -84,7 +86,7 @@ def hash_passwords(data_array):
         if data_array[i][0] == "password_repeat":
             salt = bcrypt.gensalt()
             data_array[i][1] = bcrypt.hashpw(data_array[0][1], salt)
-
+    """
     return data_array
 
 def get_next_param(data_array):
