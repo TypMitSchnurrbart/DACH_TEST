@@ -10,6 +10,7 @@ from files.build_html import start_html, int_style, end_html, test_body
 from files.database import connect_mariadb
 from files.login import register_user, verify_login
 from files.home_page import show_homepage
+from files.index_html import show_index_html
 
 
 #-----Main-----
@@ -27,8 +28,6 @@ if __name__ == "__main__":
 	#Get DataArray and the NEXT Value
 	data_array = get_query_string()
 	next_param = get_next_param(data_array)
-
-	#TODO Hash Password; both in register case!
 
 	#SwitchCase for Next to differ Sites
 	if next_param == "from_index_html":
@@ -53,11 +52,11 @@ if __name__ == "__main__":
 
 
 	if Error is True:
-		#TODO Fehlerverarbeitung; index.html neu anzeigen? wie?
-		print("Fehler aufgetreten!")
+		show_index_html()
 
 
 	#Close HTML
 	end_html()
+	data_handle.close()
 
 	
