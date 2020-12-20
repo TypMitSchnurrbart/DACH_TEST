@@ -4,6 +4,7 @@
 import os
 import sys
 import urllib.parse
+import bcrypt
 
 
 def get_query_string():
@@ -31,6 +32,9 @@ def get_query_string():
 
     #Get the query_string seperated into data
     data_array = seperate_query_string(query_string)
+
+    #Hashing of the Passwords
+    data_array = hash_passwords(data_array)
 
     return data_array
 
@@ -65,6 +69,23 @@ def seperate_query_string(query_string):
 
     return data_array
 
+
+def hash_passwords(data_array):
+    """
+    Hashing potential passwords via bcrypt library
+    """
+
+    for i in range(0, len(data_array)):
+
+        if data_array[i][0] == "password":
+            salt = bcrypt.gensalt()
+            data_array[i][1] = str(bcrypt.hashpw(data_array[0][1], salt))
+
+        if data_array[i][0] == "password_repeat":
+            salt = bcrypt.gensalt()
+            data_array[i][1] = str(bcrypt.hashpw(data_array[0][1], salt))
+
+    return data_array
 
 def get_next_param(data_array):
     """

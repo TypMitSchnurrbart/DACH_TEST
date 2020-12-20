@@ -17,6 +17,7 @@ def start_html():
 			<meta http-equiv="content-type" content="text/html; charset=utf-8">
 
 		</head>
+		<body>
 	""")
 
 	int_style()
@@ -36,10 +37,9 @@ def int_style():
 	return
 
 
-def start_body():
+def test_body():
 
 	print("""
-	<body>
 	<h1>DHBW DACH Test Seite</h1>
 	""")
 	return
