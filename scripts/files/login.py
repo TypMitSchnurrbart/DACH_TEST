@@ -13,13 +13,12 @@ def register_user(data_array, data_handle):
 
     try:
         #TODO Change the TEST BOOL to 0 before rollout
-        data_handle.execute(f"""INSERT INTO user (vorname, nachname, strasse, hausnr, plz, ort, email, password, TEST)
-        VALUES ({data_array[0][1]}, {data_array[1][1]}, {data_array[2][1]}, {data_array[3][1]}, {data_array[4][1]}, {data_array[5][1]}, {data_array[6][1]}, {data_array[7][1]}, 1)""")
+        data_handle.execute(f"""INSERT INTO user (vorname, nachname, strasse, hausnr, plz, ort, email, password, TEST) VALUES ({data_array[0][1]}, {data_array[1][1]}, {data_array[2][1]}, {data_array[3][1]}, {data_array[4][1]}, {data_array[5][1]}, {data_array[6][1]}, {data_array[7][1]}, 1)""")
 
         data_handle.commit()
 
     except:
-        print("Error in SQL Insert!")
+        print(f"Error in SQL Insert!")
         return True
 
     return False
