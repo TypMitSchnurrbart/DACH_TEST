@@ -19,6 +19,7 @@ def register_user(data_array, data_handle):
         data_handle.commit()
 
     except:
+        print("Error in SQL Insert!")
         return True
 
     return False

@@ -21,9 +21,8 @@ if __name__ == "__main__":
 	#Get MariaDB Handle
 	data_handle = connect_mariadb()
 
-	#Print HTML Credentials
+	#Print HTTP/HTML Credentials
 	start_html()
-	int_style()
 
 	#Get DataArray and the NEXT Value
 	data_array = get_query_string()
@@ -38,6 +37,9 @@ if __name__ == "__main__":
 		if Error is False:
 			show_homepage(data_array, data_handle)
 
+		else:
+			show_index_html()
+
 	elif next_param == "from_register_html":
 
 		#Register the new User
@@ -46,13 +48,12 @@ if __name__ == "__main__":
 		if Error is False:
 			show_homepage(data_array, data_handle)
 
+		else:
+			show_index_html()
+
 	#Show a Test Body in Case next_param is empty
 	else:
-		test_body()
-
-
-	if Error is True:
-		show_index_html()
+		Error = True
 
 
 	#Close HTML
