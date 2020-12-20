@@ -49,7 +49,7 @@ if __name__ == "__main__":
 			show_homepage(data_array, data_handle)
 
 		else:
-			show_index_html()
+			print(show_index_html())
 
 	#Show a Test Body in Case next_param is empty
 	else:
