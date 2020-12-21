@@ -16,7 +16,7 @@ def show_index_html():
                         <h1>Login</h1>
                     </header>
                     <main>
-                        <form action="/var/www/html/scripts/main.py" target="_self" autocomplete="on" method="post">
+                        <form action="scripts/main.py" target="_self" autocomplete="on" method="post">
                             <fieldset>
                                 <label for="email">E-Mail:</label><br>
                                 <input type="email" id="email" name="email"><br>
@@ -32,7 +32,7 @@ def show_index_html():
             <section>
                 <aside>
                     <br>
-                    <form action="/var/www/html/register.html">
+                    <form action="register.html">
                         <input type="submit" value="Neu? Hier registrieren!" />
                     </form>
                 </aside>
@@ -54,8 +54,8 @@ def show_index_html():
                 <div>
                     <ul class="fmenu">
                         <li>&copy;DACH</li>
-                        <li><a href="/var/www/html/impressum.html">Impressum</a></li>
-                        <li><a href="/var/www/html/erklaerung.html">Datenschutzerklärung</a></li>
+                        <li><a href="impressum.html">Impressum</a></li>
+                        <li><a href="erklaerung.html">Datenschutzerklärung</a></li>
                     </ul>
                 </div>
             </nav>
