@@ -34,49 +34,11 @@
                 <section class="main-section">
                     <atricle>
                         <header>
-                            <h1>Registrierung</h1>
+                            <h1>Anmelden</h1>
                         </header>
                         <main>
                             <div class="container-form">
                                 <form action="/scripts/main.py" target="_self" autocomplete="on" method="post">
-                                    <div class="row">
-                                        <div class="col-25">
-                                            <label for="vorname">Vorname:</label>
-                                        </div>
-                                        <div class="col-75">
-                                            <input type="text" id="vorname" name="vorname">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-25">
-                                            <label for="nachname">Nachname:</label>
-                                        </div>
-                                        <div class="col-75">
-                                            <input type="text" id="nachname" name="nachname">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-25">
-                                            <label for="strasse">Straße / Hausnr.:</label>
-                                        </div>
-                                        <div class="col-50">
-                                            <input type="text" id="strasse" name="strasse">
-                                        </div>
-                                        <div class="col-25">
-                                            <input type="text" id="hausnummer" name="hausnummer">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-25">
-                                            <label for="postleitzahl">Postleitzahl / Ort:</label>
-                                        </div>
-                                        <div class="col-37">
-                                            <input type="text" id="postleitzahl" name="postleitzahl">
-                                        </div>
-                                        <div class="col-37">
-                                            <input type="text" id="ort" name="ort">
-                                        </div>
-                                    </div>
                                     <div class="row">
                                         <div class="col-25">
                                             <label for="email">E-Mail:</label>
@@ -92,25 +54,14 @@
                                         <div class="col-75">
                                             <input type="password" id="password" name="password">
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-25">
-                                            <label for="password_repeat">Passwort wiederholen:</label>
-                                        </div>
-                                        <div class="col-75">
-                                            <input type="password" id="password" name="password_repeat">
+                                        <div class="row">
+                                            <input type="hidden" id="next_param" name="next_param" value="from_index_html"><br>
+                                            <input type="submit" value="Absenden">
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-75" id="dataprotection">
-                                            <input type="checkbox" id="datenschutz" name="datenschutz" value="accepted" required>
-                                            <label for="datenschutz">Datenschutzerklärung ...</label><br>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <input type="hidden" id="next_param" name="next_param" value="from_register_html">
-                                        <input type="submit" value="Absenden">
-                                    </div>
+                                </form>
+                                <form action="register.html">
+                                    <input type="submit" value="Neu? Hier registrieren!" />
                                 </form>
                             </div>
                         </main>
