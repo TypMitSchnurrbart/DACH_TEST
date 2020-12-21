@@ -16,7 +16,7 @@ def show_index_html():
                         <h1>Login</h1>
                     </header>
                     <main>
-                        <form action="scripts/main.py" target="_self" autocomplete="on" method="post">
+                        <form action="/scripts/main.py" target="_self" autocomplete="on" method="post">
                             <fieldset>
                                 <label for="email">E-Mail:</label><br>
                                 <input type="email" id="email" name="email"><br>
@@ -32,7 +32,7 @@ def show_index_html():
             <section>
                 <aside>
                     <br>
-                    <form action="../register.html">
+                    <form action="/register.html">
                         <input type="submit" value="Neu? Hier registrieren!" />
                     </form>
                 </aside>
