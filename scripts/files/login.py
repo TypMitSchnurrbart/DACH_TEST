@@ -35,11 +35,10 @@ def verify_login(data_array, data_handle):
 
     data_handle.execute(f"SELECT uid, password FROM user WHERE user.email LIKE '{given_email}'")
 
-    for (uid, password) in data_handle:
-        print(f"Active: {uid}, Password: {password}")
+    print(data_handle)
 
-        if uid == "":
-            return True
+    for (uid, password) in data_handle:
+        print(f"<h1>Active: {uid}, Password: {password}</h1>")
 
         if given_password != password:
             return True
