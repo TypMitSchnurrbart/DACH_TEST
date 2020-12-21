@@ -35,17 +35,16 @@ def verify_login(data_array, data_handle):
 
     data_handle.execute(f"SELECT uid, password FROM user WHERE user.email LIKE '{given_email}'")
 
+    #Result will Look like: [(uid, "password")]; so a Tupel in a List
     result = data_handle.fetchall()
 
+    #Check if Result is Empty(Email not know) and if password is the same
     if result == []:
-        print("FEHLER WURDEN GEMACHT!")
-    else:
-        print(f"{result[0][0]} <<..")
+        return True
 
-    for (uid, password) in data_handle:
-        print(f"<h1>Active: {uid}, Password: {password}</h1>")
+    if result[0][1] != given_password:
+        return True
 
-        if given_password != password:
-            return True
+    #TODO Here we could set a global variable as active user with now known uid!
 
     return False
