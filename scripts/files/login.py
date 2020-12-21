@@ -11,7 +11,7 @@ def register_user(data_array, data_handle):
 
     #TODO Check if data_array contains valid data; especially password = repeat_pw and unique email!
 
-    print(data_array+ "\n")
+    print(f"{data_array}\n")
     print("""INSERT INTO user (vorname, nachname, strasse, hausnr, plz, ort, email, password) VALUES ({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})""".format(data_array[0][1], data_array[1][1], data_array[2][1], data_array[3][1], data_array[4][1], data_array[5][1], data_array[6][1], data_array[7][1]))
     data_handle.execute("""INSERT INTO user (vorname, nachname, strasse, hausnr, plz, ort, email, password) VALUES ({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})""".format(data_array[0][1], data_array[1][1], data_array[2][1], data_array[3][1], data_array[4][1], data_array[5][1], data_array[6][1], data_array[7][1]))
     data_handle.commit()
