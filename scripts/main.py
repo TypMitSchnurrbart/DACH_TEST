@@ -19,7 +19,7 @@ if __name__ == "__main__":
 	Error = False
 
 	#Get MariaDB Handle
-	data_handle = connect_mariadb()
+	data_handle, mariadb_connection = connect_mariadb()
 
 	#Print HTTP/HTML Credentials
 	start_html()
@@ -56,8 +56,9 @@ if __name__ == "__main__":
 		Error = True
 
 
-	#Close HTML
+	#Close HTML / MariaDB
 	end_html()
-	data_handle.close()
+	mariadb_connection.commit()
+	mariadb_connection.close()
 
 	
