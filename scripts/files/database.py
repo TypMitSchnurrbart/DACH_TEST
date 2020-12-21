@@ -23,5 +23,5 @@ def connect_mariadb():
 
     maria_connector = connect.cursor()
 
-    return maria_connector
+    return maria_connector, connect
     
