@@ -37,7 +37,10 @@ def verify_login(data_array, data_handle):
 
     result = data_handle.fetchall()
 
-    print(result)
+    if result == []:
+        print("FEHLER WURDEN GEMACHT!")
+    else:
+        print(f"{result[0][0]} <<..")
 
     for (uid, password) in data_handle:
         print(f"<h1>Active: {uid}, Password: {password}</h1>")
