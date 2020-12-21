@@ -4,6 +4,7 @@
 
 def show_index_html():
 
+    #In this Page the Path to the Files are to be aware of! with /<file> it starts from the root of the webserver!
     print("""
      <header>
             <h1>DACH - Deine Bewegung in der Hochschule!</h1>
@@ -54,8 +55,8 @@ def show_index_html():
                 <div>
                     <ul class="fmenu">
                         <li>&copy;DACH</li>
-                        <li><a href="../impressum.html">Impressum</a></li>
-                        <li><a href="../erklaerung.html">Datenschutzerklärung</a></li>
+                        <li><a href="/impressum.html">Impressum</a></li>
+                        <li><a href="/erklaerung.html">Datenschutzerklärung</a></li>
                     </ul>
                 </div>
             </nav>
