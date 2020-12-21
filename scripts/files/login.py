@@ -35,7 +35,9 @@ def verify_login(data_array, data_handle):
 
     data_handle.execute(f"SELECT uid, password FROM user WHERE user.email LIKE '{given_email}'")
 
-    print(data_handle)
+    result = data_handle.fetchall()
+
+    print(result)
 
     for (uid, password) in data_handle:
         print(f"<h1>Active: {uid}, Password: {password}</h1>")
