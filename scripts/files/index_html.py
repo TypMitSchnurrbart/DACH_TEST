@@ -1,11 +1,19 @@
 #!/usr/bin/python3
 #!-*- coding: utf-8 -*-
 
+from files.error_handle import get_error_text
 
-def show_index_html():
+
+def show_index_html(error_code):
+
+    error_text = ""
+
+    if error_code != None:
+        result = get_error_text(error_code)
+        error_text = result[0][0]
 
     #In this Page the Path to the Files are to be aware of! with /<file> it starts from the root of the webserver!
-    print("""
+    print(f"""
      <header>
             <h1>DACH - Deine Bewegung in der Hochschule!</h1>
         </header>
@@ -29,6 +37,7 @@ def show_index_html():
                         </form>
                     </main>
                 </atricle>
+                <p>{error_text}<p>
             </section>
             <section>
                 <aside>

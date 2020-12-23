@@ -2,11 +2,10 @@
 #!-*- coding: utf-8 -*-
 
 
-def show_homepage(data_array, data_handle):
+def show_homepage(data_array):
     """
     Displaying the Body of the Home Page
     param:  {list}  data_array; Containing the QueryString Information
-    param:  {obj}   data_handle; Handle for MariaDB
     """
 
     print("Welcome to the Homepage!")
