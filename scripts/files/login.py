@@ -1,49 +1,60 @@
 #!/usr/bin/python3
 #!-*- coding: utf-8 -*-
 
-def register_user(data_array, data_handle):
+from files.const import DATA_HANDLE
+
+def register_user(data_array):
     """
     Inserts the user in the DACH Database
     param:  {list}  data_array; Containing the QueryString Information
-    param:  {obj}   data_handle; Handle for MariaDB
     return: {bool}  True if a Error occurs, else False
+    return: {int}   ErrorID form Database
     """
 
-    #TODO Check if data_array contains valid data; especially password = repeat_pw and unique email! Otherwise Return True!
+    #Password and Password Repeat must be the same
+    if data_array[7][1] != data_array[8][1]:
+        return True, 5
 
+
+    #Check for unique email in Database
+    DATA_HANDLE[0].execute(f"SELECT uid FROM user WHERE user.email LIKE '{data_array[6][1]}'")
+    result = DATA_HANDLE[0].fetchall()
+
+    if result != []:
+        return True, 4
+
+    #Try SQL Insert
     try:
         #Always be aware of strings in SQL Statements
-        data_handle.execute(f"""INSERT INTO user (vorname, nachname, strasse, hausnr, plz, ort, email, password) VALUES ("{data_array[0][1]}", "{data_array[1][1]}", "{data_array[2][1]}", {data_array[3][1]}, {data_array[4][1]}, "{data_array[5][1]}", "{data_array[6][1]}", "{data_array[7][1]}")""")
+        DATA_HANDLE[0].execute(f"""INSERT INTO user (vorname, nachname, strasse, hausnr, plz, ort, email, password) VALUES ("{data_array[0][1]}", "{data_array[1][1]}", "{data_array[2][1]}", {data_array[3][1]}, {data_array[4][1]}, "{data_array[5][1]}", "{data_array[6][1]}", "{data_array[7][1]}")""")
 
     except:
-        print("Error in SQL Insertion!")
-        return True
+        return True, 3
 
-    return False
+    return False, None
 
 
-def verify_login(data_array, data_handle):
+def verify_login(data_array):
     """
     Verifys the Login of the User
     param:  {list}  data_array; Containing the QueryString Information
-    param:  {obj}   data_handle; Handle for MariaDB
     return: {bool}  True if Error occurs, else False
     """
 
     given_email = data_array[0][1]
     given_password = data_array[1][1]
 
-    data_handle.execute(f"SELECT uid, password FROM user WHERE user.email LIKE '{given_email}'")
+    DATA_HANDLE[0].execute(f"SELECT uid, password FROM user WHERE user.email LIKE '{given_email}'")
 
     #Result will Look like: [(uid, "password")]; so a Tupel in a List
-    result = data_handle.fetchall()
+    result = DATA_HANDLE[0].fetchall()
 
     #Check if Result is Empty(Email not know) and if password is the same
     if result == []:
-        return True
+        return True, 6
 
     if result[0][1] != given_password:
-        return True
+        return True, 7
 
     #TODO Here we could set a global variable as active user with now known uid!
 

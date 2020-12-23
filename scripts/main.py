@@ -11,15 +11,17 @@ from files.database import connect_mariadb
 from files.login import register_user, verify_login
 from files.home_page import show_homepage
 from files.index_html import show_index_html
+from files.const import DATA_HANDLE
 
 
 #-----Main-----
 if __name__ == "__main__":
 
-	Error = False
+	error = False
+	error_code = None
 
 	#Get MariaDB Handle
-	data_handle, mariadb_connection = connect_mariadb()
+	connect_mariadb()
 
 	#Print HTTP/HTML Credentials
 	start_html()
@@ -28,37 +30,37 @@ if __name__ == "__main__":
 	data_array = get_query_string()
 	next_param = get_next_param(data_array)
 
+
 	#SwitchCase for Next to differ Sites
 	if next_param == "from_index_html":
 
 		#Verify Login via Password and Email
-		Error = verify_login(data_array, data_handle)
+		error, error_code = verify_login(data_array)
 
-		if Error is False:
-			show_homepage(data_array, data_handle)
+		if error is False:
+			show_homepage(data_array)
 
 		else:
-			show_index_html()
+			show_index_html(error_code)
 
 	elif next_param == "from_register_html":
 
 		#Register the new User
-		Error = register_user(data_array, data_handle)
+		error, error_code = register_user(data_array)
 
-		if Error is False:
-			show_homepage(data_array, data_handle)
+		if error is False:
+			show_homepage(data_array)
 
 		else:
-			show_index_html()
+			show_index_html(error_code)
 
-	#Show a Test Body in Case next_param is empty
+	#If next param is empty
 	else:
-		Error = True
-
+		show_index_html(error_code)
 
 	#Close HTML / MariaDB
 	end_html()
-	mariadb_connection.commit()
-	mariadb_connection.close()
+	DATA_HANDLE[1].commit()
+	DATA_HANDLE[1].close()
 
 	
