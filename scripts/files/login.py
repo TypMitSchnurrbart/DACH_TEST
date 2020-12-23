@@ -58,4 +58,4 @@ def verify_login(data_array):
 
     #TODO Here we could set a global variable as active user with now known uid!
 
-    return False
+    return False, None
