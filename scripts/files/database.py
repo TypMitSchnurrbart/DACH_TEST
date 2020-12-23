@@ -6,6 +6,8 @@ import mariadb
 import sys
 import os
 
+from files.const import DATA_HANDLE
+
 
 def connect_mariadb():
     try:
@@ -22,6 +24,9 @@ def connect_mariadb():
         sys.exit(321)
 
     maria_connector = connect.cursor()
+
+    DATA_HANDLE[0] = maria_connector
+    DATA_HANDLE[1] = connect
 
     return maria_connector, connect
     
