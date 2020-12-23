@@ -13,4 +13,6 @@ def get_error_text(error_code):
     DATA_HANDLE[0].execute(f"SELECT output FROM error WHERE error_id = {error_code}")
     result = DATA_HANDLE[0].fetchall
 
+    print(result)
+
     return result
