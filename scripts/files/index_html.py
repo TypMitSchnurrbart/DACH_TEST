@@ -10,7 +10,7 @@ def show_index_html(error_code):
 
     if error_code != None:
         result = get_error_text(error_code)
-        error_text = result[0][0]
+        error_text = result
 
     #In this Page the Path to the Files are to be aware of! with /<file> it starts from the root of the webserver!
     print(f"""
