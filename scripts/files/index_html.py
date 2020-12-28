@@ -125,4 +125,6 @@ def show_index_html(error_code):
     output = output.replace("^", "{")
     output = output.replace("~", "}")
 
+    print(output)
+
     return
