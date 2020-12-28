@@ -25,7 +25,7 @@ def show_homepage(data_array):
                     <span onclick="openNav()">&#9776;</span>
                 </div>
                 <div class="main-header-img">
-                    <img src="media/DACH_logo.png" width="200px" height="auto">
+                    <img src="/media/DACH_logo.png" width="200px" height="auto">
                 </div>
             </div>
         </header>
