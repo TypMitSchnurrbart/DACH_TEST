@@ -13,7 +13,7 @@ def show_index_html(error_code):
         error_text = result[0][1]
 
     #In this Page the Path to the Files are to be aware of! with /<file> it starts from the root of the webserver!
-    print("""<!DOCTYPE html>
+    output = f"""<!DOCTYPE html>
 <html>
     <head>
         <title>DACH DHBW</title>
@@ -81,7 +81,7 @@ def show_index_html(error_code):
                             </div>
                         </main>
                     </atricle>
-                    <h2>%s</h2>
+                    <h2>{error_text}</h2>
                 </section>
                 <section class="aside-section">
                     <aside>
@@ -110,16 +110,19 @@ def show_index_html(error_code):
             </address>
         </footer>
         <script>
-            function openNav() {
+            function openNav() ^
                 document.getElementById("topNav").style.width = "100%";
-            }
+            ~
 
-            function closeNav() {
+            function closeNav() ^
                 document.getElementById("topNav").style.width = "0%";
-            }
+            ~
         </script>
     </body>
 </html>
-""" %(error_text))
+"""
+
+    output = output.replace("^", "{")
+    output = output.replace("~", "}")
 
     return
