@@ -34,10 +34,36 @@
                 <section class="main-section">
                     <atricle>
                         <header>
-                            <h1>Überschrift</h1>
+                            <h1>Login</h1>
                         </header>
                         <main>
-                            Inhalt
+                            <div class="container-form">
+                                <form action="/scripts/main.py" target="_self" autocomplete="on" method="post">
+                                    <div class="row">
+                                        <div class="col-25">
+                                            <label for="email">E-Mail:</label>
+                                        </div>
+                                        <div class="col-75">
+                                            <input type="email" id="email" name="email">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-25">
+                                            <label for="password">Passwort:</label>
+                                        </div>
+                                        <div class="col-75">
+                                            <input type="password" id="password" name="password">
+                                        </div>
+                                        <div class="row">
+                                            <input type="hidden" id="next_param" name="next_param" value="from_index_html"><br>
+                                            <input type="submit" value="Absenden">
+                                        </div>
+                                    </div>
+                                </form>
+                                <form action="/register.html">
+                                    <input type="submit" value="Neu? Hier registrieren!" />
+                                </form>
+                            </div>
                         </main>
                     </atricle>
                 </section>
@@ -59,8 +85,8 @@
                 <div>
                     <ul class="footer-nav">
                         <li>&copy;DACH</li>
-                        <li><a href="impressum.html">Impressum</a></li>
-                        <li><a href="erklaerung.html">Datenschutzerklärung</a></li>
+                        <li><a href="/impressum.html">Impressum</a></li>
+                        <li><a href="/erklaerung.html">Datenschutzerklärung</a></li>
                     </ul>
                 </div>
             </nav>
