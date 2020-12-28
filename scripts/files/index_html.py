@@ -81,7 +81,7 @@ def show_index_html(error_code):
                             </div>
                         </main>
                     </atricle>
-                    <h2>{0}</h2>
+                    <h2>%s</h2>
                 </section>
                 <section class="aside-section">
                     <aside>
@@ -120,6 +120,6 @@ def show_index_html(error_code):
         </script>
     </body>
 </html>
-""" .format(error_text))
+""" %(error_text))
 
     return
