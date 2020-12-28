@@ -1,14 +1,4 @@
-#!/usr/bin/python3
-#!-*- coding: utf-8 -*-
-
-
-def show_homepage(data_array):
-    """
-    Displaying the Body of the Home Page
-    param:  {list}  data_array; Containing the QueryString Information
-    """
-
-    print("""<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <head>
         <title>DACH DHBW</title>
@@ -69,8 +59,8 @@ def show_homepage(data_array):
                 <div>
                     <ul class="footer-nav">
                         <li>&copy;DACH</li>
-                        <li><a href="/impressum.html">Impressum</a></li>
-                        <li><a href="/erklaerung.html">Datenschutzerklärung</a></li>
+                        <li><a href="impressum.html">Impressum</a></li>
+                        <li><a href="erklaerung.html">Datenschutzerklärung</a></li>
                     </ul>
                 </div>
             </nav>
@@ -88,6 +78,3 @@ def show_homepage(data_array):
         </script>
     </body>
 </html>
-""")
-
-    return
