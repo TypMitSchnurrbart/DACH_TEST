@@ -17,6 +17,8 @@ def make_move(data_array):
     DATA_HANDLE[0].execute(f"""SELECT room_id FROM room WHERE description LIKE '{data_array[1][1]}'""")
     room_id = DATA_HANDLE[0].fetchall()
 
+    user_id = user_id[0][0]
+    room_id = room_id[0][0]
 
     #Make sure Person isnt already logged in another room; if so log out of last room and login in current
     DATA_HANDLE[0].execute(f"""SELECT move_id, room FROM movement WHERE person = {user_id} AND end IS NULL""")
