@@ -14,7 +14,7 @@ def make_move(data_array):
     #Get IDs out of the data_array
     DATA_HANDLE[0].execute(f"""SELECT uid FROM user WHERE email LIKE '{data_array[0][1]}'""")
     user_id = DATA_HANDLE[0].fetchall()
-    DATA_HANDLE[0].execute(f"""SELECT room_id FROM room WHERE desrciption LIKE '{data_array[1][1]}'""")
+    DATA_HANDLE[0].execute(f"""SELECT room_id FROM room WHERE description LIKE '{data_array[1][1]}'""")
     room_id = DATA_HANDLE[0].fetchall()
 
 
