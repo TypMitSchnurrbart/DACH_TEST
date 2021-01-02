@@ -24,18 +24,16 @@ if __name__ == "__main__":
 	#Get MariaDB Handle
 	connect_mariadb()
 
-	#Print HTTP/HTML Credentials
+	#Print HTTP/HTML Credentials TODO Maybe only print if not from APP
 	start_html()
 
-	#Get DataArray and the NEXT Value
+	#Get data_array and the NEXT Value
 	data_array = get_query_string()
 	next_param = get_next_param(data_array)
 
 
-	#SwitchCase for Next to differ Sites
+	#Verify Login via Password and Email
 	if next_param == "from_index_html":
-
-		#Verify Login via Password and Email
 		error, error_code = verify_login(data_array)
 
 		if error is False:
@@ -44,9 +42,8 @@ if __name__ == "__main__":
 		else:
 			show_index_html(error_code)
 
+	#Register the new User
 	elif next_param == "from_register_html":
-
-		#Register the new User
 		error, error_code = register_user(data_array)
 
 		if error is False:
@@ -55,8 +52,8 @@ if __name__ == "__main__":
 		else:
 			show_index_html(error_code)
 
+	#Make the move
 	elif next_param == "from_move":
-		#Make the move
 		make_move(data_array)
 
 
