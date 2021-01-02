@@ -37,6 +37,7 @@ def show_homepage(data_array):
                 <a href="#history">Historie</a>
                 <a href="#profil">Profil</a>
                 <a href="#about">About</a>
+                <a href="/move_test.html">MOVE_TEST</a>
             </div>
         </nav>
         <div class="test">
