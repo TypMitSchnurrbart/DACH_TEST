@@ -12,6 +12,7 @@ from files.login import register_user, verify_login
 from files.home_page import show_homepage
 from files.index_html import show_index_html
 from files.const import DATA_HANDLE
+from files.move import make_move
 
 
 #-----Main-----
@@ -53,6 +54,11 @@ if __name__ == "__main__":
 
 		else:
 			show_index_html(error_code)
+
+	elif next_param == "from_move":
+		#Make the move
+		make_move(data_array)
+
 
 	#If next param is empty
 	else:
