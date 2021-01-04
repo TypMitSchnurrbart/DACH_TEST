@@ -94,6 +94,8 @@ def get_next_param(data_array):
     Get the value of next_param to decide what to do
     """
 
+    next_param = ""
+
     for i in range(0, len(data_array)):
         if data_array[i][0] == "next_param":
 
