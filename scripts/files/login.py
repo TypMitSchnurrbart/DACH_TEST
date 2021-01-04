@@ -41,6 +41,10 @@ def verify_login(data_array):
     return: {bool}  True if Error occurs, else False
     """
 
+    error = False
+    error_code = None
+    from_app = False
+
     given_email = data_array[0][1]
     given_password = data_array[1][1]
 
@@ -51,11 +55,18 @@ def verify_login(data_array):
 
     #Check if Result is Empty(Email not know) and if password is the same
     if result == []:
-        return True, 6
+        error = True
+        error_code = 6
 
     if result[0][1] != given_password:
-        return True, 7
+        error = True
+        error_code = 7
 
     #TODO Here we could set a global variable as active user with now known uid!
 
-    return False, None
+    #Check if from app or not
+    for i in range(0, len(data_array)):
+        if data_array[i][0] == "app_flag":
+            from_app = True
+
+    return error, error_code, from_app

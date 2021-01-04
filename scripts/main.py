@@ -19,6 +19,7 @@ from files.move import make_move
 if __name__ == "__main__":
 
 	error = False
+	from_app = False
 	error_code = None
 
 	#Get MariaDB Handle
@@ -34,11 +35,20 @@ if __name__ == "__main__":
 
 	#Verify Login via Password and Email
 	if next_param == "from_index_html":
-		error, error_code = verify_login(data_array)
+		error, error_code, from_app = verify_login(data_array)
 
-		if error is False:
+		#Display Homepage as logged in
+		if error is False and from_app is False:
 			show_homepage(data_array)
 
+		#Respond to App as success TODO own functions!
+		elif error is False and from_app is True:
+			print("Logged in successful!")
+
+		#Respond to App as fail
+		elif error is True and from_app is True:
+			print("Failed to Login!")
+			
 		else:
 			show_index_html(error_code)
 
