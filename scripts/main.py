@@ -43,12 +43,12 @@ if __name__ == "__main__":
 
 		#Respond to App as success TODO own functions!
 		elif error is False and from_app is True:
-			print("Logged in successful!")
+			print("$true$")
 
 		#Respond to App as fail
 		elif error is True and from_app is True:
-			print("Failed to Login!")
-			
+			print("$false$")
+
 		else:
 			show_index_html(error_code)
 
