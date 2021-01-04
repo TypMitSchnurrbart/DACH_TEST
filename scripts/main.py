@@ -59,7 +59,7 @@ if __name__ == "__main__":
 
 	#If next param is empty
 	else:
-		show_index_html(error_code)
+		show_index_html(1)
 
 	#Close HTML / MariaDB
 	end_html()
