@@ -86,11 +86,11 @@ def hash_passwords(data_array):
     for i in range(len(data_array)):
         if data_array[i][0] == "password":
             data_array[i][1] = compute_hash(data_array[i][1], salt)
-            data_array[i][2] = salt        # maybe this should be a seperate entry called salt
+            data_array[i].append(salt)        # maybe this should be a seperate entry called salt
 
         elif data_array[i][0] == "password_repeat":
             data_array[i][1] = compute_hash(data_array[i][1], salt)
-            data_array[i][2] = salt        # maybe this should be a seperate entry called salt
+            data_array[i].append(salt)        # maybe this should be a seperate entry called salt
 
     return data_array
 
