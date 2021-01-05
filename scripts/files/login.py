@@ -53,6 +53,8 @@ def verify_login(data_array):
     #Result will Look like: [(uid, "password")]; so a Tupel in a List
     result = DATA_HANDLE[0].fetchall()
 
+    print(f"given_email: {given_email}\n given_password: {given_email} \n result: {result}")
+
     #Check if Result is Empty(Email not know) and if password is the same
     if result == []:
         error = True

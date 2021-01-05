@@ -3,15 +3,20 @@
 
 
 #------------Default HTML Frame---Should be requiered everytime-----
-def start_html():
+def start_html(data_array):
 	"""
 	Make the requiered http and html header
 	"""
 
+	for i in range(0, len(data_array)):
+		if data_array[i][0] == "app_flag":
+			print("Content-Type: text/html")
+			print("")
+			return
+
 	print("Content-Type: text/html")
 	print("")
-	print("""
-	<html>
+	print("""<html>
 		<head>
 			<title>DACH DHBW</title>
 			<meta http-equiv="content-type" content="text/html; charset=utf-8">
