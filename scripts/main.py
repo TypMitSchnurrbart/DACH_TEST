@@ -72,7 +72,8 @@ if __name__ == "__main__":
 		show_index_html(1)
 
 	#Close HTML / MariaDB
-	end_html()
+	if from_app is False:
+		end_html()
 	DATA_HANDLE[1].commit()
 	DATA_HANDLE[1].close()
 
