@@ -25,12 +25,12 @@ if __name__ == "__main__":
 	#Get MariaDB Handle
 	connect_mariadb()
 
-	#Print HTTP/HTML Credentials TODO Maybe only print if not from APP
-	start_html()
-
 	#Get data_array and the NEXT Value
 	data_array = get_query_string()
 	next_param = get_next_param(data_array)
+
+	#Print HTTP/HTML Credentials
+	start_html(data_array)
 
 
 	#Verify Login via Password and Email
