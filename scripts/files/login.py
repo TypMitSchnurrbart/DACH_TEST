@@ -2,7 +2,7 @@
 #!-*- coding: utf-8 -*-
 from files.query_string import compute_hash
 from files.const import DATA_HANDLE
-from base64 import b64encode, b64decode
+import base64
 
 def register_user(data_array):
     """
