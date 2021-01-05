@@ -108,6 +108,7 @@ def compute_hash(password, salt):
 def get_next_param(data_array):
     """
     Get the value of next_param to decide what to do
+    param:  {array} data_array; list with all the data
     """
 
     next_param = ""

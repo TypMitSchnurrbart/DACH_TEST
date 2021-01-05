@@ -25,17 +25,17 @@ if __name__ == "__main__":
 	#Get MariaDB Handle
 	connect_mariadb()
 
-	#Print HTTP/HTML Credentials TODO Maybe only print if not from APP
-	start_html()
-
 	#Get data_array and the NEXT Value
 	data_array = get_query_string()
 	next_param = get_next_param(data_array)
 
+	#Print HTTP/HTML Credentials
+	from_app = start_html(data_array)
+
 
 	#Verify Login via Password and Email
 	if next_param == "from_index_html":
-		error, error_code, from_app = verify_login(data_array)
+		error, error_code = verify_login(data_array)
 
 		#Display Homepage as logged in
 		if error is False and from_app is False:
@@ -72,7 +72,9 @@ if __name__ == "__main__":
 		show_index_html(1)
 
 	#Close HTML / MariaDB
-	end_html()
+	if from_app is False:
+		end_html()
+
 	DATA_HANDLE[1].commit()
 	DATA_HANDLE[1].close()
 

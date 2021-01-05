@@ -41,9 +41,8 @@ def verify_login(data_array):
     return: {bool}  True if Error occurs, else False
     """
 
-    error = False
-    error_code = None
-    from_app = False
+    #TODO Delete Print
+    print(f"\nInput Daten: {data_array}")
 
     given_email = data_array[0][1]
     given_password = data_array[1][1]
@@ -53,20 +52,16 @@ def verify_login(data_array):
     #Result will Look like: [(uid, "password", "salt")]; so a Tupel in a List
     result = DATA_HANDLE[0].fetchall()
 
+    #TODO Delete Print
+    print(f"\ngiven_email: {given_email}\ngiven_password: {given_password}\n result: {result}")
+
     #Check if Result is Empty(Email not know) and if password is the same
     if result == []:
-        error = True
-        error_code = 6
-
+        return True, 6
+      
     if result[0][1] != compute_hash(given_password, result[0][2]):
-        error = True
-        error_code = 7
+        return True, 7
 
-    #TODO Here we could set a global variable as active user with now known uid!
+    #TODO User should stay logged in -> hidden value in every form
 
-    #Check if from app or not
-    for i in range(0, len(data_array)):
-        if data_array[i][0] == "app_flag":
-            from_app = True
-
-    return error, error_code, from_app
+    return False, None
