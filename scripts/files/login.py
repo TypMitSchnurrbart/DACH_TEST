@@ -60,7 +60,7 @@ def verify_login(data_array):
     if result == []:
         return True, 6
       
-    if result[0][1] != compute_hash(given_password, result[0][2]):
+    if result[0][1] != compute_hash(given_password, bytes(result[0][2])):
         return True, 7
 
     #TODO User should stay logged in -> hidden value in every form
