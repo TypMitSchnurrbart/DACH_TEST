@@ -43,7 +43,6 @@ def verify_login(data_array):
 
     error = False
     error_code = None
-    from_app = False
 
     #TODO Delete Print
     print(f"\nInput Daten: {data_array}")
@@ -70,10 +69,4 @@ def verify_login(data_array):
 
     #TODO User should stay logged in -> hidden value in every form
 
-    #Check if from app or not
-    for i in range(0, len(data_array)):
-        if data_array[i][0] == "app_flag":
-            from_app = True
-            break
-
-    return error, error_code, from_app
+    return error, error_code

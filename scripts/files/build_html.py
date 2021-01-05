@@ -12,7 +12,7 @@ def start_html(data_array):
 		if data_array[i][0] == "app_flag":
 			print("Content-Type: text/html")
 			print("")
-			return
+			return True
 
 	print("Content-Type: text/html")
 	print("")
@@ -27,7 +27,7 @@ def start_html(data_array):
 
 	int_style()
 
-	return
+	return False
 
 
 def int_style():

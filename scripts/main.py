@@ -30,12 +30,12 @@ if __name__ == "__main__":
 	next_param = get_next_param(data_array)
 
 	#Print HTTP/HTML Credentials
-	start_html(data_array)
+	from_app = start_html(data_array)
 
 
 	#Verify Login via Password and Email
 	if next_param == "from_index_html":
-		error, error_code, from_app = verify_login(data_array)
+		error, error_code = verify_login(data_array)
 
 		#Display Homepage as logged in
 		if error is False and from_app is False:
@@ -74,6 +74,7 @@ if __name__ == "__main__":
 	#Close HTML / MariaDB
 	if from_app is False:
 		end_html()
+
 	DATA_HANDLE[1].commit()
 	DATA_HANDLE[1].close()
 
