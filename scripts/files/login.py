@@ -26,6 +26,7 @@ def register_user(data_array):
     #Try SQL Insert
     #try:
         #Always be aware of strings in SQL Statements
+    print(f"{data_array[7][2]}")
     DATA_HANDLE[0].execute(f"""INSERT INTO user (vorname, nachname, strasse, hausnr, plz, ort, email, password, salt) VALUES ("{data_array[0][1]}", "{data_array[1][1]}", "{data_array[2][1]}", {data_array[3][1]}, {data_array[4][1]}, "{data_array[5][1]}", "{data_array[6][1]}", "{data_array[7][1]}" , "{data_array[7][2]}")""")
 
     #except:
