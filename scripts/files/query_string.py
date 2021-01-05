@@ -4,7 +4,8 @@
 import os
 import sys
 import urllib.parse
-import bcrypt
+
+from files.hashing import hash_passwords
 
 
 def get_query_string():
@@ -33,8 +34,10 @@ def get_query_string():
     #Get the query_string seperated into data
     data_array = seperate_query_string(query_string)
 
-    #Hashing of the Passwords
-    data_array = hash_passwords(data_array)
+    #Hashing of the Passwords, but only in the register case , else hash later
+    for i in range(len(data_array)):
+        if data_array[i][1] == "from_register_html":
+            data_array = hash_passwords(data_array)
 
     return data_array
 
@@ -49,7 +52,7 @@ def parse_query_string(query_string):
     #Parsing out the Hex and the "+" into spacebars
     query_string = urllib.parse.unquote(query_string)
     query_string = urllib.parse.unquote_plus(query_string)
-    
+
     return query_string
 
 
@@ -59,7 +62,7 @@ def seperate_query_string(query_string):
     param:  query_string {string}
     return: data_array {list}
     """
-    
+
     #Splitting into seperate Parameters
     data_array = query_string.split("&")
 
@@ -70,29 +73,11 @@ def seperate_query_string(query_string):
     return data_array
 
 
-def hash_passwords(data_array):
-    """
-    Hashing potential passwords via bcrypt library
-    """
-
-    #TODO Here shall be Hashed
-    """
-    for i in range(0, len(data_array)):
-
-        if data_array[i][0] == "password":
-            salt = bcrypt.gensalt()
-            data_array[i][1] = bcrypt.hashpw(data_array[0][1], salt)
-
-        if data_array[i][0] == "password_repeat":
-            salt = bcrypt.gensalt()
-            data_array[i][1] = bcrypt.hashpw(data_array[0][1], salt)
-    """
-    return data_array
-
 def get_next_param(data_array):
     """
     Get the value of next_param to decide what to do
     param:  {array} data_array; list with all the data
+    return  {string} next_param
     """
 
     next_param = ""
