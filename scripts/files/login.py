@@ -45,7 +45,8 @@ def verify_login(data_array):
     error_code = None
     from_app = False
 
-    print(f"Input Daten: {data_array}")
+    #TODO Delete Print
+    print(f"\nInput Daten: {data_array}")
 
     given_email = data_array[0][1]
     given_password = data_array[1][1]
@@ -55,7 +56,8 @@ def verify_login(data_array):
     #Result will Look like: [(uid, "password")]; so a Tupel in a List
     result = DATA_HANDLE[0].fetchall()
 
-    print(f"given_email: {given_email}\n given_password: {given_password} \n result: {result}")
+    #TODO Delete Print
+    print(f"\ngiven_email: {given_email}\n given_password: {given_password} \n result: {result}")
 
     #Check if Result is Empty(Email not know) and if password is the same
     if result == []:
@@ -72,5 +74,6 @@ def verify_login(data_array):
     for i in range(0, len(data_array)):
         if data_array[i][0] == "app_flag":
             from_app = True
+            break
 
     return error, error_code, from_app
