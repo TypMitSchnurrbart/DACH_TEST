@@ -6,6 +6,8 @@
 def start_html(data_array):
 	"""
 	Make the requiered http and html header
+	param:	{array} data_array; Input data from Post
+	return:	{bool} To check if from APP or not
 	"""
 
 	for i in range(0, len(data_array)):
@@ -36,7 +38,6 @@ def int_style():
 	"""
 	print("""
 	<style>
-
 	</style>
 	""")
 	return
@@ -51,6 +52,5 @@ def test_body():
 
 
 def end_html():
-
 	print("\n</body>\n</html>")
 	return
