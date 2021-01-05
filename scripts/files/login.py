@@ -45,6 +45,8 @@ def verify_login(data_array):
     error_code = None
     from_app = False
 
+    print(f"Input Daten: {data_array}")
+
     given_email = data_array[0][1]
     given_password = data_array[1][1]
 
@@ -64,7 +66,7 @@ def verify_login(data_array):
         error = True
         error_code = 7
 
-    #TODO Here we could set a global variable as active user with now known uid!
+    #TODO User should stay logged in -> hidden value in every form
 
     #Check if from app or not
     for i in range(0, len(data_array)):
