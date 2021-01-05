@@ -34,8 +34,9 @@ def get_query_string():
     data_array = seperate_query_string(query_string)
 
     #Hashing of the Passwords, but only in the register case , else hash later
-    if len(data_array) != 2:
-        data_array = hash_passwords(data_array)
+    for i in range(len(data_array)):
+        if data_array[i][1] == "from_register_html":
+            data_array = hash_passwords(data_array)
 
     return data_array
 
@@ -88,7 +89,7 @@ def hash_passwords(data_array):
             data_array[i][2] = salt        # maybe this should be a seperate entry called salt
 
         elif data_array[i][0] == "password_repeat":
-            data_array[i][1] = compute_hash(data_array[i][i], salt)
+            data_array[i][1] = compute_hash(data_array[i][1], salt)
             data_array[i][2] = salt        # maybe this should be a seperate entry called salt
 
     return data_array
