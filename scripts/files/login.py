@@ -41,9 +41,6 @@ def verify_login(data_array):
     return: {bool}  True if Error occurs, else False
     """
 
-    error = False
-    error_code = None
-
     #TODO Delete Print
     print(f"\nInput Daten: {data_array}")
 
@@ -60,13 +57,11 @@ def verify_login(data_array):
 
     #Check if Result is Empty(Email not know) and if password is the same
     if result == []:
-        error = True
-        error_code = 6
+        return True, 6
 
     if result[0][1] != given_password:
-        error = True
-        error_code = 7
+        return True, 7
 
     #TODO User should stay logged in -> hidden value in every form
 
-    return error, error_code
+    return False, None
