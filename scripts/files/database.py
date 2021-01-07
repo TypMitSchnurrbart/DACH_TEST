@@ -44,7 +44,7 @@ def get_user_data(data_array, string1, string2 = None, string3 = None):
 
     for i in range(0, len(data_array)):
         if data_array[i][0] == "email":
-            given_email = data_array = [i][1]
+            given_email = data_array[i][1]
    
     if string2 is None and string3 is None:
 
