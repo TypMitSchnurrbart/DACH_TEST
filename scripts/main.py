@@ -6,7 +6,7 @@ import os
 import sys
 
 from files.query_string import get_next_param, get_query_string
-from files.build_html import start_html, int_style, end_html, test_body
+from files.build_html import start_html, end_html
 from files.database import connect_mariadb
 from files.login import register_user, verify_login
 from files.home_page import show_homepage
