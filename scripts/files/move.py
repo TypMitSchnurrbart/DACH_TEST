@@ -44,6 +44,5 @@ def make_move(data_array):
 
     
     print("Done. <br/> This is a Testpage for Movement.")
-    #TODO Here we could implement the delete of 14?-day old info
 
     return
