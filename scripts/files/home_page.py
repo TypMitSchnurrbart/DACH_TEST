@@ -3,6 +3,7 @@
 
 from files.database import get_user_data
 from files.const import VORNAME, NACHNAME, COVID_STATE
+from files.error_handle import translate_covid_state
 
 def show_homepage(data_array):
     """
@@ -11,6 +12,7 @@ def show_homepage(data_array):
     """
 
     vorname, nachname, covid_state = get_user_data(data_array, VORNAME, NACHNAME, COVID_STATE)
+    covid_state = translate_covid_state(covid_state)
 
     output = f"""<!DOCTYPE html>
 <html>
