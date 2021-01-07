@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 #!-*- coding: utf-8 -*-
 
+from files.const import APP_FLAG
 
 #------------Default HTML Frame---Should be requiered everytime-----
 def start_html(data_array):
@@ -11,7 +12,7 @@ def start_html(data_array):
 	"""
 
 	for i in range(0, len(data_array)):
-		if data_array[i][0] == "app_flag":
+		if data_array[i][0] == APP_FLAG:
 			print("Content-Type: text/html")
 			print("")
 			return True
@@ -19,36 +20,15 @@ def start_html(data_array):
 	print("Content-Type: text/html")
 	print("")
 	print("""<html>
-		<head>
-			<title>DACH DHBW</title>
-			<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<head>
+		<title>DACH DHBW</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
 
-		</head>
-		<body>
+	</head>
+	<body>
 	""")
-
-	int_style()
 
 	return False
-
-
-def int_style():
-	"""
-	Initialize style sheet
-	"""
-	print("""
-	<style>
-	</style>
-	""")
-	return
-
-
-def test_body():
-
-	print("""
-	<h1>DHBW DACH Test Seite</h1>
-	""")
-	return
 
 
 def end_html():

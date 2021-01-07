@@ -6,7 +6,7 @@ import sys
 import urllib.parse
 
 from files.hashing import hash_passwords
-
+from files.const import FROM_REGISTER_HTML
 
 def get_query_string():
     """
@@ -36,7 +36,7 @@ def get_query_string():
 
     #Hashing of the Passwords, but only in the register case , else hash later
     for i in range(len(data_array)):
-        if data_array[i][1] == "from_register_html":
+        if data_array[i][1] == FROM_REGISTER_HTML:
             data_array = hash_passwords(data_array)
 
     return data_array
