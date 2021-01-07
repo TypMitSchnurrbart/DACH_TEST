@@ -29,3 +29,9 @@ APP_LOGIN_FALSE = "$false$"
 VORNAME = "vorname"
 NACHNAME = "nachname"
 COVID_STATE = "covid_state"
+
+#Covid-State-Messages--------------------------------------------
+NO_RISK_MESSAGE = "Kein Risiko!"
+LOW_RISK_MESSAGE = "Leichtes Risiko!"
+HIGH_RISK_MESSAGE = "Hohes Risiko!"
+INFECTED_MESSAGE = "Infiziert und Ansteckend!"

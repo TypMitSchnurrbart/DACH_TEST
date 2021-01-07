@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 #!-*- coding: utf-8 -*-
 
-from files.const import DATA_HANDLE
+from files.const import DATA_HANDLE, NO_RISK_MESSAGE, LOW_RISK_MESSAGE, HIGH_RISK_MESSAGE, INFECTED_MESSAGE
 
 def get_error_text(error_code):
     """
@@ -14,3 +14,18 @@ def get_error_text(error_code):
     result = DATA_HANDLE[0].fetchall()
 
     return result
+
+def translate_covid_state(covid_state):
+    
+    if covid_state == 0:
+        return NO_RISK_MESSAGE
+
+    elif covid_state == 1:
+        return LOW_RISK_MESSAGE
+
+    elif covid_state == 2:
+        return HIGH_RISK_MESSAGE
+
+    elif covid_state == 3:
+        return INFECTED_MESSAGE
+        
