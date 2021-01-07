@@ -2,7 +2,7 @@
 #!-*- coding: utf-8 -*-
 
 from files.hashing import compute_hash
-from files.const import DATA_HANDLE
+from files.const import DATA_HANDLE, WRONG_PW_REPEAT, EMAIL_USED, REGISTER_INSERT_ERROR, EMAIL_NOT_KNOWN, WRONG_LOGIN_PW
 
 import base64
 
@@ -16,7 +16,7 @@ def register_user(data_array):
 
     #Password and Password Repeat must be the same
     if data_array[7][1] != data_array[8][1]:
-        return True, 5
+        return True, WRONG_PW_REPEAT
 
 
     #Check for unique email in Database
@@ -24,7 +24,7 @@ def register_user(data_array):
     result = DATA_HANDLE[0].fetchall()
 
     if result != []:
-        return True, 4
+        return True, EMAIL_USED
 
 
     #Try SQL Insert
@@ -34,7 +34,7 @@ def register_user(data_array):
         DATA_HANDLE[0].execute(f"""INSERT INTO user (vorname, nachname, strasse, hausnr, plz, ort, email, password, salt) VALUES ("{data_array[0][1]}", "{data_array[1][1]}", "{data_array[2][1]}", {data_array[3][1]}, {data_array[4][1]}, "{data_array[5][1]}", "{data_array[6][1]}", "{data_array[7][1]}" , "{str(base64.b64encode(data_array[7][2]))[2:-1]}")""")
         
     except:
-        return True, 3
+        return True, REGISTER_INSERT_ERROR
 
     return False, None
 
@@ -62,10 +62,10 @@ def verify_login(data_array):
 
     #Check if Result is Empty(Email not know) and if password is the same
     if result == []:
-        return True, 6
+        return True, EMAIL_NOT_KNOWN
       
     if result[0][1] != compute_hash(given_password, base64.b64decode(result[0][2])):
-        return True, 7
+        return True, WRONG_LOGIN_PW
 
     #TODO User should stay logged in -> hidden value in every form therefore set global var with uid that is in all possible forms that get generated
 

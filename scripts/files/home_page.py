@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 #!-*- coding: utf-8 -*-
 
+from files.database import get_user_data
+from files.const import VORNAME, NACHNAME, COVID_STATE
 
 def show_homepage(data_array):
     """
@@ -8,7 +10,9 @@ def show_homepage(data_array):
     param:  {list}  data_array; Containing the QueryString Information
     """
 
-    print("""<!DOCTYPE html>
+    vorname, nachname, covid_state = get_user_data(data_array, VORNAME, NACHNAME, COVID_STATE)
+
+    output = f"""<!DOCTYPE html>
 <html>
     <head>
         <title>DACH DHBW</title>
@@ -33,10 +37,10 @@ def show_homepage(data_array):
             <div class="overlay-nav-content">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 <a class="active" href="#home">Home</a>
-                <a href="#room">Räume</a>
                 <a href="#history">Historie</a>
                 <a href="#profil">Profil</a>
                 <a href="#about">About</a>
+                <a href="/index.html">Logout</a>
                 <a href="/move_test.html">MOVE_TEST</a>
             </div>
         </nav>
@@ -45,10 +49,10 @@ def show_homepage(data_array):
                 <section class="main-section">
                     <atricle>
                         <header>
-                            <h1>Überschrift</h1>
+                            <h1>Willkommen {vorname} {nachname} !</h1>
                         </header>
                         <main>
-                            Inhalt
+                            Ihr Corona-Status ist: {covid_state}!
                         </main>
                     </atricle>
                 </section>
@@ -79,17 +83,23 @@ def show_homepage(data_array):
             </address>
         </footer>
         <script>
-            function openNav() {
+            function openNav() ^
                 document.getElementById("topNav").style.width = "100%";
-            }
+            ~
 
-            function closeNav() {
+            function closeNav() ^
                 document.getElementById("topNav").style.width = "0%";
-            }
+            ~
         </script>
     </body>
 </html>
-""")
+"""
 
-#TODO Delete MOVE_Test from sidenav
+    output = output.replace("^", "{")
+    output = output.replace("~", "}")
+
+    print(output)
+
+    #TODO Delete MOVE_Test from sidenav
+    #TODO Create own Covid-State Query to translate id to string for output
     return
