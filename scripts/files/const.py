@@ -9,6 +9,8 @@ DATA_HANDLE = [None, None]
 FROM_INDEX_HTML = "from_index_html"
 FROM_REGISTER_HTML = "from_register_html"
 FROM_MOVE = "from_move"
+REPORT_INFECTION = "report_infection"
+INFECTION_CONFIRMED = "infection_confirmed"
 
 #App-Flag Value--------------------------------------------------
 APP_FLAG = "app_flag"

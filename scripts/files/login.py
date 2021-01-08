@@ -47,7 +47,7 @@ def verify_login(data_array):
     """
 
     #TODO Delete Print
-    print(f"\nInput Daten: {data_array}")
+    #print(f"\nInput Daten: {data_array}")
 
     given_email = data_array[0][1]
     given_password = data_array[1][1]
@@ -58,7 +58,7 @@ def verify_login(data_array):
     result = DATA_HANDLE[0].fetchall()
 
     #TODO Delete Print
-    print(f"\ngiven_email: {given_email}\ngiven_password: {given_password}\n result: {result}")
+    #print(f"\ngiven_email: {given_email}\ngiven_password: {given_password}\n result: {result}")
 
     #Check if Result is Empty(Email not know) and if password is the same
     if result == []:
