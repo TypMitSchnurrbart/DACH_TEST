@@ -32,6 +32,7 @@ VORNAME = "vorname"
 NACHNAME = "nachname"
 COVID_STATE = "covid_state"
 EMAIL = "email"
+IDENT = "ident"
 
 #Covid-State-Messages--------------------------------------------
 NO_RISK_MESSAGE = "Kein Risiko"
