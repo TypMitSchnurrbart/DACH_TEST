@@ -10,6 +10,9 @@ from files.const import DATA_HANDLE
 
 
 def connect_mariadb():
+    """
+    Creating the Data Handle and Connector for MariaDB
+    """
     try:
             connect = mariadb.connect(
 
