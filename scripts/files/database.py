@@ -54,8 +54,6 @@ def get_user_data(data_array, string1, string2 = None, string3 = None):
         elif data_array[i][0] == "ident":
             given_email = data_array[i][1]
             break
-   
-    print(f"<h2>{given_email}\n\n{data_array}</h2>")
 
     if string2 is None and string3 is None:
 

@@ -1,12 +1,14 @@
 #!/usr/bin/python3
 #! -*- coding: utf-8 -*-
 
-from files.const import INFECTION_CONFIRMED, DATA_HANDLE, LOW_RISK, HIGH_RISK, INFECTED, UPPER_LIMIT, LOWER_LIMIT
+from files.const import INFECTION_CONFIRMED, DATA_HANDLE, LOW_RISK, HIGH_RISK, INFECTED, UPPER_LIMIT, LOWER_LIMIT, EMAIL
 
 def show_report_page(data_array):
 
-    #TODO This is just for testing like this!
-    ident_value = data_array[0][1]
+    #TODO This is like this just for testing!
+    for i in range(0 , len(data_array)):
+        if data_array[i][0] == EMAIL:
+            ident_value = data_array[i][1]
 
     output = f"""<!DOCTYPE html>
 <html>
@@ -101,6 +103,7 @@ def show_report_page(data_array):
     print(output)
 
     #TODO Hash the ident; store in extra db table; not to pretty but should be alright
+    
     return
 
 
