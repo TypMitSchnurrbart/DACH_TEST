@@ -54,8 +54,7 @@ def get_user_data(data_array, string1, string2 = None, string3 = None):
         elif data_array[i][0] == "ident":
             given_email = data_array[i][1]
             break
-   
-   
+
     if string2 is None and string3 is None:
 
         DATA_HANDLE[0].execute(f"SELECT {string1} FROM user WHERE user.email LIKE '{given_email}'")

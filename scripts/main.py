@@ -5,13 +5,13 @@
 import os
 import sys
 
+from files.report import show_report_page, change_covid_state_infected
 from files.query_string import get_next_param, get_query_string
-from files.report import show_report_page, change_covid_states
-from files.build_html import start_html, end_html
-from files.database import connect_mariadb
 from files.login import register_user, verify_login
-from files.home_page import show_homepage
+from files.build_html import start_html, end_html
 from files.index_html import show_index_html
+from files.database import connect_mariadb
+from files.home_page import show_homepage
 from files.move import make_move
 
 from files.const import DATA_HANDLE, FROM_INDEX_HTML, FROM_REGISTER_HTML, FROM_MOVE, GENERIC_ERROR, APP_LOGIN_FALSE, APP_LOGIN_TRUE
@@ -80,7 +80,7 @@ if __name__ == "__main__":
 	#TODO Dara_array here will only contain the identifier! important for homepage!
 	elif next_param == INFECTION_CONFIRMED:
 
-		change_covid_states(data_array)
+		change_covid_state_infected(data_array)
 		show_homepage(data_array)
 
 	#If next param is empty
