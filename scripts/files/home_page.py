@@ -57,7 +57,7 @@ def show_homepage(data_array):
                             <h1>Willkommen {vorname} {nachname}!</h1>
                         </header>
                         <main>
-                            Ihr Corona-Status ist: {covid_state}!<br/>
+                            Ihr Corona-Status ist: {covid_state}!<br/><br/>
                             <form method="post" action="/scripts/main.py">
                                 <input type="hidden" id="ident" name="ident" value={ident_value}>
                                 <input type="hidden" id="next_param" name="next_param" value={REPORT_INFECTION}>
