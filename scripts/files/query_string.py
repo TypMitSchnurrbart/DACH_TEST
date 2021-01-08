@@ -39,6 +39,8 @@ def get_query_string():
         for i in range(len(data_array)):
             if data_array[i][1] == FROM_REGISTER_HTML:
                 data_array = hash_passwords(data_array)
+
+    #Except for App, cause of some random empty list at the end of the data array TODO if error occurs elsewhere make a pop not len-1!
     except IndexError:
         for i in range(0, len(data_array) - 1):
             if data_array[i][1] == FROM_REGISTER_HTML:
