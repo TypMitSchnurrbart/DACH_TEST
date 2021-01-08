@@ -1,20 +1,11 @@
 #!/usr/bin/python3
-#!-*- coding: utf-8 -*-
+#! -*- coding: utf-8 -*-
 
-from files.database import get_user_data
-from files.const import VORNAME, NACHNAME, COVID_STATE, REPORT_INFECTION
-from files.error_handle import translate_covid_state
+from files.const import INFECTION_CONFIRMED, DATA_HANDLE
 
-def show_homepage(data_array):
-    """
-    Displaying the Body of the Home Page
-    param:  {list}  data_array; Containing the QueryString Information
-    """
+def show_report_page(data_array):
 
-    vorname, nachname, covid_state = get_user_data(data_array, VORNAME, NACHNAME, COVID_STATE)
-    covid_state = translate_covid_state(covid_state)
-
-    #Like this only for test; Ident should be the email but somehow hashed
+    #TODO This is just for testing like this!
     ident_value = data_array[0][1]
 
     output = f"""<!DOCTYPE html>
@@ -46,7 +37,6 @@ def show_homepage(data_array):
                 <a href="#profil">Profil</a>
                 <a href="#about">About</a>
                 <a href="/index.html">Logout</a>
-                <a href="/move_test.html">MOVE_TEST</a>
             </div>
         </nav>
         <div class="test">
@@ -54,14 +44,14 @@ def show_homepage(data_array):
                 <section class="main-section">
                     <atricle>
                         <header>
-                            <h1>Willkommen {vorname} {nachname}!</h1>
+                            <h1>Corona Infektion Melden</h1>
                         </header>
                         <main>
-                            Ihr Corona-Status ist: {covid_state}!<br/>
+                            <h2>Bestätigen Sie hier dass sie Infiziert sind:</h2>
                             <form method="post" action="/scripts/main.py">
                                 <input type="hidden" id="ident" name="ident" value={ident_value}>
-                                <input type="hidden" id="next_param" name="next_param" value={REPORT_INFECTION}>
-                                <button type="submit">Melden sie sich krank!</button>
+                                <input type="hidden" id="next_param" name="next_param" value={INFECTION_CONFIRMED}>
+                                <button type="submit">Ja. Ich bin infiziert</button>
                             </form>
                         </main>
                     </atricle>
@@ -110,6 +100,21 @@ def show_homepage(data_array):
 
     print(output)
 
-    #TODO Delete MOVE_Test from sidenav
     #TODO Hash the ident; store in extra db table; not to pretty but should be alright
+    return
+
+
+def change_covid_states(data_array):
+    """
+    Change all the Corona States after a reported Infection.
+    param: {array} data_array; Input Data, here only ident interesting
+    """
+
+    #TODO Change the risk states; for now only changing own state to 4
+    #TODO ident still holds the email, future it should hold a hash value that is linked to a user in a different table
+    #TODO therefore must this query be changed in the future!
+
+    #TODO try/ecxept with own error code and Message!
+    DATA_HANDLE[0].execute(f"""UPDATE user SET covid_state = 4 WHERE email LIKE '{data_array[0][1]}'""")
+
     return

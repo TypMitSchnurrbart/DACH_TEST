@@ -15,7 +15,11 @@ def get_error_text(error_code):
 
     return result
 
+
 def translate_covid_state(covid_state):
+    """
+    Translating the stored ID for Covid-State to actual Messages from const
+    """
     
     if covid_state == 0:
         return NO_RISK_MESSAGE
