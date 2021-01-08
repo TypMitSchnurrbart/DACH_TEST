@@ -48,6 +48,13 @@ def get_user_data(data_array, string1, string2 = None, string3 = None):
     for i in range(0, len(data_array)):
         if data_array[i][0] == "email":
             given_email = data_array[i][1]
+            break
+
+        #TODO This will have to be changed; ident will be hash value of the email!
+        elif data_array[i][0] == "ident":
+            given_email = data_array[i][1]
+            break
+   
    
     if string2 is None and string3 is None:
 
