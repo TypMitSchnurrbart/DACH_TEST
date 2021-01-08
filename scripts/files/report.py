@@ -115,6 +115,6 @@ def change_covid_states(data_array):
     #TODO therefore must this query be changed in the future!
 
     #TODO try/ecxept with own error code and Message!
-    DATA_HANDLE[0].execute(f"""UPDATE user SET covid_state = 4 WHERE email LIKE '{data_array[0][1]}'""")
+    DATA_HANDLE[0].execute(f"""UPDATE user SET covid_state = 3 WHERE email LIKE '{data_array[0][1]}'""")
 
     return
