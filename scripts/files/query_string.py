@@ -40,10 +40,9 @@ def get_query_string():
             if data_array[i][1] == FROM_REGISTER_HTML:
                 data_array = hash_passwords(data_array)
     except IndexError:
-        print("Content-Type: text/html")
-        print("")
-        print(f"Data-Array: {data_array}")
-        exit(123)
+        for i in range(0, len(data_array) - 1):
+            if data_array[i][1] == FROM_REGISTER_HTML:
+                data_array = hash_passwords(data_array)
 
     return data_array
 
