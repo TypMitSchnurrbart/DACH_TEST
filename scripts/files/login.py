@@ -28,13 +28,13 @@ def register_user(data_array):
 
 
     #Try SQL Insert
-    try:
+    #try:
         #Always be aware of strings in SQL Statements
         #weird syntax for saving the salt ensures only the base64-string is saved and easily selectable
-        DATA_HANDLE[0].execute(f"""INSERT INTO user (vorname, nachname, strasse, hausnr, plz, ort, email, password, salt) VALUES ("{data_array[0][1]}", "{data_array[1][1]}", "{data_array[2][1]}", {data_array[3][1]}, {data_array[4][1]}, "{data_array[5][1]}", "{data_array[6][1]}", "{data_array[7][1]}" , "{str(base64.b64encode(data_array[7][2]))[2:-1]}")""")
+    DATA_HANDLE[0].execute(f"""INSERT INTO user (vorname, nachname, strasse, hausnr, plz, ort, email, password, salt) VALUES ("{data_array[0][1]}", "{data_array[1][1]}", "{data_array[2][1]}", {data_array[3][1]}, {data_array[4][1]}, "{data_array[5][1]}", "{data_array[6][1]}", "{data_array[7][1]}" , "{str(base64.b64encode(data_array[7][2]))[2:-1]}")""")
         
-    except:
-        return True, REGISTER_INSERT_ERROR
+    #except:
+    #    return True, REGISTER_INSERT_ERROR
 
     return False, None
 
