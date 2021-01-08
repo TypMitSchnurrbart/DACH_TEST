@@ -34,6 +34,9 @@ def get_query_string():
     #Get the query_string seperated into data
     data_array = seperate_query_string(query_string)
 
+    #TODO delete print
+    print(data_array)
+
     #Hashing of the Passwords, but only in the register case , else hash later
     for i in range(len(data_array)):
         if data_array[i][1] == FROM_REGISTER_HTML:

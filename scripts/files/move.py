@@ -18,7 +18,7 @@ def make_move(data_array):
     room_id = DATA_HANDLE[0].fetchall()
 
     if user_id == [] or room_id == []:
-        print("Error. Unknown User or Room. This should not be possible considering that every move comes from the app, therefore user should be existing and room-string comes from QR Code")
+        print("$error$")
         return 
 
     user_id = user_id[0][0]
