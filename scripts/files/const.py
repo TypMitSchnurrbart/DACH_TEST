@@ -37,3 +37,13 @@ NO_RISK_MESSAGE = "Kein Risiko"
 LOW_RISK_MESSAGE = "Leichtes Risiko"
 HIGH_RISK_MESSAGE = "Hohes Risiko"
 INFECTED_MESSAGE = "Infiziert und Ansteckend"
+
+#Covid-States----------------------------------------------------
+NO_RISK = 0
+LOW_RISK = 1
+HIGH_RISK = 2
+INFECTED = 3
+
+#Relevant-Day-Limits---------------------------------------------
+UPPER_LIMIT = 7
+LOWER_LIMIT = 14
