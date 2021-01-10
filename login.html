@@ -1,106 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
     <head>
-        <title>DACH DHBW</title>
+        <title>DACH DHBW - Anmeldung</title>
         <meta charset="UTF-8">
         <meta name="author" charset="Dirk Hattemer, Alexander Müller">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style.css">
-        <script src="https://kit.fontawesome.com/yourcode.js"></script>
-    </head>
+        <script src="https://kit.fontawesome.com/672bee8847.js" crossorigin="anonymous"></script>
+    </head> 
     <body>
-        <header class="main-header">
-            <div class="main-header-center">
-                <div class="main-header-nav-icon">
-                    <span onclick="openNav()">&#9776;</span>
-                </div>
-                <div class="main-header-img">
-                    <img src="media/DACH_logo.png" width="200px" height="auto">
-                </div>
-            </div>
-        </header>
         <nav id="topNav" class="overlay-nav">
             <div class="overlay-nav-content">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="javascript:void(0)" class="closebtn" id="closeNav">&times;</a>
                 <a class="active" href="#home">Home</a>
-                <a href="#room">Räume</a>
-                <a href="#history">Historie</a>
-                <a href="#profil">Profil</a>
-                <a href="#about">About</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="login.html">Login</a>
+                <a href="register.html">Registrierung</a>
+                <a href="index.html">Index</a>
             </div>
         </nav>
-        <div class="test">
-            <section class="main">
-                <section class="main-section">
-                    <atricle>
-                        <header>
-                            <h1>Anmelden</h1>
-                        </header>
-                        <main>
-                            <div class="container-form">
-                                <form action="/scripts/main.py" target="_self" autocomplete="on" method="post">
-                                    <div class="row">
-                                        <div class="col-25">
-                                            <label for="email">E-Mail:</label>
-                                        </div>
-                                        <div class="col-75">
-                                            <input type="email" id="email" name="email">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-25">
-                                            <label for="password">Passwort:</label>
-                                        </div>
-                                        <div class="col-75">
-                                            <input type="password" id="password" name="password">
-                                        </div>
-                                        <div class="row">
-                                            <input type="hidden" id="next_param" name="next_param" value="from_index_html"><br>
-                                            <input type="submit" value="Absenden">
-                                        </div>
-                                    </div>
-                                </form>
-                                <form action="register.html">
-                                    <input type="submit" value="Neu? Hier registrieren!" />
-                                </form>
-                            </div>
-                        </main>
-                    </atricle>
-                </section>
-                <section class="aside-section">
-                    <aside>
-                        <h1>Seitenleiste</h1>
-                    </aside>
-                    <aside>
-                        <!-- das werden Lernvorschlage -->
-                    </aside>
-                    <aside>
-                        <!-- hier könnte eine Werbeanzeige stehen -->
-                    </aside>
-                </section>
-            </section>
-        </div>
-        <footer>
-            <nav>
-                <div>
-                    <ul class="footer-nav">
-                        <li>&copy;DACH</li>
-                        <li><a href="impressum.html">Impressum</a></li>
-                        <li><a href="erklaerung.html">Datenschutzerklärung</a></li>
-                    </ul>
+        <div class="main-content">
+            <header>
+                <div class="main-header">
+                    <div class="nav-icon">
+                        <span id="openNav">&#9776;</span>
+                    </div>
+                    <div class="dach-logo">
+                        <div></div>
+                    </div>
                 </div>
-            </nav>
-            <address>
-            </address>
-        </footer>
-        <script>
-            function openNav() {
-                document.getElementById("topNav").style.width = "100%";
-            }
-
-            function closeNav() {
-                document.getElementById("topNav").style.width = "0%";
-            }
-        </script>
+            </header>
+            <main>
+                <section class="main">
+                    <div>
+                        <h1>Anmelden</h1>
+                    </div>
+                    <div>
+                        <form class="form" id="loginForm" action="" target="_self" autocomplete="on" method="post" novalidate>
+                            <div class="row">
+                                <div class="col-25 test form-control">
+                                    <label for="email">E-Mail:</label>
+                                </div>
+                                <div class="col-75 form-control">
+                                    <input type="email" id="email" name="email" autofocus>
+                                    <i class="fas fa-check-circle"></i>
+                                    <i class="fas fa-exclamation-circle"></i>
+                                    <small>Error message</small>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25 test form-control" id="">
+                                    <label for="psw">Passwort:</label>
+                                </div>
+                                <div class="col-75 form-control">
+                                    <input type="password" id="psw" name="psw">
+                                    <i class="fas fa-check-circle"></i>
+                                    <i class="fas fa-exclamation-circle"></i>
+                                    <small>Error message</small>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <input type="hidden" id="next_param" name="next_param" value="from_index_html">
+                                <button type="submit">Absenden</button>
+                            </div>
+                        </form>
+                        <p>Noch keinen Account? <a href="register.html" >Hier registrieren!</a> </p>
+                    </div>
+                </section>
+            </main>
+            <footer>
+                <nav>
+                    <div>
+                        <ul class="footer-nav">
+                            <li>&copy;DACH</li>
+                            <li><a href="impressum.html">Impressum</a></li>
+                            <li><a href="erklaerung.html">Datenschutzerklärung</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </footer>
+        </div>
+        <script src="index.js"></script>
+        <script src="loginValidation.js"></script>
     </body>
 </html>
