@@ -43,6 +43,6 @@ def make_move(data_array):
         DATA_HANDLE[0].execute(f"""INSERT INTO movement (person, room, date, begin) VALUES ({user_id}, {room_id}, CURDATE(), CURTIME())""")
 
     
-    print("Done. <br/> This is a Testpage for Movement.")
+    print("$true$")
 
     return
