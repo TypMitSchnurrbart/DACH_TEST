@@ -46,6 +46,9 @@ def get_query_string():
             if data_array[i][1] == FROM_REGISTER_HTML:
                 data_array = hash_passwords(data_array)
 
+    #TODO delete print
+    print(f"Data-Input: {data_array}")
+
     return data_array
 
 
