@@ -91,6 +91,8 @@ def change_covid_state_infected(data_array):
     param: {array} data_array; Input Data, here only ident interesting
     """
 
+    print(f"Data_array: {data_array}")
+
     #TODO ident still holds the email, future it should hold a hash value that is linked to a user in a different table
     #TODO therefore must this query be changed in the future!
 
