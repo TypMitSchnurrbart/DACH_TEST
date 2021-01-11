@@ -41,7 +41,7 @@ loginForm.addEventListener("submit", e => {
 
     function setSuccessFor(input) {
         const formControl = input.parentElement;
-        formControl.className = "col-75 form-control success";
+        formControl.className = "col-75 form-control";
     }
 
     function isEmail(email) {
