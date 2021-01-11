@@ -47,7 +47,7 @@ def verify_login(data_array):
     """
 
     #TODO Delete Print
-    #print(f"\nInput Daten: {data_array}")
+    print(f"\nInput Daten: {data_array}")
 
     given_email = data_array[0][1]
     given_password = data_array[1][1]
