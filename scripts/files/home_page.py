@@ -2,7 +2,7 @@
 #!-*- coding: utf-8 -*-
 
 from files.database import get_user_data
-from files.const import VORNAME, NACHNAME, COVID_STATE, REPORT_INFECTION
+from files.const import VORNAME, NACHNAME, COVID_STATE, REPORT_INFECTION, EMAIL
 from files.error_handle import translate_covid_state
 
 def show_homepage(data_array):
@@ -15,7 +15,10 @@ def show_homepage(data_array):
     covid_state = translate_covid_state(covid_state)
 
     #Like this only for test; Ident should be the email but somehow hashed
-    ident_value = data_array[0][1]
+    for i in range(0, len(data_array)):
+        if data_array[i][0] == EMAIL:
+            ident_value = data_array[i][1]
+            break
 
     output = f"""<!DOCTYPE html>
 <html lang="de">
