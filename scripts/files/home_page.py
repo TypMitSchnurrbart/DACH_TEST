@@ -81,9 +81,11 @@ def show_homepage(data_array):
                             <div>
                                 <h5>Krankmelden</h5>
                                 <h4>
-                                    <input type="hidden" id="ident" name="ident" value={ident_value}>
-                                    <input type="hidden" id="next_param" name="next_param" value={REPORT_INFECTION}>
-                                    <button type="submit">Melden sie sich krank!</button>
+                                    <form method="post" action="/scripts/main.py">
+                                        <input type="hidden" id="ident" name="ident" value={ident_value}>
+                                        <input type="hidden" id="next_param" name="next_param" value={REPORT_INFECTION}>
+                                        <button type="submit">Melden sie sich krank!</button>
+                                    </form>
                                 </h4>
                             </div>
                         </div>
