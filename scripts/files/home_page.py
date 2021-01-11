@@ -33,6 +33,7 @@ def show_homepage(data_array):
                 <a href="javascript:void(0)" class="closebtn" id="closeNav">&times;</a>
                 <a class="active" href="/HTML/dashboard.html">Dashboard</a>
                 <a href="">Raumverlauf</a>
+                <a href="/index.html">Logout</a>
                 <a href="">...</a>
             </div>
         </nav>
