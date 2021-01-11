@@ -78,9 +78,6 @@ def show_report_page(data_array):
 </html>
 """
 
-    output = output.replace("^", "{")
-    output = output.replace("~", "}")
-
     print(output)
 
     #TODO Hash the ident; store in extra db table; not to pretty but should be alright
@@ -99,7 +96,7 @@ def change_covid_state_infected(data_array):
 
     #TODO trys/ecxepts with own error codes and Messages!
 
-    DATA_HANDLE[0].execute(f"""UPDATE user SET covid_state = {INFECTED} WHERE email LIKE '{data_array[0][1]}'""")
+    DATA_HANDLE[0].execute(f"""UPDATE user SET covid_state = {INFECTED}, covid_set_date = CURDATE() WHERE email LIKE '{data_array[0][1]}'""")
 
 
     #Set all contacted people to risk states----------------------------------------------------
@@ -144,9 +141,9 @@ def change_covid_state_infected(data_array):
 
     #Set the accroding covid_states
     for i in range(0, len(low_risk_ids)):
-        DATA_HANDLE[0].execute(f"""UPDATE user SET covid_state = {LOW_RISK} WHERE uid = {low_risk_ids[i]}""")
+        DATA_HANDLE[0].execute(f"""UPDATE user SET covid_state = {LOW_RISK}, covid_set_date = CURDATE() WHERE uid = {low_risk_ids[i]}""")
 
     for i in range(0, len(high_risk_ids)):
-        DATA_HANDLE[0].execute(f"""UPDATE user SET covid_state = {HIGH_RISK} WHERE uid = {high_risk_ids[i]}""")
+        DATA_HANDLE[0].execute(f"""UPDATE user SET covid_state = {HIGH_RISK}, covid_set_date = CURDATE() WHERE uid = {high_risk_ids[i]}""")
 
     return
