@@ -18,89 +18,131 @@ def show_homepage(data_array):
     ident_value = data_array[0][1]
 
     output = f"""<!DOCTYPE html>
-<html>
+<html lang="de">
     <head>
-        <title>DACH DHBW</title>
+        <title>DACH DHBW - Startseite</title>
         <meta charset="UTF-8">
         <meta name="author" charset="Dirk Hattemer, Alexander Müller">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://kit.fontawesome.com/672bee8847.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="/style.css">
-        <script src="https://kit.fontawesome.com/yourcode.js"></script>
-    </head>
+    </head> 
     <body>
-        <header class="main-header">
-            <div class="main-header-center">
-                <div class="main-header-nav-icon">
-                    <span onclick="openNav()">&#9776;</span>
-                </div>
-                <div class="main-header-img">
-                    <img src="/media/DACH_logo.png" width="200px" height="auto">
-                </div>
-            </div>
-        </header>
         <nav id="topNav" class="overlay-nav">
             <div class="overlay-nav-content">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <a class="active" href="#home">Home</a>
-                <a href="#history">Historie</a>
-                <a href="#profil">Profil</a>
-                <a href="#about">About</a>
-                <a href="/index.html">Logout</a>
-                <a href="/move_test.html">MOVE_TEST</a>
+                <a href="javascript:void(0)" class="closebtn" id="closeNav">&times;</a>
+                <a class="active" href="/HTML/dashboard.html">Dashboard</a>
+                <a href="">Raumverlauf</a>
+                <a href="">...</a>
             </div>
         </nav>
-        <div class="test">
-            <section class="main">
-                <section class="main-section">
-                    <atricle>
-                        <header>
-                            <h1>Willkommen {vorname} {nachname}!</h1>
-                        </header>
-                        <main>
-                            Ihr Corona-Status ist: {covid_state}!<br/><br/>
-                            <form method="post" action="/scripts/main.py">
-                                <input type="hidden" id="ident" name="ident" value={ident_value}>
-                                <input type="hidden" id="next_param" name="next_param" value={REPORT_INFECTION}>
-                                <button type="submit">Melden sie sich krank!</button>
-                            </form>
-                        </main>
-                    </atricle>
-                </section>
-                <section class="aside-section">
-                    <aside>
-                        <h1>Seitenleiste</h1>
-                    </aside>
-                    <aside>
-                        <!-- das werden Lernvorschlage -->
-                    </aside>
-                    <aside>
-                        <!-- hier könnte eine Werbeanzeige stehen -->
-                    </aside>
-                </section>
-            </section>
-        </div>
-        <footer>
-            <nav>
-                <div>
-                    <ul class="footer-nav">
-                        <li>&copy;DACH</li>
-                        <li><a href="/impressum.html">Impressum</a></li>
-                        <li><a href="/erklaerung.html">Datenschutzerklärung</a></li>
-                    </ul>
+        <div class="main-content">
+            <header>
+                <div class="main-header">
+                    <div class="nav-icon">
+                        <span id="openNav">&#9776;</span>
+                    </div>
+                    <div class="dach-logo">
+                        <div></div>
+                    </div>
                 </div>
-            </nav>
-            <address>
-            </address>
-        </footer>
-        <script>
-            function openNav() ^
-                document.getElementById("topNav").style.width = "100%";
-            ~
-
-            function closeNav() ^
-                document.getElementById("topNav").style.width = "0%";
-            ~
-        </script>
+            </header>
+            <main>
+                <h2 class="title">Dashboard</h2>
+                <h3>Willkommen {vorname} {nachname}!</h3>
+                <div class="dash-cards">
+                    <div class="card-single">
+                        <div class="card-body">
+                            <span class="fas fa-virus"></span>
+                            <div>
+                                <h5>Statusmeldung</h5>
+                                <h4>Status: {covid_state}!</h4>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="">Weitere Info´s</a>
+                        </div>
+                    </div>
+                    <div class="card-single">
+                        <div class="card-body">
+                            <span class="fas fa-home"></span>
+                            <div>
+                                <h5>Raumverlauf</h5>
+                                <h4>Raum N004</h4>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="">Gesamter Verlauf</a>
+                        </div>
+                    </div>
+                    <div class="card-single">
+                        <div class="card-body">
+                            <span class="fas fa-virus"></span>
+                            <div>
+                                <h5>Krankmelden</h5>
+                                <h4>
+                                    <input type="hidden" id="ident" name="ident" value={ident_value}>
+                                    <input type="hidden" id="next_param" name="next_param" value={REPORT_INFECTION}>
+                                    <button type="submit">Melden sie sich krank!</button>
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="">Weitere Info´s</a>
+                        </div>
+                    </div>
+                    <div class="card-single">
+                        <div class="card-body">
+                            <span class="fas fa-home"></span>
+                            <div>
+                                <h5>Raumverlauf</h5>
+                                <h4>Raum N004</h4>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="">Gesamter Verlauf</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary">
+                    <div class="summary-card">
+                        <div class="summary-single">
+                            <span class="far fa-id-badge"></span>
+                            <div>
+                                <h5>196</h5>
+                                <small>Aktive Nutzer</small>
+                            </div>
+                        </div>
+                        <div class="summary-single">
+                            <span class="fas fa-calendar-week"></span>
+                            <div>
+                                <h5>16</h5>
+                                <small>Letztes Update</small>
+                            </div>
+                        </div>
+                        <div class="summary-single">
+                            <span class="far fa-smile"></span>
+                            <div>
+                                <h5>196</h5>
+                                <small>Was auch immer ...</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <footer>
+                <nav>
+                    <div>
+                        <ul class="footer-nav">
+                            <li>&copy;DACH</li>
+                            <li><a href="/HTML/impressum.html">Impressum</a></li>
+                            <li><a href="/HTML/erklaerung.html">Datenschutzerklärung</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </footer>
+            <script src="/JavaScript/index.js"></script>
+        </div>
     </body>
 </html>
 """
