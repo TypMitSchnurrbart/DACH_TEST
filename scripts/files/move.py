@@ -18,7 +18,7 @@ def make_move(data_array):
     room_id = DATA_HANDLE[0].fetchall()
 
     if user_id == [] or room_id == []:
-        print("$error$")
+        print("$false$")
         return 
 
     user_id = user_id[0][0]
