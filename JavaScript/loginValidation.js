@@ -22,8 +22,6 @@ loginForm.addEventListener("submit", e => {
 
         if(pswValue === "") {
             setErrorFor(psw, "Passwort muss ausgefüllt sein!");
-        } else if (!pswAllowed(pswValue)) {
-            setErrorFor(psw, "Dieses Passwort ist falsch!");
         } else {
             setSuccessFor(psw);
         }
