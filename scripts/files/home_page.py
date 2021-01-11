@@ -149,10 +149,6 @@ def show_homepage(data_array):
     </body>
 </html>
 """
-
-    output = output.replace("^", "{")
-    output = output.replace("~", "}")
-
     print(output)
 
     #TODO Delete MOVE_Test from sidenav
