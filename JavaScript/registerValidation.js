@@ -1,13 +1,13 @@
 const registerForm = document.getElementById("registerForm");
-const fname = document.getElementById("fname");
-const lname = document.getElementById("lname");
-const str = document.getElementById("str");
-const sta = document.getElementById("sta");
-const post = document.getElementById("post");
-const residence = document.getElementById("residence");
+const fname = document.getElementById("vorname");
+const lname = document.getElementById("nachname");
+const str = document.getElementById("strasse");
+const sta = document.getElementById("hausnummer");
+const post = document.getElementById("postleitzahl");
+const residence = document.getElementById("ort");
 const email = document.getElementById("email");
-const psw1 = document.getElementById("psw1");
-const psw2 = document.getElementById("psw2");
+const psw1 = document.getElementById("password");
+const psw2 = document.getElementById("password_repeat");
 
 registerForm.addEventListener("submit", e => {
     
