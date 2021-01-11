@@ -12,9 +12,7 @@
         <nav id="topNav" class="overlay-nav">
             <div class="overlay-nav-content">
                 <a href="javascript:void(0)" class="closebtn" id="closeNav">&times;</a>
-                <a class="active" href="/index.html">Home</a>
-                <a href="/HTML/dashboard.html">Dashboard</a>
-                <a href="/HTML/login.html">Login</a>
+                <a class="active" href="/index.html">Anmeldung</a>
                 <a href="/HTML/register.html">Registrierung</a>
             </div>
         </nav>
@@ -35,7 +33,7 @@
                         <h1>Anmelden</h1>
                     </div>
                     <div>
-                        <form class="form" id="loginForm" action="" target="_self" autocomplete="on" method="post" novalidate>
+                        <form class="form" id="loginForm" action="/scripts/main.py" target="_self" autocomplete="on" method="post" novalidate>
                             <div class="row">
                                 <div class="col-25 test form-control">
                                     <label for="email">E-Mail:</label>
@@ -49,10 +47,10 @@
                             </div>
                             <div class="row">
                                 <div class="col-25 test form-control" id="">
-                                    <label for="psw">Passwort:</label>
+                                    <label for="password">Passwort:</label>
                                 </div>
                                 <div class="col-75 form-control">
-                                    <input type="password" id="psw" name="psw">
+                                    <input type="password" id="password" name="password>
                                     <i class="fas fa-check-circle"></i>
                                     <i class="fas fa-exclamation-circle"></i>
                                     <small>Error message</small>
@@ -63,7 +61,7 @@
                                 <button type="submit">Absenden</button>
                             </div>
                         </form>
-                        <p>Noch keinen Account? <a href="register.html" >Hier registrieren!</a> </p>
+                        <p>Noch keinen Account? <a href="/HTML/register.html" >Hier registrieren!</a> </p>
                     </div>
                 </section>
             </main>
