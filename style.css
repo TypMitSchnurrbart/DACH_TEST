@@ -138,6 +138,7 @@ header {
 .nav-icon {
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .nav-icon span {
