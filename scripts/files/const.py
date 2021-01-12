@@ -24,8 +24,8 @@ EMAIL_NOT_KNOWN = 6
 WRONG_LOGIN_PW = 7
 
 #APP-Answers-----------------------------------------------------
-APP_LOGIN_TRUE = "$true$"
-APP_LOGIN_FALSE = "$false$"
+APP_TRUE = "$true$"
+APP_FALSE = "$false$" 
 
 #Database-Column-NAMES-------------------------------------------
 VORNAME = "vorname"
