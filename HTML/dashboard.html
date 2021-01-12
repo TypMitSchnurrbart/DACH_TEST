@@ -1,29 +1,4 @@
-#!/usr/bin/python3
-#!-*- coding: utf-8 -*-
-
-from files.database import get_user_data
-from files.const import VORNAME, NACHNAME, COVID_STATE, REPORT_INFECTION, EMAIL, IDENT
-from files.error_handle import translate_covid_state
-
-def show_homepage(data_array):
-    """
-    Displaying the Body of the Home Page
-    param:  {list}  data_array; Containing the QueryString Information
-    """
-
-    vorname, nachname, covid_state = get_user_data(data_array, VORNAME, NACHNAME, COVID_STATE)
-    covid_state = translate_covid_state(covid_state)
-
-    #Like this only for test; Ident should be the email but somehow hashed
-    for i in range(0, len(data_array)):
-        if data_array[i][0] == EMAIL:
-            ident_value = data_array[i][1]
-            break
-        elif data_array[i][0] == IDENT:
-            ident_value = data_array[i][1]
-            break
-
-    output = f"""<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
     <head>
         <title>DACH DHBW - Startseite</title>
@@ -39,7 +14,6 @@ def show_homepage(data_array):
                 <a href="javascript:void(0)" class="closebtn" id="closeNav">&times;</a>
                 <a class="active" href="/HTML/dashboard.html">Dashboard</a>
                 <a href="">Raumverlauf</a>
-                <a href="/index.html">Logout</a>
                 <a href="">...</a>
             </div>
         </nav>
@@ -56,14 +30,13 @@ def show_homepage(data_array):
             </header>
             <main>
                 <h2 class="title">Dashboard</h2>
-                <h3>Willkommen {vorname} {nachname}!</h3>
                 <div class="dash-cards">
                     <div class="card-single">
                         <div class="card-body">
                             <span class="fas fa-virus"></span>
                             <div>
                                 <h5>Statusmeldung</h5>
-                                <h4>Status: {covid_state}!</h4>
+                                <h4>Status: OKAY</h4>
                             </div>
                         </div>
                         <div class="card-footer">
@@ -86,14 +59,8 @@ def show_homepage(data_array):
                         <div class="card-body">
                             <span class="fas fa-virus"></span>
                             <div>
-                                <h5>Krankmelden</h5>
-                                <h4>
-                                    <form method="post" action="/scripts/main.py">
-                                        <input type="hidden" id="ident" name="ident" value={ident_value}>
-                                        <input type="hidden" id="next_param" name="next_param" value={REPORT_INFECTION}>
-                                        <button type="submit">Melden sie sich krank!</button>
-                                    </form>
-                                </h4>
+                                <h5>Statusmeldung</h5>
+                                <h4>Status: OKAY</h4>
                             </div>
                         </div>
                         <div class="card-footer">
@@ -154,9 +121,3 @@ def show_homepage(data_array):
         </div>
     </body>
 </html>
-"""
-    print(output)
-
-    #TODO Delete MOVE_Test from sidenav
-    #TODO Hash the ident; store in extra db table; not to pretty but should be alright
-    return

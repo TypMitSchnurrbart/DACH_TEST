@@ -15,94 +15,68 @@ def show_report_page(data_array):
             break
 
     output = f"""<!DOCTYPE html>
-<html>
+<html lang="de">
     <head>
-        <title>DACH DHBW</title>
+        <title>DACH DHBW - Registrierung</title>
         <meta charset="UTF-8">
         <meta name="author" charset="Dirk Hattemer, Alexander Müller">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://kit.fontawesome.com/672bee8847.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="/style.css">
-        <script src="https://kit.fontawesome.com/yourcode.js"></script>
     </head>
     <body>
-        <header class="main-header">
-            <div class="main-header-center">
-                <div class="main-header-nav-icon">
-                    <span onclick="openNav()">&#9776;</span>
-                </div>
-                <div class="main-header-img">
-                    <img src="/media/DACH_logo.png" width="200px" height="auto">
-                </div>
-            </div>
-        </header>
         <nav id="topNav" class="overlay-nav">
             <div class="overlay-nav-content">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <a class="active" href="#home">Home</a>
-                <a href="#history">Historie</a>
-                <a href="#profil">Profil</a>
-                <a href="#about">About</a>
-                <a href="/index.html">Logout</a>
+                <a href="javascript:void(0)" class="closebtn" id="closeNav">&times;</a>
+                <a class="active" href="/index.html">Home</a>
+                <a href="/HTML/dashboard.html">Dashboard</a>
+                <a href="/HTML/login.html">Login</a>
+                <a href="/HTML/register.html">Registrierung</a>
             </div>
         </nav>
-        <div class="test">
-            <section class="main">
-                <section class="main-section">
-                    <atricle>
-                        <header>
-                            <h1>Corona Infektion Melden</h1>
-                        </header>
-                        <main>
-                            <h2>Bestätigen Sie hier dass sie Infiziert sind:</h2>
-                            <form method="post" action="/scripts/main.py">
-                                <input type="hidden" id="ident" name="ident" value={ident_value}>
-                                <input type="hidden" id="next_param" name="next_param" value={INFECTION_CONFIRMED}>
-                                <button type="submit">Ja. Ich bin infiziert</button>
-                            </form>
-                        </main>
-                    </atricle>
-                </section>
-                <section class="aside-section">
-                    <aside>
-                        <h1>Seitenleiste</h1>
-                    </aside>
-                    <aside>
-                        <!-- das werden Lernvorschlage -->
-                    </aside>
-                    <aside>
-                        <!-- hier könnte eine Werbeanzeige stehen -->
-                    </aside>
-                </section>
-            </section>
-        </div>
-        <footer>
-            <nav>
-                <div>
-                    <ul class="footer-nav">
-                        <li>&copy;DACH</li>
-                        <li><a href="/impressum.html">Impressum</a></li>
-                        <li><a href="/erklaerung.html">Datenschutzerklärung</a></li>
-                    </ul>
+        <div class="main-content">
+            <header>
+                <div class="main-header">
+                    <div class="nav-icon">
+                        <span id="openNav">&#9776;</span>
+                    </div>
+                    <div class="dach-logo">
+                        <div></div>
+                    </div>
                 </div>
-            </nav>
-            <address>
-            </address>
-        </footer>
-        <script>
-            function openNav() ^
-                document.getElementById("topNav").style.width = "100%";
-            ~
-
-            function closeNav() ^
-                document.getElementById("topNav").style.width = "0%";
-            ~
-        </script>
+            </header>
+            <main>
+                <section class="main">
+                    <div>
+                        <h1>Krankmeldung</h1>
+                    </div>
+                    <div>
+                        <h3>Bestätigen Sie hier dass sie Infiziert sind:<h3>
+                        <form method="post" action="/scripts/main.py">
+                            <input type="hidden" id="ident" name="ident" value={ident_value}>
+                            <input type="hidden" id="next_param" name="next_param" value={INFECTION_CONFIRMED}>
+                            <button type="submit">Ja. Ich bin infiziert</button>
+                        </form>
+                    </div>
+                </section>
+            </main>
+            <footer>
+                <nav>
+                    <div>
+                        <ul class="footer-nav">
+                            <li>&copy;DACH</li>
+                            <li><a href="/HTML/impressum.html">Impressum</a></li>
+                            <li><a href="/HTML/erklaerung.html">Datenschutzerklärung</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </footer>
+        </div>
+        <script src="/JavaScript/index.js"></script>
+        <script src="/JavaScript/registerValidation.js"></script>
     </body>
 </html>
 """
-
-    output = output.replace("^", "{")
-    output = output.replace("~", "}")
 
     print(output)
 
@@ -117,12 +91,14 @@ def change_covid_state_infected(data_array):
     param: {array} data_array; Input Data, here only ident interesting
     """
 
+    print(f"Data_array: {data_array}")
+
     #TODO ident still holds the email, future it should hold a hash value that is linked to a user in a different table
     #TODO therefore must this query be changed in the future!
 
     #TODO trys/ecxepts with own error codes and Messages!
 
-    DATA_HANDLE[0].execute(f"""UPDATE user SET covid_state = {INFECTED} WHERE email LIKE '{data_array[0][1]}'""")
+    DATA_HANDLE[0].execute(f"""UPDATE user SET covid_state = {INFECTED}, covid_set_date = CURDATE() WHERE email LIKE '{data_array[0][1]}'""")
 
 
     #Set all contacted people to risk states----------------------------------------------------
@@ -167,9 +143,9 @@ def change_covid_state_infected(data_array):
 
     #Set the accroding covid_states
     for i in range(0, len(low_risk_ids)):
-        DATA_HANDLE[0].execute(f"""UPDATE user SET covid_state = {LOW_RISK} WHERE uid = {low_risk_ids[i]}""")
+        DATA_HANDLE[0].execute(f"""UPDATE user SET covid_state = {LOW_RISK}, covid_set_date = CURDATE() WHERE uid = {low_risk_ids[i]}""")
 
     for i in range(0, len(high_risk_ids)):
-        DATA_HANDLE[0].execute(f"""UPDATE user SET covid_state = {HIGH_RISK} WHERE uid = {high_risk_ids[i]}""")
+        DATA_HANDLE[0].execute(f"""UPDATE user SET covid_state = {HIGH_RISK}, covid_set_date = CURDATE() WHERE uid = {high_risk_ids[i]}""")
 
     return

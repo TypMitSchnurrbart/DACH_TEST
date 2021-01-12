@@ -1,94 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+
 * {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style-type: none;
     box-sizing: border-box;
 }
 
+/* ---- main style ---- */
+
 body {
-    margin: 0;
-    font-family: Arial;
-    padding: 10px;
     background-color: #f1f1f1;
 }
 
-/* Main Header Style */
-.main-header {
+main {
+    margin: 70px 10px 0 10px;
+    background-color: #fff;
+    padding: 2rem 5rem;
+}
+
+.main-content {
+    position: relative;
+    color: black;
+    max-width: 1000px;
     width: 100%;
-    height: 60px;
-    background-color: white;
-    position: fixed;
-    top: 0;
-    left: 0;
-    border-bottom: solid 1px grey;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: auto;
 }
 
-.main-header-center {
-    max-width: 1000px;
-    margin: 0 auto;
+h1 {
+    margin-top: 1rem;
+    font-size: 1.6rem;
 }
 
-.main-header-nav-icon {
-    font-size: 30px;
-    cursor: pointer;
-    padding: 5px 10px;
-    float: left;
+h2 {
+    margin-top: 1rem;
+    font-size: 1.4rem;
 }
 
-.main-header-img {
-    text-align: center;
+h3 {
+    margin-top: 1rem;
+    font-size: 1.2rem;
 }
 
-img .main-header-img {
-    position: absolute;
-    top: 20px;
-    z-index: 1;
+h4 {
+    margin-top: 1rem;
+    font-size: 1.0rem;
 }
 
-/* Main Section Style */
-.main{
-    margin: 65px auto 5px auto;
-    padding: 20px;
-    max-width: 1000px;
-    background-color: white;
+h5 {
+    margin-top: .8rem;
+    font-size: 2rem;
 }
 
-.main-section {
-    width: 75%;
-    height: auto;
-    padding: 10px;
-    float: left;
+a {
+    color: red;
 }
 
-.aside-section {
-    width: 25%;
-    height: auto;
-    padding: 10px;
-    float: left;
+a:hover {
+    color: darkred;
 }
 
-.main:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-/* Responsive layout */
-@media screen and (max-width: 600px) {
-    .main-section, .aside-section {
-        width: 100%;
-    }
-}
-
-footer {
-    margin: 0 auto;
-    max-width: 1000px;
-    background-color: white;
-    text-align: center;
-    padding: 10px;
-    clear:left;
-}
-
-label {
-    padding: 10px;
+a:visited {
+    color: lightcoral;
 }
 
 /* Style main Navigation */
@@ -97,7 +73,7 @@ label {
     height: 100%;
     width: 0;
     position: fixed;
-    z-index: 1;
+    z-index: 150;
     top: 0;
     left: 0;
     background-color: rgb(0,0,0);
@@ -129,21 +105,73 @@ label {
 
 .overlay-nav .closebtn {
     position: absolute;
-    top: 20px;
+    top: -50%;
     right: 45px;
     font-size: 60px;
 }
 
-@media screen and (max-height: 450px) {
-    .overlay a {font-size: 20px}
-    .overlay .closebtn {
-    font-size: 40px;
-    top: 15px;
-    right: 35px;
-    }
-  }
 
-/* Style Footer Navigation */
+/* ---- header style ---- */
+
+header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    background-color: #fff;
+    height: 60px;
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.main-header {
+    margin: auto;
+    max-width: 1000px;
+    padding: 0rem;
+    height: 60px;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+}
+
+.nav-icon {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.nav-icon span {
+    font-size: 1.5rem;
+    margin-left: 2rem;
+}
+
+.dach-logo {
+    display: flex;
+    align-content: center;
+}
+
+.dach-logo div {
+    left: calc(50% - 100px);
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    align-content: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url(/media/DACH_logo.png);
+    align-items: center;
+}
+
+
+/* ---- footer style ---- */
+
+footer {
+    margin: 10px;
+    background-color: white;
+    text-align: center;
+    padding: 10px;
+}
 
 nav ul {
     list-style-type: none;
@@ -158,7 +186,7 @@ nav li {
     display: inline-block;
     color: black;
     text-align: center;
-    padding: 14px 16px;
+    padding: 4px 6px;
 }
 
 li a {
@@ -170,22 +198,206 @@ li a:hover {
     color: gray;
 }
 
-/* Style Form */
-
-input[type=text], select, textarea, #email, #password {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
+li a:visited {
+    color: black;
 }
 
-label {
-    padding: 12px, 12px, 12px, 0;
+
+/* ---- dashboard style ---- */
+
+.dash-cards {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+}
+
+.card-single {
+    margin-top: 1.5rem;
+    background: #fff;
+    border: 1px solid black;
+    border-radius: 7px;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+}
+
+.card-body {
+    padding: 1.3rem 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.card-body span {
+    font-size: 2rem;
+    color: #777;
+    padding-right: 1.3rem;
+}
+
+.card-body h5 {
+    margin-top: 0;
+    color: gray;
+    font-size: 1rem;
+}
+
+.card-body h4 {
+    color: black;
+    font-size: 1.1rem;
+    margin-top: .2rem;
+}
+
+.card-footer {
+    padding: .2rem 1rem;
+    background-color: lightcoral;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+
+.card-footer a {
+    color: red;
+}
+
+.summary {
+    display: -ms-grid;
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+.summary-card {
+    margin-top: 1.5rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    background: #fff;
+    border: 1px solid black;
+    border-radius: 7px;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+}
+
+.summary-single {
+    padding: .5rem 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.summary-single span {
+    font-size: 1.5rem;
+    color: #777;
+    padding-right: 1rem;
+}
+
+.summary-single h5 {
+    color: red;
+    font-size: 1.1rem;
+    margin-bottom: 0rem !important;
+}
+
+.summary-singel small {
+    font-weight: 700;
+    color: grey;
+}
+
+
+/* ---- Style Form ---- */
+
+.container-form {
+    margin-top: 2rem;
+}
+
+.form div{
+    margin: auto;
+    max-width: 700px;
+}
+
+.col-25 label {
+    float: left;
+    width: 25%;
+}
+
+.col-75 {
+    float: left;
+    width: 75%;
+}
+
+.col-100 {
+    float: left;
+    width: 100%;
+}
+
+label[input] {
+    float: left;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.form-control {
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.form-control label {
+    margin-top: 10px;
+    padding: 10px;
     display: inline-block;
 }
 
-input[type=submit] {
+.form-control input {
+    margin: 0;
+    width: 100%;
+    padding: 10px;
+    display: inline-block;
+    border: 1px solid gray;
+    border-radius: 4px;
+    resize: vertical;
+    background-color: #f1f1f1;
+}
+
+.form-control input:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+.form-control.success input {
+    border-color: #2ecc71;
+}
+
+.form-control.error input {
+    border-color: #e74c3c;
+}
+
+.form-control i {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    visibility: hidden;
+}
+
+.form-control.success i.fa-check-circle {
+    color: #2ecc71;
+    visibility: visible;
+}
+
+.form-control.error i.fa-exclamation-circle {
+    color: #e74c3c;
+    visibility: visible;
+}
+
+.form-control small {
+    visibility: hidden;
+    position: absolute;
+    bottom: 0px;
+    left: 5px;
+}
+
+.form-control.error small {
+    color: #e74c3c;
+    visibility: visible;
+}
+
+.form button {
     background-color: red;
     color: white;
     padding: 12px 20px;
@@ -195,60 +407,50 @@ input[type=submit] {
     float: right;
 }
 
-input[type=submit]:hover {
+.form button:hover {
     background-color: darkred;
 }
 
-.container-from {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
-}
 
-.col-25 {
-    float: left;
-    width: 25%;
-    margin-top: 6px;
-}
+/* ---- Responsive layout ---- */
 
-.col-37 {
-    float: left;
-    width: 37.5%;
-    margin-top: 6px;
-}
-.col-50 {
-    float: left;
-    width: 50%;
-    margin-top: 6px;
-}
 
-.col-75 {
-    float: left;
-    width: 75%;
-    margin-top: 6px;
-}
-
-.col-100 {
-    float: left;
-    width: 100%;
-    margin-top: 6px;
-}
-
-#dataprotection {
-    float: right;
-}
-
-/* Clear floats after column */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-/* Responsive layout */
 @media screen and (max-width: 600px) {
     .col-25, .col-37, .col-50, .col-75, .col-100, input[type=submit] {
         width: 100%;
-        margin-top: 0;
+    }
+    
+    .test {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        position: relative;
+    }
+    
+    .dash-cards {
+        grid-template-columns: 100%;
+    }
+    
+    .card-single {
+        margin-top: 1rem; 
+    }
+    
+    main {
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
+}
+
+
+@media only screen and (max-width: 450px) {
+    main {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+    
+    .overlay a {font-size: 20px}
+    .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
     }
 }
