@@ -14,7 +14,7 @@ from files.database import connect_mariadb
 from files.home_page import show_homepage
 from files.move import make_move
 
-from files.const import DATA_HANDLE, FROM_INDEX_HTML, FROM_REGISTER_HTML, FROM_MOVE, GENERIC_ERROR, APP_LOGIN_FALSE, APP_LOGIN_TRUE
+from files.const import DATA_HANDLE, FROM_INDEX_HTML, FROM_REGISTER_HTML, FROM_MOVE, GENERIC_ERROR, APP_FALSE, APP_TRUE
 from files.const import REPORT_INFECTION, INFECTION_CONFIRMED
 
 
@@ -48,11 +48,11 @@ if __name__ == "__main__":
 
 		#Respond to App as success TODO own functions!
 		elif error is False and from_app is True:
-			print(APP_LOGIN_TRUE)
+			print(APP_TRUE)
 
 		#Respond to App as fail
 		elif error is True and from_app is True:
-			print(APP_LOGIN_FALSE)
+			print(APP_FALSE)
 
 		else:
 			show_index_html(error_code)
@@ -81,7 +81,11 @@ if __name__ == "__main__":
 	elif next_param == INFECTION_CONFIRMED:
 
 		change_covid_state_infected(data_array)
-		show_homepage(data_array)
+
+		if from_app is True:
+			print(APP_TRUE)
+		else:
+			show_homepage(data_array)
 
 	#If next param is empty
 	else:
