@@ -56,7 +56,7 @@ def show_homepage(data_array):
                             <span class="fas fa-virus"></span>
                             <div>
                                 <h5>Statusmeldung</h5>
-                                <h4>Status: {covid_state}!</h4>
+                                <h4 class="state">Status: {covid_state}!</h4>
                             </div>
                         </div>
                         <div class="card-footer">
@@ -68,7 +68,7 @@ def show_homepage(data_array):
                             <span class="fas fa-home"></span>
                             <div>
                                 <h5>Raumverlauf</h5>
-                                <h4>Raum N004</h4>
+                                <h4 class="room">Raum: {room}</h4>
                             </div>
                         </div>
                         <div class="card-footer">
@@ -118,7 +118,7 @@ def show_homepage(data_array):
                         <div class="summary-single">
                             <span class="fas fa-calendar-week"></span>
                             <div>
-                                <h5>16</h5>
+                                <h5 class="date">Datum</h5>
                                 <small>Letztes Update</small>
                             </div>
                         </div>
@@ -144,6 +144,7 @@ def show_homepage(data_array):
                 </nav>
             </footer>
             <script src="/JavaScript/index.js"></script>
+            <script src="/JavaScript/dashboard.js"></script>
         </div>
     </body>
 </html>
