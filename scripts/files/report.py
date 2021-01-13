@@ -122,7 +122,7 @@ def change_covid_state_infected(data_array):
 
         #Get low risk persons and save them
         DATA_HANDLE[0].execute(f"""SELECT person FROM movement WHERE person != {infected_id} AND room = {result[i][0]} AND date = '{result[i][1]}' AND 
-        (date >= CURDATE() - INTERVAL {LOWER_LIMIT} DAY) AND (date < CURDATE() - INTERVAL {UPPER_LIMIT} DAY) AND
+        covid_state <= 1 AND (date >= CURDATE() - INTERVAL {LOWER_LIMIT} DAY) AND (date < CURDATE() - INTERVAL {UPPER_LIMIT} DAY) AND
         ((begin <= '{infected_begin}' AND end <= '{infected_end}' AND end >= '{infected_begin}') OR (begin >= '{infected_begin}' AND end >= '{infected_end}' AND begin <= '{infected_end}') OR
         (begin >= '{infected_begin}' AND end <= '{infected_end}') OR (begin <= '{infected_begin}' AND end >= '{infected_end}'))""")
 
@@ -132,7 +132,7 @@ def change_covid_state_infected(data_array):
 
         #Get high risk persons and save them
         DATA_HANDLE[0].execute(f"""SELECT person FROM movement WHERE person != {infected_id} AND room = {result[i][0]} AND date = '{result[i][1]}' AND 
-        (date >= CURDATE() - INTERVAL {UPPER_LIMIT} DAY) AND
+        covid_state <= 2 AND (date >= CURDATE() - INTERVAL {UPPER_LIMIT} DAY) AND
         ((begin <= '{infected_begin}' AND end <= '{infected_end}' AND end >= '{infected_begin}') OR (begin >= '{infected_begin}' AND end >= '{infected_end}' AND begin <= '{infected_end}') OR
         (begin >= '{infected_begin}' AND end <= '{infected_end}') OR (begin <= '{infected_begin}' AND end >= '{infected_end}'))""")
 
