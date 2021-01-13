@@ -1,3 +1,5 @@
 {
-  "status": "Schlecht"  
+  "state": "Schlecht",
+  "room": "N004",
+  "date": "12.01.2021"
 }
