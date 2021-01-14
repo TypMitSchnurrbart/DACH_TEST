@@ -18,7 +18,7 @@ def show_homepage(data_array):
     ident_value = data_array[0][1]
 
 output = f"""{
-    "ident_value": "{ident_value}",
+    'ident_value': '{ident_value}',
     "status": "{covid_state}",
     "room": [
         "room1": "{room1}",
