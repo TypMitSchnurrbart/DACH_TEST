@@ -52,6 +52,9 @@ def show_homepage(data_array):
                 <h3>Willkommen {vorname} {nachname}!</h3>
                 <div class="dash-cards">
                     <div class="card-single">
+                        <div class="card-footer">
+                            <a href="">Weitere Info´s</a>
+                        </div>
                         <div class="card-body">
                             <span class="fas fa-virus"></span>
                             <div>
@@ -59,25 +62,25 @@ def show_homepage(data_array):
                                 <h4 class="state">Status: {covid_state}!</h4>
                             </div>
                         </div>
-                        <div class="card-footer">
-                            <a href="">Weitere Info´s</a>
-                        </div>
                     </div>
                     <div class="card-single">
-                        <div class="card-body">
-                            <span class="fas fa-home"></span>
-                            <div>
-                                <h5>Raumverlauf</h5>
-                                <h4 class="room">Raum: {room}</h4>
-                            </div>
-                        </div>
                         <div class="card-footer">
                             <a href="">Gesamter Verlauf</a>
                         </div>
+                        <div class="card-body">
+                            <span class="fas fa-home"></span>
+                            <div>
+                                <h5>Letzter</h5>
+                                <h4 class="room">Raum: {room}</h4>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-single">
+                        <div class="card-footer">
+                            <a href="">Weitere Info´s</a>
+                        </div>
                         <div class="card-body">
-                            <span class="fas fa-virus"></span>
+                            <span class="fas fa-briefcase-medical"></span>
                             <div>
                                 <h5>Krankmelden</h5>
                                 <h4>
@@ -89,48 +92,102 @@ def show_homepage(data_array):
                                 </h4>
                             </div>
                         </div>
-                        <div class="card-footer">
-                            <a href="">Weitere Info´s</a>
-                        </div>
                     </div>
                     <div class="card-single">
-                        <div class="card-body">
-                            <span class="fas fa-home"></span>
-                            <div>
-                                <h5>Raumverlauf</h5>
-                                <h4>Raum N004</h4>
-                            </div>
-                        </div>
                         <div class="card-footer">
-                            <a href="">Gesamter Verlauf</a>
+                            <a href="">Profil bearbeiten</a>
                         </div>
-                    </div>
-                </div>
-                <div class="summary">
-                    <div class="summary-card">
-                        <div class="summary-single">
-                            <span class="far fa-id-badge"></span>
+                        <div class="card-body">
+                            <span class="fas fa-user-cog"></span>
                             <div>
-                                <h5>196</h5>
-                                <small>Aktive Nutzer</small>
-                            </div>
-                        </div>
-                        <div class="summary-single">
-                            <span class="fas fa-calendar-week"></span>
-                            <div>
-                                <h5 class="date">Datum</h5>
-                                <small>Letztes Update</small>
-                            </div>
-                        </div>
-                        <div class="summary-single">
-                            <span class="far fa-smile"></span>
-                            <div>
-                                <h5>196</h5>
-                                <small>Was auch immer ...</small>
+                                <h5>Einstellungen</h5>
+                                <h4>Profil</h4>
                             </div>
                         </div>
                     </div>
                 </div>
+                <section class="recent">
+                    <div class="activity-grid">
+                        <div class="room-card">
+                            <h3>Raumverlauf</h3>
+                            <div class="table-responsive">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Raum</th>
+                                            <th>Datum</th>
+                                            <th>Uhrzeit</th>
+                                            <th>Überschneidungen</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Raum1</td>
+                                            <td>12.01.2021</td>
+                                            <td>12:15 Uhr</td>
+                                            <td>mit 20 weiteren Personen</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Raum1</td>
+                                            <td>12.01.2021</td>
+                                            <td>12:15 Uhr</td>
+                                            <td>mit 20 weiteren Personen</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Raum1</td>
+                                            <td>12.01.2021</td>
+                                            <td>12:15 Uhr</td>
+                                            <td>mit 20 weiteren Personen</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Raum1</td>
+                                            <td>12.01.2021</td>
+                                            <td>12:15 Uhr</td>
+                                            <td>mit 20 weiteren Personen</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Raum1</td>
+                                            <td>12.01.2021</td>
+                                            <td>12:15 Uhr</td>
+                                            <td>mit 20 weiteren Personen</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Raum1</td>
+                                            <td>12.01.2021</td>
+                                            <td>12:15 Uhr</td>
+                                            <td>mit 20 weiteren Personen</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="summary">
+                            <div class="summary-card">
+                                <div class="summary-single">
+                                    <span class="far fa-id-badge"></span>
+                                    <div>
+                                        <h5>196</h5>
+                                        <small>Aktive Nutzer</small>
+                                    </div>
+                                </div>
+                                <div class="summary-single">
+                                    <span class="fas fa-calendar-week"></span>
+                                    <div>
+                                        <h5>16</h5>
+                                        <small>Letztes Update</small>
+                                    </div>
+                                </div>
+                                <div class="summary-single">
+                                    <span class="fas fa-code-branch"></span>
+                                    <div>
+                                        <h5>1.0</h5>
+                                        <small>Version</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </main>
             <footer>
                 <nav>

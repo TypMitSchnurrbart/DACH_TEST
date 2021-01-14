@@ -14,6 +14,7 @@
 
 body {
     background-color: #f1f1f1;
+    height: 100%;
 }
 
 main {
@@ -31,7 +32,7 @@ main {
 }
 
 h1 {
-    margin-top: 1rem;
+    margin: 1rem 0;
     font-size: 1.6rem;
 }
 
@@ -117,7 +118,7 @@ header {
     position: fixed;
     left: 0;
     top: 0;
-    z-index: 100;
+    z-index: 140;
     width: 100%;
     background-color: #fff;
     height: 60px;
@@ -138,11 +139,10 @@ header {
 .nav-icon {
     display: flex;
     align-items: center;
-    cursor: pointer;
 }
 
 .nav-icon span {
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin-left: 2rem;
 }
 
@@ -152,14 +152,14 @@ header {
 }
 
 .dach-logo div {
-    left: calc(50% - 100px);
-    width: 200px;
-    height: 100px;
+    left: calc(50% - 7rem);
+    width: 14rem;
+    height: 10rem;
     position: absolute;
     align-content: center;
     background-size: contain;
     background-repeat: no-repeat;
-    background-image: url(/media/DACH_logo.png);
+    background-image: url(DACH_logo.png);
     align-items: center;
 }
 
@@ -205,6 +205,10 @@ li a:visited {
 
 /* ---- dashboard style ---- */
 
+h2.title {
+    margin-bottom: 1rem;
+}
+
 .dash-cards {
     display: -ms-grid;
     display: grid;
@@ -214,17 +218,39 @@ li a:visited {
 }
 
 .card-single {
-    margin-top: 1.5rem;
     background: #fff;
     border: 1px solid black;
     border-radius: 7px;
     box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    height: 100%;
+    color: white;
+}
+
+.card-single,
+.card-single>div {
+    -moz-transform: rotateX(180deg);
+    -ms-transform: rotateX(180deg);
+    -o-transform: rotate(180deg);
+    -webkit-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+}
+
+.card-single:before {
+    content: "";
+    height: 100%;
+    float: left;
 }
 
 .card-body {
     padding: 1.3rem 1rem;
     display: flex;
     align-items: center;
+}
+
+.card-body:after {
+    content: "";
+    display: block;
+    clear: both;
 }
 
 .card-body span {
@@ -247,29 +273,78 @@ li a:visited {
 
 .card-footer {
     padding: .2rem 1rem;
-    background-color: lightcoral;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    background-color: red;
+}
+
+.card-footer a {
+    color: white;
+}
+
+.recent {
+    margin-top: 2rem; 
+    margin-bottom: 2rem;
+}
+
+.activity-grid {
+    display: -ms-grid;
+    display: grid;
+    grid-template-columns: 75% 25%;
+    grid-column-gap: 1.5rem;
+}
+
+.room-card,
+.summary-card {
+    background: #fff;
+    border: 1px solid black;
+    border-radius: 7px;
+}
+
+.table-responsive {
+    overflow-x: auto;
     border-bottom-left-radius: 7px;
     border-bottom-right-radius: 7px;
 }
 
-.card-footer a {
+.room-card h3 {
+    color: var(--text-grey);
+    margin: 1rem;   
+}
+
+.room-card table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.room-card thead {
+    background: #efefef;
+    text-align: left;
     color: red;
 }
 
+th, td {
+    font-size: .9rem;
+    padding: 1rem;
+    color: var(--color-dark);
+}
+
+td {
+    font-size: .8rem;
+}
+
+tbody tr:nth-child(even) {
+    background: #f9fafc
+}
+
 .summary {
-    display: -ms-grid;
-    display: grid;
-    grid-template-columns: 100%;
+    margin-right: 1.5rem;
 }
 
 .summary-card {
-    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
     padding-top: .5rem;
     padding-bottom: .5rem;
-    background: #fff;
-    border: 1px solid black;
-    border-radius: 7px;
-    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
 }
 
 .summary-single {
@@ -292,9 +367,20 @@ li a:visited {
 
 .summary-singel small {
     font-weight: 700;
-    color: grey;
+    color: var(--text-grey);
 }
 
+.text-center {
+    text-align: center;
+}
+
+.text-center button {
+    background: var(--main-color);
+    color: #fff;
+    border: 1px solid var(--main-color);
+    border-radius: 4px;
+    padding: .4rem 1rem;
+}
 
 /* ---- Style Form ---- */
 
@@ -355,6 +441,31 @@ label[input] {
     background-color: #f1f1f1;
 }
 
+input[type="checkbox"] {
+  position: absolute;
+  left: -15px;
+}
+input[type="checkbox"] + label::before {
+  width: 12px;
+  height: 12px;
+  border-radius: 5px;
+  border: 2px solid red;
+  background-color: #fff;
+  display: block;
+  content: "";
+  float: left;
+  margin-right: 5px;
+}
+
+input[type="checkbox"]:checked+label::before {
+  box-shadow: inset 0px 0px 0px 3px #fff;
+  background-color: red;
+}
+
+#datenschutz {
+    
+}
+
 .form-control input:focus {
     background-color: #ddd;
     outline: none;
@@ -370,7 +481,7 @@ label[input] {
 
 .form-control i {
     position: absolute;
-    top: 10px;
+    top: 13px;
     right: 10px;
     visibility: hidden;
 }
@@ -414,29 +525,72 @@ label[input] {
 
 /* ---- Responsive layout ---- */
 
+@media screen and (max-width: 800px) {
+    .activity-grid {
+        display: -ms-grid;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-column-gap: 1.5rem;
+    }
+    
+    .summary {
+        margin-top: 1.5rem;
+        margin-right: 0rem;
+    }
+    
+    .summary-card {
+        margin-bottom: 0rem;
+        padding-top: .5rem;
+        padding-bottom: .5rem;
+        text-align: center;
+    }
+    
+    .summary-single {
+        padding: .4rem 1rem;
+        display: inline-flex;
+        align-items: center;
+    }
+    
+    .summary-single span {
+        font-size: 1.4rem;
+        padding-right: 0.6rem;
+    }
+
+    .summary-single h5 {
+        font-size: 1.2rem;
+        text-align: left;
+    }
+}
 
 @media screen and (max-width: 600px) {
-    .col-25, .col-37, .col-50, .col-75, .col-100, input[type=submit] {
+    .col-25 label, .col-75, .col-100, input[type=submit] {
         width: 100%;
     }
     
-    .test {
-        margin-bottom: 0;
-        padding-bottom: 0;
-        position: relative;
+    .col-25 label {
+        padding: 0 10px 10px 0;
     }
     
     .dash-cards {
         grid-template-columns: 100%;
     }
     
-    .card-single {
-        margin-top: 1rem; 
-    }
-    
     main {
         padding-right: 2rem;
         padding-left: 2rem;
+    }
+    
+    .summary-single {
+        padding: .4rem 0.5rem;
+    }
+    
+    .summary-single span {
+        font-size: 1.6rem;
+        padding-right: 0.6rem;
+    }
+
+    .summary-single h5 {
+        font-size: 1.2rem;
     }
 }
 
@@ -447,10 +601,31 @@ label[input] {
         padding-left: 1rem;
     }
     
-    .overlay a {font-size: 20px}
-    .overlay .closebtn {
-    font-size: 40px;
-    top: 15px;
-    right: 35px;
+    .overlay a {
+        font-size: 20px
+    }
+
+    .overlay, 
+    .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+        }
+    
+    .summary-single {
+        padding: .4rem 0.5rem;
+    }
+    
+    .summary-single span {
+        font-size: 1.2rem;
+        padding-right: 0.6rem;
+    }
+
+    .summary-single h5 {
+        font-size: 1rem;
+    }
+    
+    .summary-single small {
+        font-size: 0.7rem;
     }
 }
