@@ -59,7 +59,7 @@ def show_homepage(data_array):
                                 <span class="fas fa-virus"></span>
                                 <div>
                                     <h5>Statusmeldung</h5>
-                                    <h4 class="state" id="state">Status: {covid_state}!</h4>
+                                    <h4 id="state">Status: {covid_state}!</h4>
                                 </div>
                             </div>
                         </div>
@@ -71,7 +71,7 @@ def show_homepage(data_array):
                                 <span class="fas fa-home"></span>
                                 <div>
                                     <h5>Letzter</h5>
-                                    <h4 class="room" id="lastR">Raum: {lastRoom}</h4>
+                                    <h4 id="lastR">Raum: {lastRoom}</h4>
                                 </div>
                             </div>
                         </div>
