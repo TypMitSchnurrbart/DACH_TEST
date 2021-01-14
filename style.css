@@ -382,6 +382,7 @@ tbody tr:nth-child(even) {
     padding: .4rem 1rem;
 }
 
+
 /* ---- Style Form ---- */
 
 .container-form {
@@ -441,29 +442,32 @@ label[input] {
     background-color: #f1f1f1;
 }
 
-input[type="checkbox"] {
-  position: absolute;
-  left: -15px;
-}
-input[type="checkbox"] + label::before {
-  width: 12px;
-  height: 12px;
-  border-radius: 5px;
-  border: 2px solid red;
-  background-color: #fff;
-  display: block;
-  content: "";
-  float: left;
-  margin-right: 5px;
+.datenschutz {
+    padding: 20px 10px;
+    align-content: center;
+    align-items: center;
 }
 
-input[type="checkbox"]:checked+label::before {
+.datenschutz input[type="checkbox"] {
+    position: absolute;
+    left: -15px;
+}
+
+.datenschutz input[type="checkbox"] + label::before {
+    width: 12px;
+    height: 12px;
+    border-radius: 5px;
+    border: 2px solid red;
+    background-color: #fff;
+    display: block;
+    content: "";
+    float: left;
+    margin: 4px 10px 0 0;
+}
+
+.datenschutz input[type="checkbox"]:checked+label::before {
   box-shadow: inset 0px 0px 0px 3px #fff;
   background-color: red;
-}
-
-#datenschutz {
-    
 }
 
 .form-control input:focus {

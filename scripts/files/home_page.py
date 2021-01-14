@@ -48,7 +48,7 @@ def show_homepage(data_array):
                 </div>
             </header>
             <main>
-                <h2 class="title">Dashboard</h2>
+                <h1 class="title">Dashboard</h1>
                 <h3>Willkommen {vorname} {nachname}!</h3>
                 <div class="dash-cards">
                     <div class="card-single">
