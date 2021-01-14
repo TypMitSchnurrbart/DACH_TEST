@@ -22,7 +22,7 @@ def show_homepage(data_array):
         <head>
             <title>DACH DHBW - Startseite</title>
             <meta charset="UTF-8">
-            <meta name="author" charset="Dirk Hattemer, Alexander Müller">
+            <meta name="author" charset="Dirk Hattemer, Alexander Müller, Tim Fassbender">
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <script src="https://kit.fontawesome.com/672bee8847.js" crossorigin="anonymous"></script>
             <link rel="stylesheet" href="/style.css">
@@ -59,7 +59,7 @@ def show_homepage(data_array):
                                 <span class="fas fa-virus"></span>
                                 <div>
                                     <h5>Statusmeldung</h5>
-                                    <h4 class="state">Status: {covid_state}!</h4>
+                                    <h4 class="state" id="state">Status: {covid_state}!</h4>
                                 </div>
                             </div>
                         </div>
@@ -71,7 +71,7 @@ def show_homepage(data_array):
                                 <span class="fas fa-home"></span>
                                 <div>
                                     <h5>Letzter</h5>
-                                    <h4 class="room">Raum: {lastRoom}</h4>
+                                    <h4 class="room" id="lastR">Raum: {lastRoom}</h4>
                                 </div>
                             </div>
                         </div>
@@ -120,7 +120,7 @@ def show_homepage(data_array):
                                                 <th>Überschneidungen</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody id="tabelle">
                                             <tr>
                                                 <td>{room1}</td>
                                                 <td>{date1}</td>
@@ -200,9 +200,6 @@ def show_homepage(data_array):
         </body>
     </html>
     """
-
-    output = output.replace("^", "{")
-    output = output.replace("~", "}")
 
     print(output)
 

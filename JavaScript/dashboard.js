@@ -1,55 +1,69 @@
-// window.setInterval(function () {
-//     var date = new Date();
-//     alert(date.getMinutes();
-//     if ((date.getMinutes() % 5) == 0) {
+// const { doc } = require("prettier");
 
-//         fetch("https://dhbwdach.ddns.net/dashboard.json")
-//             .then(response => response.json())
-//             .then(data => console.log(data));
-//     }
-// }, 60000);
-
-// Funktion wird aufgrund von mehrfach-verwendung deklariert
+//Funktion wird aufgrund von mehrfach-verwendung deklariert
 function doREQ(){
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", "test.json", true);
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4) {
-            var data = JSON.parse(xhr.responseText);
+     var xhr = new XMLHttpRequest();
+     xhr.open("GET", "test.json", true);
+     xhr.onreadystatechange = function() {
+         if (xhr.readyState == 4) {
+             var data = JSON.parse(xhr.responseText);
 
-            document.getElementById("state").innerHTML = "Status: " + data.status;
-            document.getElementById("room").innerHTML = "Raum: " + data.room;
-            document.getElementById("date").innerHTML = data.date;
-        }
+             var a = document.getElementById("state");
+             a.innerHTML = "Status: " + data.status;
+         }
+     }
+     xhr.send(null);
     }
-    xhr.send(null);
-}
 function doREQfetch(){
-    fetch("./test.json")
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function(data){
-        var a = document.getElementById("state");
-        a.innerHTML = "Status: " + data.status;
-    });
-}
+     fetch("./test.json")
+     .then(function(response) {
+         return response.json();
+     })
+     .then(function(data){
+        // Deklarieren von Variablen notwendig? ==> direkter Edit?
+        //upper Elements
+        var status = document.getElementById("state");
+        var lastRoom = document.getElementById("lastR"); 
+        
+        status.innerHTML = "Status: " + data.state;
+        if (data.roomHistory[0] != undefined){
+        lastRoom.innerHTML = "Raum " + data.roomHistory[0].room;
+        }
+        else{
+        lastRoom.innerHTML = "-";
+        }
+        
+        // room list
+        var table = document.getElementById("tabelle");
+        var row, raum, dt, zeit, pers;
+        for (var i = 0; i < 5; i++)
+        {
+            if(data.roomHistory[i] != undefined)
+            {
+            row = table.insertRow(i);
+            raum = row.insertCell(0);
+            dt = row.insertCell(1);
+            zeit = row.insertCell(2);
+            pers = row.insertCell(3);
+            raum.innerHTML = data.roomHistory[i].room;
+            dt.innerHTML = data.roomHistory[i].date;
+            zeit.innerHTML = data.roomHistory[i].time;
+            pers.innerHTML = data.roomHistory[i].nrUser;
+            }
+            else{
+                break;
+            }
+        }
+     });
+ }
 
+ //nach Page-Load erstes Request, dann in 10Sek. Intervallen (JSON-GET)
+ window.onload = function() {
+     //doREQ(); 
+     doREQfetch(); //beide Möglichkeiten funktionieren!
 
-
-//nach Page-Load erstes Request, dann in 10Sek. Intervallen (JSON-GET)
-
-// window.onload = function() {
-//     var test = 1;
-//     //doREQ(); 
-//     doREQfetch(); //beide Möglichkeiten funktionieren!
-
-//     setInterval(function() {
-//     test += 1;
-//     if (test == 3){
-//         alert("It works!");
-//     }
-//     //doREQ();
-//     doREQfetch();
-// }, 10 * 1000);
-// }
+     setInterval(function() {
+     //doREQ();
+     doREQfetch();
+ }, 60 * 1000);
+ }

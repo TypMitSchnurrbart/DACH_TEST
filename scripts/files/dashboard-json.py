@@ -17,6 +17,18 @@ def show_homepage(data_array):
     #Like this only for test; Ident should be the email but somehow hashed
     ident_value = data_array[0][1]
 
+#TODO creating roomHistory 
+
+    roomInfo = transmitData
+    for i in roomInfo:
+        for j in 
+                # ( "room": "{room1}", "date": "{date1}", "time": "{time1}", "nrUser": "{nrUser1}"),
+                # ( "room": "{room2}", "date": "{date2}", "time": "{time2}", "nrUser": "{nrUser2}"),
+                # ( "room": "{room3}", "date": "{date3}", "time": "{time3}", "nrUser": "{nrUser3}"),
+                # ( "room": "{room4}", "date": "{date4}", "time": "{time4}", "nrUser": "{nrUser4}"),
+                # ( "room": "{room5}", "date": "{date5}", "time": "{time5}", "nrUser": "{nrUser5}")
+
+
     output = f"""
         (
             "ident_value": "{ident_value}",
@@ -26,11 +38,7 @@ def show_homepage(data_array):
             "lastUpdate": "{lastUpdate}",
             "version": "{version}",
             "roomHistory": [
-                ( "room": "{room1}", "date": "{date1}", "time": "{time1}", "nrUser": "{nrUser1}"),
-                ( "room": "{room2}", "date": "{date2}", "time": "{time2}", "nrUser": "{nrUser2}"),
-                ( "room": "{room3}", "date": "{date3}", "time": "{time3}", "nrUser": "{nrUser3}"),
-                ( "room": "{room4}", "date": "{date4}", "time": "{time4}", "nrUser": "{nrUser4}"),
-                ( "room": "{room5}", "date": "{date5}", "time": "{time5}", "nrUser": "{nrUser5}")
+                {roomHistory}
             ]
         )
     """
