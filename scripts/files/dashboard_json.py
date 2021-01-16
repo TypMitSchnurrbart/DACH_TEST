@@ -17,7 +17,8 @@ def show_homepage(data_array):
     #Like this only for test; Ident should be the email but somehow hashed
     ident_value = data_array[0][1]
 
-#TODO creating roomHistory 
+    #TODO make a full own module for the json request to update the dashboard!!! <------------------
+
 
     roomInfo = transmitData
     for i in roomInfo:

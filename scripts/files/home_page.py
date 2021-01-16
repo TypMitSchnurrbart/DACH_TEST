@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 #!-*- coding: utf-8 -*-
 
-from files.database import get_user_data
-from files.const import VORNAME, NACHNAME, COVID_STATE, REPORT_INFECTION
+from files.get_data import get_user_data, get_user_id, get_last_room
+from files.const import VORNAME, NACHNAME, COVID_STATE, REPORT_INFECTION, VERSION
 from files.error_handle import translate_covid_state
 
 def show_homepage(data_array):
@@ -11,10 +11,16 @@ def show_homepage(data_array):
     param:  {list}  data_array; Containing the QueryString Information
     """
 
-    vorname, nachname, covid_state = get_user_data(data_array, VORNAME, NACHNAME, COVID_STATE)
+    activ_uid = get_user_id(data_array)
+
+    vorname, nachname, covid_state = get_user_data(activ_uid, VORNAME, NACHNAME, COVID_STATE)
     covid_state = translate_covid_state(covid_state)
 
-    #Like this only for test; Ident should be the email but somehow hashed
+    last_room = get_last_room(activ_uid)
+
+    #TODO get rooms and a variable room length OR empty values for empty rooms!
+
+    #Like this only for test; Ident should be the email but hashed
     ident_value = data_array[0][1]
 
     output = f"""<!DOCTYPE html>
@@ -33,6 +39,7 @@ def show_homepage(data_array):
                     <a href="javascript:void(0)" class="closebtn" id="closeNav">&times;</a>
                     <a class="active" href="/HTML/dashboard.html">Dashboard</a>
                     <a href="">Raumverlauf</a>
+                    <a href="/index.html">Logout</a>
                     <a href="">...</a>
                 </div>
             </nav>
@@ -71,7 +78,7 @@ def show_homepage(data_array):
                                 <span class="fas fa-home"></span>
                                 <div>
                                     <h5>Letzter</h5>
-                                    <h4 id="lastR">Raum: {lastRoom}</h4>
+                                    <h4 id="lastR">Raum: {last_room}</h4>
                                 </div>
                             </div>
                         </div>
@@ -174,7 +181,7 @@ def show_homepage(data_array):
                                     <div class="summary-single">
                                         <span class="fas fa-code-branch"></span>
                                         <div>
-                                            <h5>{version}</h5>
+                                            <h5>{VERSION}</h5>
                                             <small>Version</small>
                                         </div>
                                     </div>
