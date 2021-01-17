@@ -211,3 +211,219 @@ IndexError: list index out of range" while reading response header from upstream
 2021/01/17 14:51:29 [error] 520#520: *752 FastCGI sent in stderr: "Cannot get script name, are DOCUMENT_ROOT and SCRIPT_NAME (or SCRIPT_FILENAME) set and is the script executable?" while reading response header from upstream, client: 79.220.79.28, server: dhbwdach.ddns.net, request: "GET /scripts/scripts/dashboard_json.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/scripts/main.py"
 2021/01/17 14:51:30 [error] 520#520: *762 FastCGI sent in stderr: "Cannot get script name, are DOCUMENT_ROOT and SCRIPT_NAME (or SCRIPT_FILENAME) set and is the script executable?" while reading response header from upstream, client: 93.235.96.177, server: dhbwdach.ddns.net, request: "GET /scripts/scripts/dashboard_json.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/scripts/main.py"
 2021/01/17 14:51:40 [error] 520#520: *762 FastCGI sent in stderr: "Cannot get script name, are DOCUMENT_ROOT and SCRIPT_NAME (or SCRIPT_FILENAME) set and is the script executable?" while reading response header from upstream, client: 93.235.96.177, server: dhbwdach.ddns.net, request: "GET /scripts/scripts/dashboard_json.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/scripts/main.py"
+2021/01/17 15:40:56 [error] 520#520: *1140 FastCGI sent in stderr: "Traceback (most recent call last):
+  File "/var/www/html/scripts/dashboard_json.py", line 91, in <module>
+    build_data_json(data_array)
+  File "/var/www/html/scripts/dashboard_json.py", line 26, in build_data_json
+    activ_uid = get_user_id(data_array)
+  File "/var/www/html/scripts/files/get_data.py", line 57, in get_user_id
+    DATA_HANDLE[0].execute(f"SELECT uid FROM user WHERE user.email LIKE '{given_email}'")
+UnboundLocalError: local variable 'given_email' referenced before assignment" while reading response header from upstream, client: 79.220.79.28, server: dhbwdach.ddns.net, request: "GET /scripts/dashboard_json.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/scripts/main.py"
+2021/01/17 15:41:06 [error] 520#520: *1140 FastCGI sent in stderr: "Traceback (most recent call last):
+  File "/var/www/html/scripts/dashboard_json.py", line 91, in <module>
+    build_data_json(data_array)
+  File "/var/www/html/scripts/dashboard_json.py", line 26, in build_data_json
+    activ_uid = get_user_id(data_array)
+  File "/var/www/html/scripts/files/get_data.py", line 57, in get_user_id
+    DATA_HANDLE[0].execute(f"SELECT uid FROM user WHERE user.email LIKE '{given_email}'")
+UnboundLocalError: local variable 'given_email' referenced before assignment" while reading response header from upstream, client: 79.220.79.28, server: dhbwdach.ddns.net, request: "GET /scripts/dashboard_json.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/scripts/main.py"
+2021/01/17 15:41:16 [error] 520#520: *1140 FastCGI sent in stderr: "Traceback (most recent call last):
+  File "/var/www/html/scripts/dashboard_json.py", line 91, in <module>
+    build_data_json(data_array)
+  File "/var/www/html/scripts/dashboard_json.py", line 26, in build_data_json
+    activ_uid = get_user_id(data_array)
+  File "/var/www/html/scripts/files/get_data.py", line 57, in get_user_id
+    DATA_HANDLE[0].execute(f"SELECT uid FROM user WHERE user.email LIKE '{given_email}'")
+UnboundLocalError: local variable 'given_email' referenced before assignment" while reading response header from upstream, client: 79.220.79.28, server: dhbwdach.ddns.net, request: "GET /scripts/dashboard_json.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/scripts/main.py"
+2021/01/17 15:41:26 [error] 520#520: *1140 FastCGI sent in stderr: "Traceback (most recent call last):
+  File "/var/www/html/scripts/dashboard_json.py", line 91, in <module>
+    build_data_json(data_array)
+  File "/var/www/html/scripts/dashboard_json.py", line 26, in build_data_json
+    activ_uid = get_user_id(data_array)
+  File "/var/www/html/scripts/files/get_data.py", line 57, in get_user_id
+    DATA_HANDLE[0].execute(f"SELECT uid FROM user WHERE user.email LIKE '{given_email}'")
+UnboundLocalError: local variable 'given_email' referenced before assignment" while reading response header from upstream, client: 79.220.79.28, server: dhbwdach.ddns.net, request: "GET /scripts/dashboard_json.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/scripts/main.py"
+2021/01/17 15:41:36 [error] 520#520: *1140 FastCGI sent in stderr: "Traceback (most recent call last):
+  File "/var/www/html/scripts/dashboard_json.py", line 91, in <module>
+    build_data_json(data_array)
+  File "/var/www/html/scripts/dashboard_json.py", line 26, in build_data_json
+    activ_uid = get_user_id(data_array)
+  File "/var/www/html/scripts/files/get_data.py", line 57, in get_user_id
+    DATA_HANDLE[0].execute(f"SELECT uid FROM user WHERE user.email LIKE '{given_email}'")
+UnboundLocalError: local variable 'given_email' referenced before assignment" while reading response header from upstream, client: 79.220.79.28, server: dhbwdach.ddns.net, request: "GET /scripts/dashboard_json.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/scripts/main.py"
+2021/01/17 15:41:46 [error] 520#520: *1140 FastCGI sent in stderr: "Traceback (most recent call last):
+  File "/var/www/html/scripts/dashboard_json.py", line 91, in <module>
+    build_data_json(data_array)
+  File "/var/www/html/scripts/dashboard_json.py", line 26, in build_data_json
+    activ_uid = get_user_id(data_array)
+  File "/var/www/html/scripts/files/get_data.py", line 57, in get_user_id
+    DATA_HANDLE[0].execute(f"SELECT uid FROM user WHERE user.email LIKE '{given_email}'")
+UnboundLocalError: local variable 'given_email' referenced before assignment" while reading response header from upstream, client: 79.220.79.28, server: dhbwdach.ddns.net, request: "GET /scripts/dashboard_json.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/scripts/main.py"
+2021/01/17 15:41:56 [error] 520#520: *1140 FastCGI sent in stderr: "Traceback (most recent call last):
+  File "/var/www/html/scripts/dashboard_json.py", line 91, in <module>
+    build_data_json(data_array)
+  File "/var/www/html/scripts/dashboard_json.py", line 26, in build_data_json
+    activ_uid = get_user_id(data_array)
+  File "/var/www/html/scripts/files/get_data.py", line 57, in get_user_id
+    DATA_HANDLE[0].execute(f"SELECT uid FROM user WHERE user.email LIKE '{given_email}'")
+UnboundLocalError: local variable 'given_email' referenced before assignment" while reading response header from upstream, client: 79.220.79.28, server: dhbwdach.ddns.net, request: "GET /scripts/dashboard_json.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/scripts/main.py"
+2021/01/17 15:42:06 [error] 520#520: *1140 FastCGI sent in stderr: "Traceback (most recent call last):
+  File "/var/www/html/scripts/dashboard_json.py", line 91, in <module>
+    build_data_json(data_array)
+  File "/var/www/html/scripts/dashboard_json.py", line 26, in build_data_json
+    activ_uid = get_user_id(data_array)
+  File "/var/www/html/scripts/files/get_data.py", line 57, in get_user_id
+    DATA_HANDLE[0].execute(f"SELECT uid FROM user WHERE user.email LIKE '{given_email}'")
+UnboundLocalError: local variable 'given_email' referenced before assignment" while reading response header from upstream, client: 79.220.79.28, server: dhbwdach.ddns.net, request: "GET /scripts/dashboard_json.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/scripts/main.py"
+2021/01/17 15:42:16 [error] 520#520: *1140 FastCGI sent in stderr: "Traceback (most recent call last):
+  File "/var/www/html/scripts/dashboard_json.py", line 91, in <module>
+    build_data_json(data_array)
+  File "/var/www/html/scripts/dashboard_json.py", line 26, in build_data_json
+    activ_uid = get_user_id(data_array)
+  File "/var/www/html/scripts/files/get_data.py", line 57, in get_user_id
+    DATA_HANDLE[0].execute(f"SELECT uid FROM user WHERE user.email LIKE '{given_email}'")
+UnboundLocalError: local variable 'given_email' referenced before assignment" while reading response header from upstream, client: 79.220.79.28, server: dhbwdach.ddns.net, request: "GET /scripts/dashboard_json.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/scripts/main.py"
+2021/01/17 15:42:26 [error] 520#520: *1140 FastCGI sent in stderr: "Traceback (most recent call last):
+  File "/var/www/html/scripts/dashboard_json.py", line 91, in <module>
+    build_data_json(data_array)
+  File "/var/www/html/scripts/dashboard_json.py", line 26, in build_data_json
+    activ_uid = get_user_id(data_array)
+  File "/var/www/html/scripts/files/get_data.py", line 57, in get_user_id
+    DATA_HANDLE[0].execute(f"SELECT uid FROM user WHERE user.email LIKE '{given_email}'")
+UnboundLocalError: local variable 'given_email' referenced before assignment" while reading response header from upstream, client: 79.220.79.28, server: dhbwdach.ddns.net, request: "GET /scripts/dashboard_json.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/scripts/main.py"
+2021/01/17 15:42:36 [error] 520#520: *1140 FastCGI sent in stderr: "Traceback (most recent call last):
+  File "/var/www/html/scripts/dashboard_json.py", line 91, in <module>
+    build_data_json(data_array)
+  File "/var/www/html/scripts/dashboard_json.py", line 26, in build_data_json
+    activ_uid = get_user_id(data_array)
+  File "/var/www/html/scripts/files/get_data.py", line 57, in get_user_id
+    DATA_HANDLE[0].execute(f"SELECT uid FROM user WHERE user.email LIKE '{given_email}'")
+UnboundLocalError: local variable 'given_email' referenced before assignment" while reading response header from upstream, client: 79.220.79.28, server: dhbwdach.ddns.net, request: "GET /scripts/dashboard_json.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/scripts/main.py"
+2021/01/17 15:42:46 [error] 520#520: *1140 FastCGI sent in stderr: "Traceback (most recent call last):
+  File "/var/www/html/scripts/dashboard_json.py", line 91, in <module>
+    build_data_json(data_array)
+  File "/var/www/html/scripts/dashboard_json.py", line 26, in build_data_json
+    activ_uid = get_user_id(data_array)
+  File "/var/www/html/scripts/files/get_data.py", line 57, in get_user_id
+    DATA_HANDLE[0].execute(f"SELECT uid FROM user WHERE user.email LIKE '{given_email}'")
+UnboundLocalError: local variable 'given_email' referenced before assignment" while reading response header from upstream, client: 79.220.79.28, server: dhbwdach.ddns.net, request: "GET /scripts/dashboard_json.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/scripts/main.py"
+2021/01/17 15:42:56 [error] 520#520: *1140 FastCGI sent in stderr: "Traceback (most recent call last):
+  File "/var/www/html/scripts/dashboard_json.py", line 91, in <module>
+    build_data_json(data_array)
+  File "/var/www/html/scripts/dashboard_json.py", line 26, in build_data_json
+    activ_uid = get_user_id(data_array)
+  File "/var/www/html/scripts/files/get_data.py", line 57, in get_user_id
+    DATA_HANDLE[0].execute(f"SELECT uid FROM user WHERE user.email LIKE '{given_email}'")
+UnboundLocalError: local variable 'given_email' referenced before assignment" while reading response header from upstream, client: 79.220.79.28, server: dhbwdach.ddns.net, request: "GET /scripts/dashboard_json.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/scripts/main.py"
+2021/01/17 15:43:06 [error] 520#520: *1140 FastCGI sent in stderr: "Traceback (most recent call last):
+  File "/var/www/html/scripts/dashboard_json.py", line 91, in <module>
+    build_data_json(data_array)
+  File "/var/www/html/scripts/dashboard_json.py", line 26, in build_data_json
+    activ_uid = get_user_id(data_array)
+  File "/var/www/html/scripts/files/get_data.py", line 57, in get_user_id
+    DATA_HANDLE[0].execute(f"SELECT uid FROM user WHERE user.email LIKE '{given_email}'")
+UnboundLocalError: local variable 'given_email' referenced before assignment" while reading response header from upstream, client: 79.220.79.28, server: dhbwdach.ddns.net, request: "GET /scripts/dashboard_json.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/scripts/main.py"
+2021/01/17 15:43:16 [error] 520#520: *1140 FastCGI sent in stderr: "Traceback (most recent call last):
+  File "/var/www/html/scripts/dashboard_json.py", line 91, in <module>
+    build_data_json(data_array)
+  File "/var/www/html/scripts/dashboard_json.py", line 26, in build_data_json
+    activ_uid = get_user_id(data_array)
+  File "/var/www/html/scripts/files/get_data.py", line 57, in get_user_id
+    DATA_HANDLE[0].execute(f"SELECT uid FROM user WHERE user.email LIKE '{given_email}'")
+UnboundLocalError: local variable 'given_email' referenced before assignment" while reading response header from upstream, client: 79.220.79.28, server: dhbwdach.ddns.net, request: "GET /scripts/dashboard_json.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/scripts/main.py"
+2021/01/17 15:43:26 [error] 520#520: *1140 FastCGI sent in stderr: "Traceback (most recent call last):
+  File "/var/www/html/scripts/dashboard_json.py", line 91, in <module>
+    build_data_json(data_array)
+  File "/var/www/html/scripts/dashboard_json.py", line 26, in build_data_json
+    activ_uid = get_user_id(data_array)
+  File "/var/www/html/scripts/files/get_data.py", line 57, in get_user_id
+    DATA_HANDLE[0].execute(f"SELECT uid FROM user WHERE user.email LIKE '{given_email}'")
+UnboundLocalError: local variable 'given_email' referenced before assignment" while reading response header from upstream, client: 79.220.79.28, server: dhbwdach.ddns.net, request: "GET /scripts/dashboard_json.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/scripts/main.py"
+2021/01/17 15:43:36 [error] 520#520: *1140 FastCGI sent in stderr: "Traceback (most recent call last):
+  File "/var/www/html/scripts/dashboard_json.py", line 91, in <module>
+    build_data_json(data_array)
+  File "/var/www/html/scripts/dashboard_json.py", line 26, in build_data_json
+    activ_uid = get_user_id(data_array)
+  File "/var/www/html/scripts/files/get_data.py", line 57, in get_user_id
+    DATA_HANDLE[0].execute(f"SELECT uid FROM user WHERE user.email LIKE '{given_email}'")
+UnboundLocalError: local variable 'given_email' referenced before assignment" while reading response header from upstream, client: 79.220.79.28, server: dhbwdach.ddns.net, request: "GET /scripts/dashboard_json.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/scripts/main.py"
+2021/01/17 15:43:46 [error] 520#520: *1140 FastCGI sent in stderr: "Traceback (most recent call last):
+  File "/var/www/html/scripts/dashboard_json.py", line 91, in <module>
+    build_data_json(data_array)
+  File "/var/www/html/scripts/dashboard_json.py", line 26, in build_data_json
+    activ_uid = get_user_id(data_array)
+  File "/var/www/html/scripts/files/get_data.py", line 57, in get_user_id
+    DATA_HANDLE[0].execute(f"SELECT uid FROM user WHERE user.email LIKE '{given_email}'")
+UnboundLocalError: local variable 'given_email' referenced before assignment" while reading response header from upstream, client: 79.220.79.28, server: dhbwdach.ddns.net, request: "GET /scripts/dashboard_json.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/scripts/main.py"
+2021/01/17 15:43:56 [error] 520#520: *1140 FastCGI sent in stderr: "Traceback (most recent call last):
+  File "/var/www/html/scripts/dashboard_json.py", line 91, in <module>
+    build_data_json(data_array)
+  File "/var/www/html/scripts/dashboard_json.py", line 26, in build_data_json
+    activ_uid = get_user_id(data_array)
+  File "/var/www/html/scripts/files/get_data.py", line 57, in get_user_id
+    DATA_HANDLE[0].execute(f"SELECT uid FROM user WHERE user.email LIKE '{given_email}'")
+UnboundLocalError: local variable 'given_email' referenced before assignment" while reading response header from upstream, client: 79.220.79.28, server: dhbwdach.ddns.net, request: "GET /scripts/dashboard_json.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/scripts/main.py"
+2021/01/17 15:44:06 [error] 520#520: *1140 FastCGI sent in stderr: "Traceback (most recent call last):
+  File "/var/www/html/scripts/dashboard_json.py", line 91, in <module>
+    build_data_json(data_array)
+  File "/var/www/html/scripts/dashboard_json.py", line 26, in build_data_json
+    activ_uid = get_user_id(data_array)
+  File "/var/www/html/scripts/files/get_data.py", line 57, in get_user_id
+    DATA_HANDLE[0].execute(f"SELECT uid FROM user WHERE user.email LIKE '{given_email}'")
+UnboundLocalError: local variable 'given_email' referenced before assignment" while reading response header from upstream, client: 79.220.79.28, server: dhbwdach.ddns.net, request: "GET /scripts/dashboard_json.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/scripts/main.py"
+2021/01/17 15:44:16 [error] 520#520: *1140 FastCGI sent in stderr: "Traceback (most recent call last):
+  File "/var/www/html/scripts/dashboard_json.py", line 91, in <module>
+    build_data_json(data_array)
+  File "/var/www/html/scripts/dashboard_json.py", line 26, in build_data_json
+    activ_uid = get_user_id(data_array)
+  File "/var/www/html/scripts/files/get_data.py", line 57, in get_user_id
+    DATA_HANDLE[0].execute(f"SELECT uid FROM user WHERE user.email LIKE '{given_email}'")
+UnboundLocalError: local variable 'given_email' referenced before assignment" while reading response header from upstream, client: 79.220.79.28, server: dhbwdach.ddns.net, request: "GET /scripts/dashboard_json.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/scripts/main.py"
+2021/01/17 15:44:26 [error] 520#520: *1140 FastCGI sent in stderr: "Traceback (most recent call last):
+  File "/var/www/html/scripts/dashboard_json.py", line 91, in <module>
+    build_data_json(data_array)
+  File "/var/www/html/scripts/dashboard_json.py", line 26, in build_data_json
+    activ_uid = get_user_id(data_array)
+  File "/var/www/html/scripts/files/get_data.py", line 57, in get_user_id
+    DATA_HANDLE[0].execute(f"SELECT uid FROM user WHERE user.email LIKE '{given_email}'")
+UnboundLocalError: local variable 'given_email' referenced before assignment" while reading response header from upstream, client: 79.220.79.28, server: dhbwdach.ddns.net, request: "GET /scripts/dashboard_json.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/scripts/main.py"
+2021/01/17 15:44:36 [error] 520#520: *1140 FastCGI sent in stderr: "Traceback (most recent call last):
+  File "/var/www/html/scripts/dashboard_json.py", line 91, in <module>
+    build_data_json(data_array)
+  File "/var/www/html/scripts/dashboard_json.py", line 26, in build_data_json
+    activ_uid = get_user_id(data_array)
+  File "/var/www/html/scripts/files/get_data.py", line 57, in get_user_id
+    DATA_HANDLE[0].execute(f"SELECT uid FROM user WHERE user.email LIKE '{given_email}'")
+UnboundLocalError: local variable 'given_email' referenced before assignment" while reading response header from upstream, client: 79.220.79.28, server: dhbwdach.ddns.net, request: "GET /scripts/dashboard_json.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/scripts/main.py"
+2021/01/17 15:44:46 [error] 520#520: *1257 FastCGI sent in stderr: "Traceback (most recent call last):
+  File "/var/www/html/scripts/dashboard_json.py", line 91, in <module>
+    build_data_json(data_array)
+  File "/var/www/html/scripts/dashboard_json.py", line 26, in build_data_json
+    activ_uid = get_user_id(data_array)
+  File "/var/www/html/scripts/files/get_data.py", line 57, in get_user_id
+    DATA_HANDLE[0].execute(f"SELECT uid FROM user WHERE user.email LIKE '{given_email}'")
+UnboundLocalError: local variable 'given_email' referenced before assignment" while reading response header from upstream, client: 79.220.79.28, server: dhbwdach.ddns.net, request: "GET /scripts/dashboard_json.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/scripts/main.py"
+2021/01/17 15:44:56 [error] 520#520: *1257 FastCGI sent in stderr: "Traceback (most recent call last):
+  File "/var/www/html/scripts/dashboard_json.py", line 91, in <module>
+    build_data_json(data_array)
+  File "/var/www/html/scripts/dashboard_json.py", line 26, in build_data_json
+    activ_uid = get_user_id(data_array)
+  File "/var/www/html/scripts/files/get_data.py", line 57, in get_user_id
+    DATA_HANDLE[0].execute(f"SELECT uid FROM user WHERE user.email LIKE '{given_email}'")
+UnboundLocalError: local variable 'given_email' referenced before assignment" while reading response header from upstream, client: 79.220.79.28, server: dhbwdach.ddns.net, request: "GET /scripts/dashboard_json.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/scripts/main.py"
+2021/01/17 15:45:06 [error] 520#520: *1257 FastCGI sent in stderr: "Traceback (most recent call last):
+  File "/var/www/html/scripts/dashboard_json.py", line 91, in <module>
+    build_data_json(data_array)
+  File "/var/www/html/scripts/dashboard_json.py", line 26, in build_data_json
+    activ_uid = get_user_id(data_array)
+  File "/var/www/html/scripts/files/get_data.py", line 57, in get_user_id
+    DATA_HANDLE[0].execute(f"SELECT uid FROM user WHERE user.email LIKE '{given_email}'")
+UnboundLocalError: local variable 'given_email' referenced before assignment" while reading response header from upstream, client: 79.220.79.28, server: dhbwdach.ddns.net, request: "GET /scripts/dashboard_json.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/scripts/main.py"
+2021/01/17 15:45:16 [error] 520#520: *1257 FastCGI sent in stderr: "Traceback (most recent call last):
+  File "/var/www/html/scripts/dashboard_json.py", line 91, in <module>
+    build_data_json(data_array)
+  File "/var/www/html/scripts/dashboard_json.py", line 26, in build_data_json
+    activ_uid = get_user_id(data_array)
+  File "/var/www/html/scripts/files/get_data.py", line 57, in get_user_id
+    DATA_HANDLE[0].execute(f"SELECT uid FROM user WHERE user.email LIKE '{given_email}'")
+UnboundLocalError: local variable 'given_email' referenced before assignment" while reading response header from upstream, client: 79.220.79.28, server: dhbwdach.ddns.net, request: "GET /scripts/dashboard_json.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/scripts/main.py"

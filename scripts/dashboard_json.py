@@ -82,10 +82,10 @@ if __name__ == "__main__":
     connect_mariadb()
 
     #Parse Query String
-    #data_array = get_query_string()
+    data_array = get_query_string()
 
     #TODO Delete Test Case for live testing
-    data_array = [["ident", "alexm01@freenet.de"], ["next_param", "from_testing"]]
+    #data_array = [["ident", "alexm01@freenet.de"], ["next_param", "from_testing"]]
 
     #Build JSON
     build_data_json(data_array)
