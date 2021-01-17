@@ -45,18 +45,16 @@ def build_data_json(data_array):
     for i in range(0, len(last_rooms_array)):
         room_history += f"""( "room": "{last_rooms_array[i][0]}", "date": "{last_rooms_array[i][1]}", "begin": "{last_rooms_array[i][2]}", "end": "{last_rooms_array[i][3]}"),\n"""
 
-    output = f"""
-        (
-            "ident_value": "{ident_value}",
-            "state": "{covid_state}",
-            "lastRoom": "{last_room}",
-            "activeUser": "{number_of_users}",
-            "lastUpdate": "{LAST_UPDATE}",
-            "version": "{VERSION}",
-            "roomHistory": [
-                {room_history}]
-        )
-    """
+    output = f"""(
+    "ident_value": "{ident_value}",
+    "state": "{covid_state}",
+    "lastRoom": "{last_room}",
+    "activeUser": "{number_of_users}",            
+    "lastUpdate": "{LAST_UPDATE}",
+    "version": "{VERSION}",
+    "roomHistory": [
+{room_history}]
+)"""
     output = output.replace("(", "{")
     output = output.replace(")", "}")
 
