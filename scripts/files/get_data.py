@@ -74,10 +74,14 @@ def get_last_room(activ_uid):
     result = DATA_HANDLE[0].fetchall()
     
     #Translate room_id to room description as string
-    DATA_HANDLE[0].execute(f"SELECT description FROM room WHERE room_id = {result[0][0]}")
-    result = DATA_HANDLE[0].fetchall()
+    if result != []:
+        DATA_HANDLE[0].execute(f"SELECT description FROM room WHERE room_id = {result[0][0]}")
+        result = DATA_HANDLE[0].fetchall()
+        
+        return result[0][0]
 
-    return result[0][0]
+    else:
+        return " - "
 
 
 #-----------------------------------------------------------------------------------------------------------------------------------
