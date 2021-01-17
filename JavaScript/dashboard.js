@@ -50,5 +50,5 @@ window.onload = function() {
     setInterval(function() {
     //doREQ();
     doREQfetch();
-}, 300 * 1000);
+}, 10 * 1000);
 }
