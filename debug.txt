@@ -8,3 +8,4 @@
   File "/var/www/html/scripts/files/home_page.py", line 147, in show_homepage
     last_rooms_array[0][3] = " - "
 TypeError: 'tuple' object does not support item assignment" while reading response header from upstream, client: 93.235.96.177, server: dhbwdach.ddns.net, request: "POST /scripts/main.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/"
+2021/01/17 12:28:57 [error] 520#520: *574 FastCGI sent in stderr: "Cannot get script name, are DOCUMENT_ROOT and SCRIPT_NAME (or SCRIPT_FILENAME) set and is the script executable?" while reading response header from upstream, client: 93.235.96.177, server: dhbwdach.ddns.net, request: "GET /scripts/test.json HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/scripts/main.py"
