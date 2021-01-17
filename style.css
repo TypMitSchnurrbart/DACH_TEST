@@ -159,7 +159,7 @@ header {
     align-content: center;
     background-size: contain;
     background-repeat: no-repeat;
-    background-image: url(DACH_logo.png);
+    background-image: url(/media/DACH_logo.png);
     align-items: center;
 }
 
