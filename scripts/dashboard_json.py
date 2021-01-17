@@ -43,7 +43,10 @@ def build_data_json(data_array):
 
     room_history = ""
     for i in range(0, len(last_rooms_array)):
-        room_history += f"""( "room": "{last_rooms_array[i][0]}", "date": "{last_rooms_array[i][1]}", "begin": "{last_rooms_array[i][2]}", "end": "{last_rooms_array[i][3]}"),\n"""
+        if i < len(last_rooms_array) - 1:
+            room_history += f"""\t\t\t\t\t\t( "room": "{last_rooms_array[i][0]}", "date": "{last_rooms_array[i][1]}", "begin": "{last_rooms_array[i][2]}", "end": "{last_rooms_array[i][3]}"),\n"""
+        elif i == len(last_rooms_array) - 1:
+            room_history += f"""\t\t\t\t\t\t( "room": "{last_rooms_array[i][0]}", "date": "{last_rooms_array[i][1]}", "begin": "{last_rooms_array[i][2]}", "end": "{last_rooms_array[i][3]}")"""
 
     output = f"""(
     "ident_value": "{ident_value}",
@@ -52,8 +55,9 @@ def build_data_json(data_array):
     "activeUser": "{number_of_users}",            
     "lastUpdate": "{LAST_UPDATE}",
     "version": "{VERSION}",
-    "roomHistory": [
-{room_history}]
+    "roomHistory":  [
+{room_history}
+                    ]
 )"""
     output = output.replace("(", "{")
     output = output.replace(")", "}")
