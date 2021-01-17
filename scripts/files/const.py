@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 #!-*- coding: utf-8 -*-
 
+#Version---------------------------------------------------------
+VERSION = 1.0
+LAST_UPDATE = "17.01.2021"
 
 #Database Handle, Index 0: data_handle  Index 1: Connector-------
 DATA_HANDLE = [None, None]

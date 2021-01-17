@@ -1,0 +1,15 @@
+{
+  "ident_value": "{ident_value}",
+  "state": "{state}",
+  "lastRoom": "{lastRoom}",
+  "activeUser": "{activeUser}",
+  "lastUpdate": "{lastUpdate}",
+  "version": "{version}",
+  "roomHistory": [
+    { "room": "{room1}", "date": "{date1}", "time": "{time1}", "nrUser": "{nrUser1}"},
+    { "room": "{room2}", "date": "{date2}", "time": "{time2}", "nrUser": "{nrUser2}"},
+    { "room": "{room3}", "date": "{date3}", "time": "{time3}", "nrUser": "{nrUser3}"},
+    { "room": "{room4}", "date": "{date4}", "time": "{time4}", "nrUser": "{nrUser4}"},
+    { "room": "{room5}", "date": "{date5}", "time": "{time5}", "nrUser": "{nrUser5}"}
+  ]
+}
