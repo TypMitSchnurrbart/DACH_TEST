@@ -92,7 +92,8 @@ def get_visited_rooms(activ_uid):
     #TODO try/excepts
 
     #Get last visited rooms; max. amount = 5
-    DATA_HANDLE[0].execute(f"SELECT description, DATE_FORMAT(date, '%d.%m.%Y'), begin, end FROM movement JOIN room ON movement.room = room.room_id WHERE person = {activ_uid} AND end IS NOT NULL ORDER BY move_id DESC LIMIT 5")
+    DATA_HANDLE[0].execute(f"""SELECT description, DATE_FORMAT(date, '%d.%m.%Y'), TIME_FORMAT(begin, '%H:%i'), TIME_FORMAT(end, '%H:%i') FROM movement JOIN room ON movement.room = room.room_id 
+    WHERE person = {activ_uid} AND end IS NOT NULL ORDER BY move_id DESC LIMIT 5""")
     
     return DATA_HANDLE[0].fetchall()
 
