@@ -1,9 +1,20 @@
 #!/usr/bin/python3
 #!-*- coding: utf-8 -*-
 
-from files.get_data import get_user_data
-from files.const import VORNAME, NACHNAME, COVID_STATE, REPORT_INFECTION
+from files.get_data import get_user_data, get_user_id, get_last_room, get_visited_rooms, get_number_of_users
+from files.const import VORNAME, NACHNAME, COVID_STATE, REPORT_INFECTION, LAST_UPDATE, VERSION, DATA_HANDLE
 from files.error_handle import translate_covid_state
+from files.query_string import get_query_string
+from files.database import connect_mariadb
+
+def start_http():
+    """
+    Creating the http header
+    """
+
+    print("Content-Type: application/json\n\n")
+
+    return
 
 def build_data_json(data_array):
     """
@@ -11,36 +22,39 @@ def build_data_json(data_array):
     param:  {list}  data_array; Containing the QueryString Information
     """
 
-    vorname, nachname, covid_state = get_user_data(data_array, VORNAME, NACHNAME, COVID_STATE)
-    covid_state = translate_covid_state(covid_state)
+    #Getting the uid from current user
+    activ_uid = get_user_id(data_array)
 
     #Like this only for test; Ident should be the email but somehow hashed
     ident_value = data_array[0][1]
 
-    #TODO make a full own module for the json request to update the dashboard!!! <------------------
+    #Get the Covid_state from user
+    covid_state = get_user_data(activ_uid, COVID_STATE)
+    covid_state = translate_covid_state(covid_state)
 
+    #Returns a String containing last room
+    last_room = get_last_room(activ_uid)
 
-    roomInfo = transmitData
-    for i in roomInfo:
-        pass
-                # ( "room": "{room1}", "date": "{date1}", "time": "{time1}", "nrUser": "{nrUser1}"),
-                # ( "room": "{room2}", "date": "{date2}", "time": "{time2}", "nrUser": "{nrUser2}"),
-                # ( "room": "{room3}", "date": "{date3}", "time": "{time3}", "nrUser": "{nrUser3}"),
-                # ( "room": "{room4}", "date": "{date4}", "time": "{time4}", "nrUser": "{nrUser4}"),
-                # ( "room": "{room5}", "date": "{date5}", "time": "{time5}", "nrUser": "{nrUser5}")
+    #Getting active user amount
+    number_of_users = get_number_of_users()
 
+    #Returns array like this: [(room, date, begin, end), (room, date, ....)] newest room with lowest index!
+    last_rooms_array = get_visited_rooms(activ_uid)
+
+    room_history = ""
+    for i in range(0, len(last_rooms_array)):
+        room_history += f"""( "room": "{last_rooms_array[i][0]}", "date": "{last_rooms_array[i][1]}", "begin": "{last_rooms_array[i][2]}", "end": "{last_rooms_array[i][3]}"),\n"""
 
     output = f"""
         (
             "ident_value": "{ident_value}",
-            "state": "{state}",
-            "lastRoom": "{lastRoom}",
-            "activeUser": "{activeUser}",
-            "lastUpdate": "{lastUpdate}",
-            "version": "{version}",
+            "state": "{covid_state}",
+            "lastRoom": "{last_room}",
+            "activeUser": "{number_of_users}",
+            "lastUpdate": "{LAST_UPDATE}",
+            "version": "{VERSION}",
             "roomHistory": [
-                {roomHistory}
-            ]
+                {room_history}]
         )
     """
     output = output.replace("(", "{")
@@ -48,6 +62,23 @@ def build_data_json(data_array):
 
     print(output)
 
-    #TODO Delete MOVE_Test from sidenav
-    #TODO Hash the ident; store in extra db table; not to pretty but should be alright
     return
+
+if __name__ == "__main__":
+
+    #HTTP-Header
+    start_http()
+
+    #Getting DB Connection
+    connect_mariadb()
+
+    #Parse Query String
+    #data_array = get_query_string()
+    data_array = [["ident", "alexm01@freenet.de"], ["next_param", "from_testing"]]
+
+    #Build JSON
+    build_data_json(data_array)
+
+    #Closing DB Connection
+    DATA_HANDLE[1].commit()
+    DATA_HANDLE[1].close()

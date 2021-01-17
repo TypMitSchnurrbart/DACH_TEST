@@ -41,9 +41,7 @@ def get_user_id(data_array):
     Getting the uid to email/ident from data_array
     param:  {array} data_array; input from http
     return:  {int}   uid;        user id in DB
-    """
-
-    #TODO This will have to be changed; ident will be hash value of the email! Different Case if ident is our hash value!! 
+    """ 
 
     for i in range(0, len(data_array)):
         if data_array[i][0] == "email":
@@ -51,6 +49,7 @@ def get_user_id(data_array):
             break
 
         elif data_array[i][0] == "ident":
+            #TODO This will have to be changed; ident will be hash value of the email! Different Case if ident is our hash value!!
             given_email = data_array[i][1]
             break
 
