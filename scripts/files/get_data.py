@@ -107,4 +107,6 @@ def get_number_of_users():
     DATA_HANDLE[0].execute(f"SELECT count(uid) FROM user")
     result = DATA_HANDLE[0].fetchall()
 
+    print(f"THIS IS DUB RESULT: {result}")
+
     return result[0][0]

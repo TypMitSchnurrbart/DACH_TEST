@@ -141,7 +141,12 @@ def show_homepage(data_array):
 
     #Get the table done
     for i in range(0, len(last_rooms_array)):
-        print(f"""                          <tr>
+
+        #Newest room end time could be NULL
+        if last_rooms_array[0][3] == None:
+            last_rooms_array[0][3] = " - "
+
+        print(f"""                                          <tr>
                                                 <td>{last_rooms_array[i][0]}</td>
                                                 <td>{last_rooms_array[i][1]}</td>
                                                 <td>{last_rooms_array[i][2]} Uhr</td>
