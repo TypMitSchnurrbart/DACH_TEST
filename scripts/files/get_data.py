@@ -73,11 +73,11 @@ def get_last_room(activ_uid):
     DATA_HANDLE[0].execute(f"SELECT room FROM movement WHERE person = {activ_uid} ORDER BY move_id DESC LIMIT 1;")
     result = DATA_HANDLE[0].fetchall()
     
-    #Translate room_id to room description as string
+    #Translate room_id to room description as string, can be empty set
     if result != []:
         DATA_HANDLE[0].execute(f"SELECT description FROM room WHERE room_id = {result[0][0]}")
         result = DATA_HANDLE[0].fetchall()
-        
+
         return result[0][0]
 
     else:
