@@ -1,8 +1,17 @@
 function doREQfetch(){
-    fetch("./dashboard_json.py")
+    var ident = document.getElementById("ident").value
+    var data = { `ident=${ident}&next_param=from_testing`}
+
+    fetch("./dashboard_json.py", {
+        method: "POST",
+        header: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: `${data}`
+    })
     .then(function(response) {
         return response.json();
-    })
+    }
     .then(function(data){
        // Deklarieren von Variablen notwendig? ==> direkter Edit?
        //upper Elements
