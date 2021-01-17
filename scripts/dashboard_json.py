@@ -12,7 +12,7 @@ def start_http():
     Creating the http header
     """
 
-    print("Content-Type: application/json\n\n")
+    print("Content-Type: application/json\n")
 
     return
 
