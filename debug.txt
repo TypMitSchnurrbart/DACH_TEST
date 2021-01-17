@@ -17,3 +17,11 @@ TypeError: 'tuple' object does not support item assignment" while reading respon
   File "/var/www/html/scripts/files/get_data.py", line 78, in get_last_room
     DATA_HANDLE[0].execute(f"SELECT description FROM room WHERE room_id = {result[0][0]}")
 IndexError: list index out of range" while reading response header from upstream, client: 79.220.79.28, server: dhbwdach.ddns.net, request: "POST /scripts/main.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/"
+2021/01/17 12:38:55 [error] 521#521: *587 FastCGI sent in stderr: "Traceback (most recent call last):
+  File "/var/www/html/scripts/main.py", line 47, in <module>
+    show_homepage(data_array)
+  File "/var/www/html/scripts/files/home_page.py", line 22, in show_homepage
+    last_room = get_last_room(activ_uid)
+  File "/var/www/html/scripts/files/get_data.py", line 78, in get_last_room
+    DATA_HANDLE[0].execute(f"SELECT description FROM room WHERE room_id = {result[0][0]}")
+IndexError: list index out of range" while reading response header from upstream, client: 79.220.79.28, server: dhbwdach.ddns.net, request: "POST /scripts/main.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/scripts/main.py"
