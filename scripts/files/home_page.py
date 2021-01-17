@@ -25,7 +25,7 @@ def show_homepage(data_array):
     last_rooms_array = get_visited_rooms(activ_uid)
 
     #Getting active user amount
-    number_of_users = get_number_of_users
+    number_of_users = get_number_of_users()
 
     #TODO Like this only for test; Ident should be the email but hashed
     ident_value = data_array[0][1]
