@@ -84,7 +84,7 @@ if __name__ == "__main__":
     #Parse Query String
     #data_array = get_query_string()
 
-    #TODO Delete Test Case
+    #TODO Delete Test Case for live testing
     data_array = [["ident", "alexm01@freenet.de"], ["next_param", "from_testing"]]
 
     #Build JSON
