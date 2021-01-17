@@ -11,7 +11,7 @@ function doREQfetch(){
     })
     .then(function(response) {
         return response.json();
-    }
+    })
     .then(function(data){
        // Deklarieren von Variablen notwendig? ==> direkter Edit?
        //upper Elements
