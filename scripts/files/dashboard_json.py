@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 #!-*- coding: utf-8 -*-
 
-from files.database import get_user_data
+from files.get_data import get_user_data
 from files.const import VORNAME, NACHNAME, COVID_STATE, REPORT_INFECTION
 from files.error_handle import translate_covid_state
 
-def show_homepage(data_array):
+def build_data_json(data_array):
     """
-    Displaying the Body of the Home Page
+    Building the data json when requested
     param:  {list}  data_array; Containing the QueryString Information
     """
 
@@ -22,7 +22,7 @@ def show_homepage(data_array):
 
     roomInfo = transmitData
     for i in roomInfo:
-        for j in 
+        pass
                 # ( "room": "{room1}", "date": "{date1}", "time": "{time1}", "nrUser": "{nrUser1}"),
                 # ( "room": "{room2}", "date": "{date2}", "time": "{time2}", "nrUser": "{nrUser2}"),
                 # ( "room": "{room3}", "date": "{date3}", "time": "{time3}", "nrUser": "{nrUser3}"),

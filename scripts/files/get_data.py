@@ -3,6 +3,7 @@
 
 from files.const import DATA_HANDLE
 
+#-----------------------------------------------------------------------------------------------------------------------------------
 def get_user_data(activ_uid, string1, string2 = None, string3 = None):
     """
     Function to ask user data from the Database easily
@@ -34,6 +35,7 @@ def get_user_data(activ_uid, string1, string2 = None, string3 = None):
         return result[0][0], result[0][1], result[0][2]
 
 
+#-----------------------------------------------------------------------------------------------------------------------------------
 def get_user_id(data_array):
     """
     Getting the uid to email/ident from data_array
@@ -58,6 +60,7 @@ def get_user_id(data_array):
     return result[0][0]
 
 
+#-----------------------------------------------------------------------------------------------------------------------------------
 def get_last_room(activ_uid):
     """
     Getting the Last visited Room of a Person
@@ -67,19 +70,41 @@ def get_last_room(activ_uid):
 
     #TODO try/except with error codes!
 
+    #Getting last visited room_id
     DATA_HANDLE[0].execute(f"SELECT room FROM movement WHERE person = {activ_uid} ORDER BY move_id DESC LIMIT 1;")
     result = DATA_HANDLE[0].fetchall()
     
+    #Translate room_id to room description as string
     DATA_HANDLE[0].execute(f"SELECT description FROM room WHERE room_id = {result[0][0]}")
     result = DATA_HANDLE[0].fetchall()
 
     return result[0][0]
 
+
+#-----------------------------------------------------------------------------------------------------------------------------------
 def get_visited_rooms(activ_uid):
     """
     Get the five last visited rooms with date and times
     param:  {int}   activ_uid       uid from activ user
-    return: {array} visited_rooms   array with all visited room, can have index in range 0, 4! According output
+    return: {array} visited_rooms   array with all visited rooms, can have index in range 0, 4! According output
     """
 
-    raise NotImplementedError
+    #TODO try/excepts
+
+    #Get last visited rooms; max. amount = 5
+    DATA_HANDLE[0].execute(f"SELECT room, date, begin, end FROM movement WHERE person = {activ_uid} ORDER BY move_id DESC LIMIT 5")
+    
+    return DATA_HANDLE[0].fetchall()
+
+
+#-----------------------------------------------------------------------------------------------------------------------------------
+def get_number_of_users():
+    """
+    Get the number of registered users from DACH
+    return: {int}   Number of registered users
+    """
+
+    DATA_HANDLE[0].execute(f"SELECT count(uid) FROM user")
+    result = DATA_HANDLE[0].fetchall()
+
+    return result[0][0]
