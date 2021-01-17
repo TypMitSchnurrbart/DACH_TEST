@@ -11,7 +11,7 @@ function doREQfetch(){
 
        status.innerHTML = "Status: " + data.state;
        if (data.roomHistory[0] != undefined){
-       lastRoom.innerHTML = "Raum " + data.roomHistory[0].room;
+       lastRoom.innerHTML = "Raum " + data.lastRoom;
        }
        else{
        lastRoom.innerHTML = "-";
@@ -33,8 +33,8 @@ function doREQfetch(){
                pers = row.insertCell(3);
                raum.innerHTML = data.roomHistory[i].room;
                dt.innerHTML = data.roomHistory[i].date;
-               zeit.innerHTML = data.roomHistory[i].time;
-               pers.innerHTML = data.roomHistory[i].nrUser;
+               zeit.innerHTML = data.roomHistory[i].begin;
+               pers.innerHTML = data.roomHistory[i].end;
            } else {
                break;
            }
