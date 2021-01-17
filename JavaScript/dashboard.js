@@ -1,5 +1,5 @@
 function doREQfetch(){
-    fetch("./test.json")
+    fetch("./scripts/dashboard_json.py")
     .then(function(response) {
         return response.json();
     })
