@@ -41,13 +41,17 @@ def build_data_json(data_array):
     #Returns array like this: [(room, date, begin, end), (room, date, ....)] newest room with lowest index!
     last_rooms_array = get_visited_rooms(activ_uid)
 
+    #Creating the room_history in JSON Format
     room_history = ""
     for i in range(0, len(last_rooms_array)):
-        if i < len(last_rooms_array) - 1:
-            room_history += f"""\t\t\t( "room": "{last_rooms_array[i][0]}", "date": "{last_rooms_array[i][1]}", "begin": "{last_rooms_array[i][2]}", "end": "{last_rooms_array[i][3]}"),\n"""
-        elif i == len(last_rooms_array) - 1:
-            room_history += f"""\t\t\t( "room": "{last_rooms_array[i][0]}", "date": "{last_rooms_array[i][1]}", "begin": "{last_rooms_array[i][2]}", "end": "{last_rooms_array[i][3]}")"""
 
+        if i < len(last_rooms_array) - 1:
+            room_history += f"""\t\t( "room": "{last_rooms_array[i][0]}", "date": "{last_rooms_array[i][1]}", "begin": "{last_rooms_array[i][2]}", "end": "{last_rooms_array[i][3]}"),\n"""
+
+        elif i == len(last_rooms_array) - 1:
+            room_history += f"""\t\t( "room": "{last_rooms_array[i][0]}", "date": "{last_rooms_array[i][1]}", "begin": "{last_rooms_array[i][2]}", "end": "{last_rooms_array[i][3]}")"""
+
+    #Putting together the output with () as {} cause of string insertion
     output = f"""(
     "ident_value": "{ident_value}",
     "state": "{covid_state}",
@@ -59,13 +63,16 @@ def build_data_json(data_array):
 {room_history}
                     ]
 )"""
+
     output = output.replace("(", "{")
     output = output.replace(")", "}")
 
+    #Giving Output to the CGI
     print(output)
 
     return
 
+#Main Routine
 if __name__ == "__main__":
 
     #HTTP-Header
@@ -76,6 +83,8 @@ if __name__ == "__main__":
 
     #Parse Query String
     #data_array = get_query_string()
+
+    #TODO Delete Test Case
     data_array = [["ident", "alexm01@freenet.de"], ["next_param", "from_testing"]]
 
     #Build JSON
