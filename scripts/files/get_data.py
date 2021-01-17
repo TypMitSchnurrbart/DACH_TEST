@@ -60,7 +60,7 @@ def get_user_id(data_array):
 
 
 #-----------------------------------------------------------------------------------------------------------------------------------
-def get_last_room(activ_uid):
+def get_last_room(activ_uid, from_json = False):
     """
     Getting the Last visited Room of a Person
     param:  {int}       activ_uid   user_id of current user
@@ -81,11 +81,14 @@ def get_last_room(activ_uid):
         return result[0][0]
 
     else:
-        return " - "
+        if from_json is False:
+            return " - "
+        else:
+            return "$false$"
 
 
 #-----------------------------------------------------------------------------------------------------------------------------------
-def get_visited_rooms(activ_uid):
+def get_visited_rooms(activ_uid, from_json = False):
     """
     Get the five last visited rooms with date and times
     param:  {int}   activ_uid       uid from activ user
@@ -97,9 +100,17 @@ def get_visited_rooms(activ_uid):
     #Get last visited rooms; max. amount = 5
     DATA_HANDLE[0].execute(f"""SELECT description, DATE_FORMAT(date, '%d.%m.%Y'), TIME_FORMAT(begin, '%H:%i'), TIME_FORMAT(end, '%H:%i') FROM movement JOIN room ON movement.room = room.room_id 
     WHERE person = {activ_uid} AND end IS NOT NULL ORDER BY move_id DESC LIMIT 5""")
-    
-    return DATA_HANDLE[0].fetchall()
+    result = DATA_HANDLE[0].fetchall()
 
+    if result != []:
+        return result
+    elif from_json is True and result == []:
+        mock_array = [["$false$", "$false$", "$false$", "$false$"]]
+        return mock_array 
+    
+    elif from_json is False and result == []:
+        mock_array = [["Empty", "Empty", "Empty", "Empty"]]
+        return mock_array
 
 #-----------------------------------------------------------------------------------------------------------------------------------
 def get_number_of_users():

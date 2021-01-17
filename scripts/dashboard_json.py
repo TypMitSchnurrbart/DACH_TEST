@@ -33,13 +33,13 @@ def build_data_json(data_array):
     covid_state = translate_covid_state(covid_state)
 
     #Returns a String containing last room
-    last_room = get_last_room(activ_uid)
+    last_room = get_last_room(activ_uid, True)
 
     #Getting active user amount
     number_of_users = get_number_of_users()
 
     #Returns array like this: [(room, date, begin, end), (room, date, ....)] newest room with lowest index!
-    last_rooms_array = get_visited_rooms(activ_uid)
+    last_rooms_array = get_visited_rooms(activ_uid, True)
 
     #Creating the room_history in JSON Format
     room_history = ""
