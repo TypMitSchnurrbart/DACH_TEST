@@ -141,7 +141,7 @@ def show_homepage(data_array):
 
     #Get the table done
     for i in range(0, len(last_rooms_array)):
-        print(f"""                                          <tr>
+        print(f"""                                              <tr>
                                                 <td>{last_rooms_array[i][0]}</td>
                                                 <td>{last_rooms_array[i][1]}</td>
                                                 <td>{last_rooms_array[i][2]} Uhr</td>
