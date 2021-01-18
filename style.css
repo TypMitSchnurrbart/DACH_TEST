@@ -225,8 +225,6 @@ h2.title {
     box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
     height: 100%;
     color: white;
-    transform: translateZ(0);
-    -webkit-font-smoothing: subpixel-antialiased;
 }
 
 .card-single,
@@ -236,6 +234,8 @@ h2.title {
     -o-transform: rotate(180deg);
     -webkit-transform: rotateX(180deg);
     transform: rotateX(180deg);
+    transform: translateZ(0);
+    -webkit-font-smoothing: subpixel-antialiased;
 }
 
 .card-single:before {
