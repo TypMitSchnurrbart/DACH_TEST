@@ -55,7 +55,7 @@ def show_report_page(data_array):
                         <form method="post" action="/scripts/main.py">
                             <input type="hidden" id="ident" name="ident" value={ident_value}>
                             <input type="hidden" id="next_param" name="next_param" value={INFECTION_CONFIRMED}>
-                            <button type="submit">Ja. Ich bin infiziert</button>
+                            <button type="submit" class="btnKrank">Ja. Ich bin infiziert</button>
                         </form>
                     </div>
                 </section>
