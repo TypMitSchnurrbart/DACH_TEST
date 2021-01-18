@@ -13,42 +13,40 @@ function doREQfetch(){
         return response.json();
     })
     .then(function(data){
-        console.log(data);
        // Deklarieren von Variablen notwendig? ==> direkter Edit?
        //upper Elements
        var status = document.getElementById("state");
        var lastRoom = document.getElementById("lastR"); 
-
-       status.innerHTML = "Status: " + data.state;
-       if (data.roomHistory[0] != undefined){
-       lastRoom.innerHTML = "Raum " + data.lastRoom;
-       }
-       else{
-       lastRoom.innerHTML = "-";
-       }
-
-       // room list
        var table = document.getElementById("tabelle");
-
+       var row, raum, dt, zeit, pers;
+    
        table.textContent = null;
 
-       var row, raum, dt, zeit, pers;
+       status.innerHTML = "Status: " + data.state;
+       
+       if (data.lastRoom === "$false$") {
+           lastRoom.innerHTML = "Raum: " + data.lastRoom;
 
-       for (var i = 0; i < 5; i++) {
-           if(data.roomHistory[i] != undefined) {
-               row = table.insertRow(i);
-               raum = row.insertCell(0);
-               dt = row.insertCell(1);
-               zeit = row.insertCell(2);
-               pers = row.insertCell(3);
-               raum.innerHTML = data.roomHistory[i].room;
-               dt.innerHTML = data.roomHistory[i].date;
-               zeit.innerHTML = data.roomHistory[i].begin;
-               pers.innerHTML = data.roomHistory[i].end;
-           } else {
-               break;
-           }
-       }
+           // room list
+            for (var i = 0; i < 5; i++) {
+                if(data.roomHistory[i] != undefined) {
+                    row = table.insertRow(i);
+                    raum = row.insertCell(0);
+                    dt = row.insertCell(1);
+                    zeit = row.insertCell(2);
+                    pers = row.insertCell(3);
+                    raum.innerHTML = data.roomHistory[i].room;
+                    dt.innerHTML = data.roomHistory[i].date;
+                    zeit.innerHTML = data.roomHistory[i].begin;
+                    pers.innerHTML = data.roomHistory[i].end;
+                } else {
+                    break;
+                }
+            }
+        } else { 
+            lastRoom.innerHTML = "---";
+            raum.innerHTML = "Kein Raum in den letzten 14 Tagen!"
+        }
     });
 }
 
