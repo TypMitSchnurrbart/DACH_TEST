@@ -25,7 +25,7 @@ function doREQfetch(){
        status.innerHTML = "Status: " + data.state;
        
        if (data.lastRoom !== "$false$") {
-           lastRoom.innerHTML = "Raum: " + data.lastRoom;
+           lastRoom.innerHTML = `Raum: ${data.lastRoom}`;
 
            // room list
             for (var i = 0; i < 5; i++) {
@@ -45,7 +45,15 @@ function doREQfetch(){
             }
         } else { 
             lastRoom.innerHTML = "---";
-            raum.innerHTML = "Kein Raum in den letzten 14 Tagen!"
+            row = table.insertRow(0);
+            raum = row.insertCell(0);
+            dt = row.insertCell(1);
+            zeit = row.insertCell(2);
+            pers = row.insertCell(3);
+            raum.innerHTML = "Kein Raum in den letzten 14 Tagen!";
+            dt.innerHTML = " ";
+            zeit.innerHTML = " "
+            pers.innerHTML = " ";
         }
     });
 }
