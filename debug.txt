@@ -4200,3 +4200,11 @@ UnboundLocalError: local variable 'given_email' referenced before assignment" wh
        ^
 SyntaxError: invalid syntax" while reading response header from upstream, client: 79.220.79.28, server: dhbwdach.ddns.net, request: "POST /scripts/main.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/index.html"
 2021/01/18 10:33:38 [error] 520#520: *2195 upstream prematurely closed FastCGI stdout while reading response header from upstream, client: 79.220.79.28, server: dhbwdach.ddns.net, request: "POST /scripts/main.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/index.html"
+2021/01/18 10:33:49 [error] 520#520: *2195 FastCGI sent in stderr: "Traceback (most recent call last):
+  File "/var/www/html/scripts/main.py", line 14, in <module>
+    from files.home_page import show_homepage
+  File "/var/www/html/scripts/files/home_page.py", line 151
+    else: 
+       ^
+SyntaxError: invalid syntax" while reading response header from upstream, client: 79.220.79.28, server: dhbwdach.ddns.net, request: "POST /scripts/main.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/"
+2021/01/18 10:33:49 [error] 520#520: *2195 upstream prematurely closed FastCGI stdout while reading response header from upstream, client: 79.220.79.28, server: dhbwdach.ddns.net, request: "POST /scripts/main.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/"
