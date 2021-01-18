@@ -24,7 +24,7 @@ function doREQfetch(){
 
        status.innerHTML = "Status: " + data.state;
        
-       if (data.lastRoom === "$false$") {
+       if (data.lastRoom = "$false$") {
            lastRoom.innerHTML = "Raum: " + data.lastRoom;
 
            // room list
