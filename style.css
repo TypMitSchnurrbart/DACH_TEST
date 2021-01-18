@@ -140,6 +140,7 @@ header {
 .nav-icon {
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .nav-icon span {
@@ -234,8 +235,6 @@ h2.title {
     -o-transform: rotate(180deg);
     -webkit-transform: rotateX(180deg);
     transform: rotateX(180deg);
-    transform: translateZ(0);
-    -webkit-font-smoothing: subpixel-antialiased;
 }
 
 .card-single:before {
@@ -280,6 +279,7 @@ h2.title {
     border-radius: 4px;
     border: 1px solid red;
     color: white;
+    cursor: pointer;
 }
 
 .card-footer {
