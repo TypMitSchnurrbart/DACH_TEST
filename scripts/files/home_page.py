@@ -140,23 +140,23 @@ def show_homepage(data_array):
     print(output)
 
     #Get the table done
-    # if not last_rooms_array:
-    #     print(f"""                          <tr>
-    #                                             <td>Kein Raum in den letzten 14 Tagen!</td>
-    #                                             <td></td>
-    #                                             <td></td>
-    #                                             <td></td>
-    #                                         </tr>
-    #             """)
-    #     else: 
-    #         for i in range(0, len(last_rooms_array)):
-    #             print(f"""                          <tr>
-    #                                                     <td>{last_rooms_array[i][0]}</td>
-    #                                                     <td>{last_rooms_array[i][1]}</td>
-    #                                                     <td>{last_rooms_array[i][2]} Uhr</td>
-    #                                                     <td>{last_rooms_array[i][3]} Uhr</td>
-    #                                                 </tr>
-    #                     """)
+    if last_rooms_array[i][0] == "$false$":
+        print(f"""                          <tr>
+                                                <td>Kein Raum in den letzten 14 Tagen!</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                """)
+        else: 
+            for i in range(0, len(last_rooms_array)):
+                print(f"""                          <tr>
+                                                        <td>{last_rooms_array[i][0]}</td>
+                                                        <td>{last_rooms_array[i][1]}</td>
+                                                        <td>{last_rooms_array[i][2]} Uhr</td>
+                                                        <td>{last_rooms_array[i][3]} Uhr</td>
+                                                    </tr>
+                        """)
 
     #Define second half of output
     output = f"""                            
