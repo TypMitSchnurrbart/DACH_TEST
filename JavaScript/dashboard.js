@@ -1,6 +1,6 @@
 function doREQfetch(){
     var ident = document.getElementById("ident").value
-    var data = { `ident=${ident}&next_param=from_testing`}
+    var data = `ident=${ident}&next_param=from_testing`
 
     fetch("./dashboard_json.py", {
         method: "POST",
@@ -13,6 +13,7 @@ function doREQfetch(){
         return response.json();
     })
     .then(function(data){
+        console.log(data);
        // Deklarieren von Variablen notwendig? ==> direkter Edit?
        //upper Elements
        var status = document.getElementById("state");
