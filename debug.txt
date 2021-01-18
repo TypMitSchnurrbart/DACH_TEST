@@ -120,3 +120,11 @@ UnboundLocalError: local variable 'given_email' referenced before assignment" wh
     DATA_HANDLE[0].execute(f"SELECT uid FROM user WHERE user.email LIKE '{given_email}'")
 UnboundLocalError: local variable 'given_email' referenced before assignment" while reading response header from upstream, client: 79.220.79.28, server: dhbwdach.ddns.net, request: "GET /scripts/dashboard_json.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/scripts/main.py"
 2021/01/18 06:06:24 [crit] 520#520: *1478 SSL_do_handshake() failed (SSL: error:141CF06C:SSL routines:tls_parse_ctos_key_share:bad key share) while SSL handshaking, client: 65.49.20.66, server: 0.0.0.0:443
+2021/01/18 06:45:11 [error] 520#520: *1480 FastCGI sent in stderr: "Traceback (most recent call last):
+  File "/var/www/html/scripts/dashboard_json.py", line 91, in <module>
+    build_data_json(data_array)
+  File "/var/www/html/scripts/dashboard_json.py", line 26, in build_data_json
+    activ_uid = get_user_id(data_array)
+  File "/var/www/html/scripts/files/get_data.py", line 57, in get_user_id
+    DATA_HANDLE[0].execute(f"SELECT uid FROM user WHERE user.email LIKE '{given_email}'")
+UnboundLocalError: local variable 'given_email' referenced before assignment" while reading response header from upstream, client: 79.220.79.28, server: dhbwdach.ddns.net, request: "GET /scripts/dashboard_json.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/scripts/main.py"
