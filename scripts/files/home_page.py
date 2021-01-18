@@ -85,7 +85,7 @@ def show_homepage(data_array):
                                 <span class="fas fa-home"></span>
                                 <div>
                                     <h5>Letzter / Aktiver</h5>
-                                    <h4 id="lastR">Raum: ---</h4>
+                                    <h4 id="lastR">Raum: {last_room}</h4>
                                 </div>
                             </div>
                         </div>
