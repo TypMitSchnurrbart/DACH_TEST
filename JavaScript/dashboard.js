@@ -44,7 +44,7 @@ function doREQfetch(){
                 }
             }
         } else { 
-            lastRoom.innerHTML = "---";
+            lastRoom.innerHTML = `Raum: ---`;
             row = table.insertRow(0);
             raum = row.insertCell(0);
             raum.innerHTML = "Kein Raum in den letzten 14 Tagen!";
