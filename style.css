@@ -272,6 +272,14 @@ h2.title {
     margin-top: .2rem;
 }
 
+.btnKrank {
+    padding: .5rem;
+    background-color: red;
+    border-radius: 4px;
+    border: 1px solid red;
+    color: white;
+}
+
 .card-footer {
     padding: .2rem 1rem;
     border-bottom-left-radius: 7px;

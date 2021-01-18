@@ -85,7 +85,7 @@ def show_homepage(data_array):
                                 <span class="fas fa-home"></span>
                                 <div>
                                     <h5>Letzter / Aktiver</h5>
-                                    <h4 id="lastR">Raum: {last_room}</h4>
+                                    <h4 id="lastR">Raum: ---</h4>
                                 </div>
                             </div>
                         </div>
@@ -101,7 +101,7 @@ def show_homepage(data_array):
                                         <form method="post" action="/scripts/main.py">
                                             <input type="hidden" id="ident" name="ident" value={ident_value}>
                                             <input type="hidden" id="next_param" name="next_param" value={REPORT_INFECTION}>
-                                            <button type="submit">Melden sie sich krank!</button>
+                                            <button type="submit" class="btnKrank">Melden sie sich krank!</button>
                                         </form>
                                     </h4>
                                 </div>
@@ -140,13 +140,23 @@ def show_homepage(data_array):
     print(output)
 
     #Get the table done
-    for i in range(0, len(last_rooms_array)):
-        print(f"""                                              <tr>
-                                                <td>{last_rooms_array[i][0]}</td>
-                                                <td>{last_rooms_array[i][1]}</td>
-                                                <td>{last_rooms_array[i][2]} Uhr</td>
-                                                <td>{last_rooms_array[i][3]} Uhr</td>
-                                            </tr>""")
+    if not last_rooms_array:
+        print(f"""                          <tr>
+                                                <td>Kein Raum in den letzten 14 Tagen!</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                """)
+        else: 
+            for i in range(0, len(last_rooms_array)):
+                print(f"""                          <tr>
+                                                        <td>{last_rooms_array[i][0]}</td>
+                                                        <td>{last_rooms_array[i][1]}</td>
+                                                        <td>{last_rooms_array[i][2]} Uhr</td>
+                                                        <td>{last_rooms_array[i][3]} Uhr</td>
+                                                    </tr>
+                        """)
 
     #Define second half of output
     output = f"""                            
