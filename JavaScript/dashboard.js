@@ -54,7 +54,7 @@ function doREQfetch(){
 
 //nach Page-Load erstes Request, dann in 10Sek. Intervallen (JSON-GET)
 window.onload = function() {
-    doREQfetch();
+    // doREQfetch();
 
     setInterval(function() {
     doREQfetch();
