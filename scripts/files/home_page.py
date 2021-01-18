@@ -140,7 +140,7 @@ def show_homepage(data_array):
     print(output)
 
     #Get the table done
-    if (last_rooms_array[0] == "$false$"):
+    if (last_rooms_array[0][0] == "$false$"):
         print(f"""                          <tr>
                                                  <td>Kein Raum in den letzten 14 Tagen!</td>
                                                  <td></td>
