@@ -28,7 +28,10 @@ def show_homepage(data_array):
     number_of_users = get_number_of_users()
 
     #TODO Like this only for test; Ident should be the email but hashed
-    ident_value = data_array[0][1]
+    for i in range(0, len(data_array)):
+        if data_array[i][0] == "email":
+            ident_value = data_array[i][1]
+            break
 
     output = f"""<!DOCTYPE html>
     <html lang="de">
