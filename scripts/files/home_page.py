@@ -2,7 +2,7 @@
 #!-*- coding: utf-8 -*-
 
 from files.get_data import get_user_data, get_user_id, get_last_room, get_visited_rooms, get_number_of_users
-from files.const import VORNAME, NACHNAME, COVID_STATE, REPORT_INFECTION, VERSION, LAST_UPDATE
+from files.const import VORNAME, NACHNAME, COVID_STATE, REPORT_INFECTION, VERSION, LAST_UPDATE, EMAIL, IDENT
 from files.error_handle import translate_covid_state
 
 def show_homepage(data_array):
@@ -29,9 +29,11 @@ def show_homepage(data_array):
 
     #TODO Like this only for test; Ident should be the email but hashed
     for i in range(0, len(data_array)):
-        if data_array[i][0] == "email":
+        if data_array[i][0] == EMAIL:
             ident_value = data_array[i][1]
             break
+        elif data_array[i][0] == IDENT:
+            ident_value = data_array[i][1]
 
     output = f"""<!DOCTYPE html>
     <html lang="de">
