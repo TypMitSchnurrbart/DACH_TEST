@@ -10,3 +10,11 @@
   File "/var/www/html/scripts/files/get_data.py", line 59, in get_user_id
     return result[0][0]
 IndexError: list index out of range" while reading response header from upstream, client: 93.235.96.177, server: dhbwdach.ddns.net, request: "POST /scripts/dashboard_json.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/scripts/main.py"
+2021/01/21 10:52:47 [error] 521#521: *317 FastCGI sent in stderr: "Traceback (most recent call last):
+  File "/var/www/html/scripts/dashboard_json.py", line 91, in <module>
+    build_data_json(data_array)
+  File "/var/www/html/scripts/dashboard_json.py", line 26, in build_data_json
+    activ_uid = get_user_id(data_array)
+  File "/var/www/html/scripts/files/get_data.py", line 59, in get_user_id
+    return result[0][0]
+IndexError: list index out of range" while reading response header from upstream, client: 93.235.96.177, server: dhbwdach.ddns.net, request: "POST /scripts/dashboard_json.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net", referrer: "https://dhbwdach.ddns.net/scripts/main.py"
