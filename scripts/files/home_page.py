@@ -34,6 +34,7 @@ def show_homepage(data_array):
             break
         elif data_array[i][0] == IDENT:
             ident_value = data_array[i][1]
+            break
 
     output = f"""<!DOCTYPE html>
     <html lang="de">
