@@ -84,8 +84,10 @@ if __name__ == "__main__":
     #Parse Query String
     data_array = get_query_string()
 
-    #TODO Delete Test Case for live testing
-    #data_array = [["ident", "alexm01@freenet.de"], ["next_param", "from_testing"]]
+    #Prevention for random empty index from App 
+    for i in range(0, len(data_array)):
+        if data_array[i][0] == "":
+            del data_array[i]
 
     #Build JSON
     build_data_json(data_array)
