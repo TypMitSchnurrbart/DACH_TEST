@@ -111,3 +111,4 @@ UnboundLocalError: local variable 'given_email' referenced before assignment" wh
   File "/var/www/html/scripts/files/get_data.py", line 57, in get_user_id
     DATA_HANDLE[0].execute(f"SELECT uid FROM user WHERE user.email LIKE '{given_email}'")
 UnboundLocalError: local variable 'given_email' referenced before assignment" while reading response header from upstream, client: 217.11.156.92, server: dhbwdach.ddns.net, request: "POST /scripts/dashboard_json.py HTTP/1.1", upstream: "fastcgi://unix:/var/run/fcgiwrap.socket:", host: "dhbwdach.ddns.net"
+2021/02/06 21:47:26 [crit] 523#523: *549 SSL_do_handshake() failed (SSL: error:141CF06C:SSL routines:tls_parse_ctos_key_share:bad key share) while SSL handshaking, client: 192.241.211.93, server: 0.0.0.0:443
