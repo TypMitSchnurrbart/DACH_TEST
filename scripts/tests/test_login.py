@@ -4,9 +4,9 @@ Unittesting the login functions
 
 import unittest
 
-from ..const import DATA_HANDLE, WRONG_PW_REPEAT
-from ..database import connect_mariadb
-from ..login import register_user
+from scripts.files.const import DATA_HANDLE, WRONG_PW_REPEAT
+from scripts.files.database import connect_mariadb
+from scripts.files.login import register_user
 
 connect_mariadb()
 
