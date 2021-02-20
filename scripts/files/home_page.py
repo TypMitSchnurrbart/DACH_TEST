@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 #!-*- coding: utf-8 -*-
 
-from files.database import get_user_data
-from files.const import VORNAME, NACHNAME, COVID_STATE, REPORT_INFECTION
+from files.get_data import get_user_data, get_user_id, get_last_room, get_visited_rooms, get_number_of_users
+from files.const import VORNAME, NACHNAME, COVID_STATE, REPORT_INFECTION, VERSION, LAST_UPDATE, EMAIL, IDENT
 from files.error_handle import translate_covid_state
 
 def show_homepage(data_array):
@@ -11,11 +11,30 @@ def show_homepage(data_array):
     param:  {list}  data_array; Containing the QueryString Information
     """
 
-    vorname, nachname, covid_state = get_user_data(data_array, VORNAME, NACHNAME, COVID_STATE)
+    #Get the uid from the current user
+    activ_uid = get_user_id(data_array)
+
+    #Get some data to display initialy
+    vorname, nachname, covid_state = get_user_data(activ_uid, VORNAME, NACHNAME, COVID_STATE)
     covid_state = translate_covid_state(covid_state)
 
-    #Like this only for test; Ident should be the email but somehow hashed
-    ident_value = data_array[0][1]
+    #Returns a String containing last room
+    last_room = get_last_room(activ_uid)
+
+    #Returns array like this: [(room, date, begin, end), (room, date, ....)] newest room with lowest index!
+    last_rooms_array = get_visited_rooms(activ_uid)
+
+    #Getting active user amount
+    number_of_users = get_number_of_users()
+
+    #TODO Like this only for test; Ident should be the email but hashed
+    for i in range(0, len(data_array)):
+        if data_array[i][0] == EMAIL:
+            ident_value = data_array[i][1]
+            break
+        elif data_array[i][0] == IDENT:
+            ident_value = data_array[i][1]
+            break
 
     output = f"""<!DOCTYPE html>
     <html lang="de">
@@ -33,6 +52,7 @@ def show_homepage(data_array):
                     <a href="javascript:void(0)" class="closebtn" id="closeNav">&times;</a>
                     <a class="active" href="/HTML/dashboard.html">Dashboard</a>
                     <a href="">Raumverlauf</a>
+                    <a href="/index.html">Logout</a>
                     <a href="">...</a>
                 </div>
             </nav>
@@ -70,8 +90,8 @@ def show_homepage(data_array):
                             <div class="card-body">
                                 <span class="fas fa-home"></span>
                                 <div>
-                                    <h5>Letzter</h5>
-                                    <h4 id="lastR">Raum: {lastRoom}</h4>
+                                    <h5>Letzter / Aktiver</h5>
+                                    <h4 id="lastR">Raum: {last_room}</h4>
                                 </div>
                             </div>
                         </div>
@@ -87,7 +107,7 @@ def show_homepage(data_array):
                                         <form method="post" action="/scripts/main.py">
                                             <input type="hidden" id="ident" name="ident" value={ident_value}>
                                             <input type="hidden" id="next_param" name="next_param" value={REPORT_INFECTION}>
-                                            <button type="submit">Melden sie sich krank!</button>
+                                            <button type="submit" class="btnKrank">Melden sie sich krank!</button>
                                         </form>
                                     </h4>
                                 </div>
@@ -116,41 +136,36 @@ def show_homepage(data_array):
                                             <tr>
                                                 <th>Raum</th>
                                                 <th>Datum</th>
-                                                <th>Uhrzeit</th>
-                                                <th>Überschneidungen</th>
+                                                <th>Anfang</th>
+                                                <th>Ende</th>
                                             </tr>
                                         </thead>
-                                        <tbody id="tabelle">
-                                            <tr>
-                                                <td>{room1}</td>
-                                                <td>{date1}</td>
-                                                <td>{time1} Uhr</td>
-                                                <td>mit {nrUser1} weiteren Personen</td>
-                                            </tr>
-                                            <tr>
-                                                <td>{room1}</td>
-                                                <td>{date1}</td>
-                                                <td>{time1} Uhr</td>
-                                                <td>mit {nrUser1} weiteren Personen</td>
-                                            </tr>
-                                            <tr>
-                                                <td>{room1}</td>
-                                                <td>{date1}</td>
-                                                <td>{time1} Uhr</td>
-                                                <td>mit {nrUser1} weiteren Personen</td>
-                                            </tr>
-                                            <tr>
-                                                <td>{room1}</td>
-                                                <td>{date1}</td>
-                                                <td>{time1} Uhr</td>
-                                                <td>mit {nrUser1} weiteren Personen</td>
-                                            </tr>
-                                            <tr>
-                                                <td>{room1}</td>
-                                                <td>{date1}</td>
-                                                <td>{time1} Uhr</td>
-                                                <td>mit {nrUser1} weiteren Personen</td>
-                                            </tr>
+                                        <tbody id="tabelle">"""
+
+    #Print First Half of output
+    print(output)
+
+    #Get the table done
+    if (last_rooms_array[0][0] == "Empty"):
+        print(f"""                          <tr>
+                                                 <td>Kein Raum in den letzten 14 Tagen!</td>
+                                                 <td></td>
+                                                 <td></td>
+                                                 <td></td>
+                                             </tr>
+                 """)
+    else: 
+        for i in range(0, len(last_rooms_array)):
+            print(f"""                          <tr>
+                                                         <td>{last_rooms_array[i][0]}</td>
+                                                         <td>{last_rooms_array[i][1]}</td>
+                                                         <td>{last_rooms_array[i][2]} Uhr</td>
+                                                         <td>{last_rooms_array[i][3]} Uhr</td>
+                                                     </tr>
+                         """)
+
+    #Define second half of output
+    output = f"""                            
                                         </tbody>
                                     </table>
                                 </div>
@@ -160,21 +175,21 @@ def show_homepage(data_array):
                                     <div class="summary-single">
                                         <span class="far fa-id-badge"></span>
                                         <div>
-                                            <h5>{activeUser}</h5>
+                                            <h5>{number_of_users}</h5>
                                             <small>Aktive Nutzer</small>
                                         </div>
                                     </div>
                                     <div class="summary-single">
                                         <span class="fas fa-calendar-week"></span>
                                         <div>
-                                            <h5>{lastUpdate}</h5>
+                                            <h5>{LAST_UPDATE}</h5>
                                             <small>Letztes Update</small>
                                         </div>
                                     </div>
                                     <div class="summary-single">
                                         <span class="fas fa-code-branch"></span>
                                         <div>
-                                            <h5>{version}</h5>
+                                            <h5>{VERSION}</h5>
                                             <small>Version</small>
                                         </div>
                                     </div>
@@ -201,8 +216,7 @@ def show_homepage(data_array):
     </html>
     """
 
+    #Print second Half of Output
     print(output)
 
-    #TODO Delete MOVE_Test from sidenav
-    #TODO Hash the ident; store in extra db table; not to pretty but should be alright
     return

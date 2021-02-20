@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 #!-*- coding: utf-8 -*-
 
+#Version---------------------------------------------------------
+VERSION = 1.0
+LAST_UPDATE = "17.01.2021"
 
 #Database Handle, Index 0: data_handle  Index 1: Connector-------
 DATA_HANDLE = [None, None]
@@ -24,8 +27,8 @@ EMAIL_NOT_KNOWN = 6
 WRONG_LOGIN_PW = 7
 
 #APP-Answers-----------------------------------------------------
-APP_LOGIN_TRUE = "$true$"
-APP_LOGIN_FALSE = "$false$"
+APP_TRUE = "$true$"
+APP_FALSE = "$false$" 
 
 #Database-Column-NAMES-------------------------------------------
 VORNAME = "vorname"

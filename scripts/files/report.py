@@ -55,7 +55,7 @@ def show_report_page(data_array):
                         <form method="post" action="/scripts/main.py">
                             <input type="hidden" id="ident" name="ident" value={ident_value}>
                             <input type="hidden" id="next_param" name="next_param" value={INFECTION_CONFIRMED}>
-                            <button type="submit">Ja. Ich bin infiziert</button>
+                            <button type="submit" class="btnKrank">Ja. Ich bin infiziert</button>
                         </form>
                     </div>
                 </section>
@@ -78,9 +78,6 @@ def show_report_page(data_array):
 </html>
 """
 
-    output = output.replace("^", "{")
-    output = output.replace("~", "}")
-
     print(output)
 
     #TODO Hash the ident; store in extra db table; not to pretty but should be alright
@@ -93,13 +90,15 @@ def change_covid_state_infected(data_array):
     Change all the Corona States after a reported Infection.
     param: {array} data_array; Input Data, here only ident interesting
     """
+    #Data_array should look like this have email on index [0][1]
+
 
     #TODO ident still holds the email, future it should hold a hash value that is linked to a user in a different table
     #TODO therefore must this query be changed in the future!
 
     #TODO trys/ecxepts with own error codes and Messages!
 
-    DATA_HANDLE[0].execute(f"""UPDATE user SET covid_state = {INFECTED} WHERE email LIKE '{data_array[0][1]}'""")
+    DATA_HANDLE[0].execute(f"""UPDATE user SET covid_state = {INFECTED}, covid_set_date = CURDATE() WHERE email LIKE '{data_array[0][1]}'""")
 
 
     #Set all contacted people to risk states----------------------------------------------------
@@ -122,8 +121,8 @@ def change_covid_state_infected(data_array):
         infected_end = result[i][3]
 
         #Get low risk persons and save them
-        DATA_HANDLE[0].execute(f"""SELECT person FROM movement WHERE person != {infected_id} AND room = {result[i][0]} AND date = '{result[i][1]}' AND 
-        (date >= CURDATE() - INTERVAL {LOWER_LIMIT} DAY) AND (date < CURDATE() - INTERVAL {UPPER_LIMIT} DAY) AND
+        DATA_HANDLE[0].execute(f"""SELECT person FROM movement JOIN user ON user.uid = movement.person WHERE person != {infected_id} AND room = {result[i][0]} AND date = '{result[i][1]}' AND 
+        covid_state <= 1 AND (date >= CURDATE() - INTERVAL {LOWER_LIMIT} DAY) AND (date < CURDATE() - INTERVAL {UPPER_LIMIT} DAY) AND
         ((begin <= '{infected_begin}' AND end <= '{infected_end}' AND end >= '{infected_begin}') OR (begin >= '{infected_begin}' AND end >= '{infected_end}' AND begin <= '{infected_end}') OR
         (begin >= '{infected_begin}' AND end <= '{infected_end}') OR (begin <= '{infected_begin}' AND end >= '{infected_end}'))""")
 
@@ -132,8 +131,8 @@ def change_covid_state_infected(data_array):
             low_risk_ids.append(low_risk_person[i][0])
 
         #Get high risk persons and save them
-        DATA_HANDLE[0].execute(f"""SELECT person FROM movement WHERE person != {infected_id} AND room = {result[i][0]} AND date = '{result[i][1]}' AND 
-        (date >= CURDATE() - INTERVAL {UPPER_LIMIT} DAY) AND
+        DATA_HANDLE[0].execute(f"""SELECT person FROM movement JOIN user ON user.uid = movement.person WHERE person != {infected_id} AND room = {result[i][0]} AND date = '{result[i][1]}' AND 
+        covid_state <= 2 AND (date >= CURDATE() - INTERVAL {UPPER_LIMIT} DAY) AND
         ((begin <= '{infected_begin}' AND end <= '{infected_end}' AND end >= '{infected_begin}') OR (begin >= '{infected_begin}' AND end >= '{infected_end}' AND begin <= '{infected_end}') OR
         (begin >= '{infected_begin}' AND end <= '{infected_end}') OR (begin <= '{infected_begin}' AND end >= '{infected_end}'))""")
 
@@ -144,9 +143,9 @@ def change_covid_state_infected(data_array):
 
     #Set the accroding covid_states
     for i in range(0, len(low_risk_ids)):
-        DATA_HANDLE[0].execute(f"""UPDATE user SET covid_state = {LOW_RISK} WHERE uid = {low_risk_ids[i]}""")
+        DATA_HANDLE[0].execute(f"""UPDATE user SET covid_state = {LOW_RISK}, covid_set_date = CURDATE() WHERE uid = {low_risk_ids[i]}""")
 
     for i in range(0, len(high_risk_ids)):
-        DATA_HANDLE[0].execute(f"""UPDATE user SET covid_state = {HIGH_RISK} WHERE uid = {high_risk_ids[i]}""")
+        DATA_HANDLE[0].execute(f"""UPDATE user SET covid_state = {HIGH_RISK}, covid_set_date = CURDATE() WHERE uid = {high_risk_ids[i]}""")
 
     return

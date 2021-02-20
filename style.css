@@ -43,6 +43,7 @@ h2 {
 
 h3 {
     margin-top: 1rem;
+    margin-bottom: 1rem;
     font-size: 1.2rem;
 }
 
@@ -139,6 +140,7 @@ header {
 .nav-icon {
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .nav-icon span {
@@ -159,7 +161,7 @@ header {
     align-content: center;
     background-size: contain;
     background-repeat: no-repeat;
-    background-image: url(DACH_logo.png);
+    background-image: url(/media/DACH_logo.png);
     align-items: center;
 }
 
@@ -269,6 +271,15 @@ h2.title {
     color: black;
     font-size: 1.1rem;
     margin-top: .2rem;
+}
+
+.btnKrank {
+    padding: .5rem;
+    background-color: red;
+    border-radius: 4px;
+    border: 1px solid red;
+    color: white;
+    cursor: pointer;
 }
 
 .card-footer {
