@@ -1,3 +1,0 @@
-2021/03/01 04:03:59 [crit] 518#518: *256 SSL_do_handshake() failed (SSL: error:141CF06C:SSL routines:tls_parse_ctos_key_share:bad key share) while SSL handshaking, client: 192.241.227.118, server: 0.0.0.0:443
-2021/03/01 07:46:45 [crit] 518#518: *284 SSL_do_handshake() failed (SSL: error:141CF06C:SSL routines:tls_parse_ctos_key_share:bad key share) while SSL handshaking, client: 184.105.247.196, server: 0.0.0.0:443
-2021/03/01 11:16:17 [crit] 518#518: *385 SSL_do_handshake() failed (SSL: error:141CF06C:SSL routines:tls_parse_ctos_key_share:bad key share) while SSL handshaking, client: 165.227.76.114, server: 0.0.0.0:443
