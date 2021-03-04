@@ -33,7 +33,15 @@ def build_data_json(data_array):
     covid_state = translate_covid_state(covid_state)
 
     #Returns a String containing last room
-    last_room = get_last_room(activ_uid, True)
+    hit = False
+    for i in range(0, len(data_array)):
+        if data_array[i][0] == "app_flag":
+            last_room = get_last_room(activ_uid, True)
+            hit = True
+            break
+
+    if not hit:
+        last_room = get_last_room(activ_uid, False)
 
     #Getting active user amount
     number_of_users = get_number_of_users()

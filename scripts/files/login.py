@@ -44,26 +44,26 @@ def verify_login(data_array):
     Verifys the Login of the User
     param:  {list}  data_array; Containing the QueryString Information
     return: {bool}  True if Error occurs, else False
+    return: {int}   Error Code if Error True; else None
     """
 
-    #TODO Delete Print
-    #print(f"\nInput Daten: {data_array}")
-
+    # Get given data from data_array
     given_email = data_array[0][1]
     given_password = data_array[1][1]
 
     DATA_HANDLE[0].execute(f"SELECT uid, password, salt FROM user WHERE user.email LIKE '{given_email}'")
 
-    #Result will Look like: [(uid, "password", "salt")]; so a Tupel in a List
+    # Result will Look like: [(uid, "password", "salt")]; so a Tupel in a List
     result = DATA_HANDLE[0].fetchall()
 
-    #Check if Result is Empty(Email not know) and if password is the same
+    # Check if Result is Empty(Email not know) and if password is the same
     if result == []:
         return True, EMAIL_NOT_KNOWN
-      
+    
+    # Compare pw hash of user to the inserted pw hashed with old salt
     if result[0][1] != compute_hash(given_password, base64.b64decode(result[0][2])):
         return True, WRONG_LOGIN_PW
 
-    #TODO User should stay logged in -> hidden value in every form therefore set global var with uid that is in all possible forms that get generated
 
+    # Login is fine
     return False, None
