@@ -47,7 +47,10 @@ def build_data_json(data_array):
     number_of_users = get_number_of_users()
 
     #Returns array like this: [(room, date, begin, end), (room, date, ....)] newest room with lowest index!
-    last_rooms_array = get_visited_rooms(activ_uid, True)
+    if hit:
+        last_rooms_array = get_visited_rooms(activ_uid, True)
+    else:
+        last_rooms_array = get_visited_rooms(activ_uid, False)
 
     #Creating the room_history in JSON Format
     room_history = ""

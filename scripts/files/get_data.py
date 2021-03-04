@@ -109,7 +109,7 @@ def get_visited_rooms(activ_uid, from_json = False):
         return mock_array 
     
     elif from_json is False and result == []:
-        mock_array = [["Empty", "Empty", "Empty", "Empty"]]
+        mock_array = [[" - ", " - ", " - ", " - "]]
         return mock_array
 
 #-----------------------------------------------------------------------------------------------------------------------------------

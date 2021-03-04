@@ -3,7 +3,7 @@
 
 #Version---------------------------------------------------------
 VERSION = 1.0
-LAST_UPDATE = "17.01.2021"
+LAST_UPDATE = "04.03.2021"
 
 #Database Handle, Index 0: data_handle  Index 1: Connector-------
 DATA_HANDLE = [None, None]
