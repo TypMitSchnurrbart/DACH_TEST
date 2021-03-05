@@ -1,3 +1,4 @@
 2021/03/05 00:38:58 [notice] 3139#3139: signal process started
 2021/03/05 00:39:02 [notice] 3224#3224: signal process started
 2021/03/05 00:39:05 [notice] 3254#3254: signal process started
+2021/03/05 01:29:21 [crit] 3255#3255: *373 SSL_do_handshake() failed (SSL: error:141CF06C:SSL routines:tls_parse_ctos_key_share:bad key share) while SSL handshaking, client: 35.203.251.60, server: 0.0.0.0:443
