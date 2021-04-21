@@ -1,0 +1,1 @@
+2021/04/21 07:43:46 [crit] 520#520: *172 SSL_do_handshake() failed (SSL: error:141CF06C:SSL routines:tls_parse_ctos_key_share:bad key share) while SSL handshaking, client: 216.218.206.66, server: 0.0.0.0:443
